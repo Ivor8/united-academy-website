@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- META TAGS (SEO) -->
+    <title>Programs | VTI UARD – Vocational Training Courses in Health, IT & Management</title>
+    <meta name="description" content="Explore all programs at VTI UARD: Health & Paramedical (Pharmacy Salesperson, Social Care Assistant, Lab Technician), IT & Management (Infographics, Digital Marketing, Web Design). MINEFOP accredited.">
+    <meta name="keywords" content="vocational programs Cameroon, health courses Yaoundé, IT training, pharmacy salesperson, community management, infographics, web design, VTI UARD courses">
+    <meta name="author" content="VTI UARD">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Vocational Programs at VTI UARD – United Academy">
+    <meta property="og:description" content="Browse our MINEFOP-accredited programs in health, paramedical, IT and management. 100% success rate, internships included.">
+    <meta property="og:image" content="assets/images/logo.jpg">
+    <meta property="og:url" content="https://www.vtiuard.cm/programs">
+    <link rel="canonical" href="https://www.vtiuard.cm/programs">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Main CSS (shared) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="assets/css/programs.css">
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- ========== HEADER (same as index) ========== -->
+        <header class="main-header">
+            <div class="container header-flex">
+                <div class="logo-area">
+                    <img src="assets/images/logo.jpg" alt="VTI UARD United Academy Logo" class="logo-img" width="50" height="50">
+                    <div class="logo-text-wrapper">
+                        <span class="logo-text">UNITED ACADEMY</span>
+                        <span class="logo-tagline">Vocational Training Institute</span>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a></li>
+                        <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
+                        <li><a href="programs.html" class="nav-link" data-i18n="nav_programs">Programs</a></li>
+                        <!-- <li><a href="#why-us" class="nav-link" data-i18n="nav_why">Why us</a></li> -->
+                        <li><a href="testimonials.html" class="nav-link" data-i18n="nav_testimonials">Testimonials</a></li>
+                        <li><a href="blog.html" class="nav-link" data-i18n="nav_news">Updates</a></li>
+                        <!-- <li><a href="#news" class="nav-link" data-i18n="nav_news">News</a></li> -->
+                        <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                    <div class="lang-switcher">
+                        <button id="lang-en" class="lang-btn active-lang">EN</button>
+                        <span class="lang-divider">|</span>
+                        <button id="lang-fr" class="lang-btn">FR</button>
+                    </div>
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- ========== PAGE HERO ========== -->
+        <section class="page-hero programs-hero">
+            <div class="page-hero-overlay"></div>
+            <div class="container page-hero-content">
+                <h1 data-i18n="programs_page_title">Our <span class="accent">Programs</span></h1>
+                <div class="divider"></div>
+                <p data-i18n="programs_page_sub">Choose your path to a successful career</p>
+            </div>
+        </section>
+
+        <!-- ========== PROGRAM CATEGORY FILTER ========== -->
+        <section class="section filter-section">
+            <div class="container">
+                <div class="category-filter fade-up">
+                    <button class="filter-btn active" data-category="all" data-i18n="all_programs">All Programs</button>
+                    <button class="filter-btn" data-category="health" data-i18n="health_programs">Health & Paramedical</button>
+                    <button class="filter-btn" data-category="it" data-i18n="it_programs">IT & Management</button>
+                    <button class="filter-btn" data-category="short" data-i18n="short_courses">Short Courses</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PROGRAMS GRID (detailed) ========== -->
+        <section class="section programs-detailed-section">
+            <div class="container">
+                <div class="programs-detailed-grid" id="programsGrid">
+                    <!-- HEALTH PROGRAMS (category: health) -->
+                    <div class="program-detailed-card fade-up" data-category="health">
+                        <div class="program-badge" style="background: var(--blue);">Health</div>
+                        <img src="assets/images/hero2.jpg" alt="Pharmacy Salesperson" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_pharma_full">Pharmacy Salesperson</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: Probatoire / BAC</p>
+                            <p class="program-desc" data-i18n="prog_pharma_desc_full">Prepare for national exams (DQP). Modules: Biology, Anatomy, Pharmacology, Pharmacy Management, Communication, Marketing, Pharmaceutical Legislation. Internship in partner pharmacies.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-users"></i> 100% success</span>
+                                <span><i class="fas fa-briefcase"></i> Internship included</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_pharma">Tuition: 350,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="health">
+                        <div class="program-badge" style="background: var(--blue);">Health</div>
+                        <img src="/assets/images/graduation.jpg" alt="Social Care Assistant" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_avs_full">Social Care Assistant</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BEPC / Probatoire / BAC</p>
+                            <p class="program-desc" data-i18n="prog_avs_desc_full">Modules: Ethics, Health Promotion, Anatomy, Pathology, Nursing, Psychology, Nutrition, Geriatrics. Prepare for DQP/CQP. High demand in clinics and home care.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-users"></i> 100% success</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_avs">Tuition: 350,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="health">
+                        <div class="program-badge" style="background: var(--blue);">Health</div>
+                        <img src="assets/images/nurses.jpg" alt="Lab Technician Assistant" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_lab_full">Lab Technician Assistant</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BEPC / Probatoire / BAC</p>
+                            <p class="program-desc" data-i18n="prog_lab_desc_full">Modules: Chemistry, Biology, Microscopy, Lab Safety, Hematology, Biochemistry. Hands-on training in our equipped lab. Prepare for medical analysis labs.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-flask"></i> Practical labs</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_lab">Tuition: 350,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="health">
+                        <div class="program-badge" style="background: var(--blue);">Health</div>
+                        <img src="assets/images/nurses.jpg" alt="Medical Representative" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_medrep_full">Medical Representative</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BAC+2</p>
+                            <p class="program-desc" data-i18n="prog_medrep_desc_full">Advanced program: Pharmacology, Medical Terminology, Detailing Techniques, Sales Strategy, Ethics. Prepare for pharmaceutical industry roles.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-chart-line"></i> Industry focus</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_medrep">Tuition: 400,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="health">
+                        <div class="program-badge" style="background: var(--blue);">Health</div>
+                        <img src="assets/images/nutrition.png" alt="Nutrition & Dietetics" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_nutrition_full">Nutrition & Dietetics</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BAC</p>
+                            <p class="program-desc" data-i18n="prog_nutrition_desc_full">Modules: Human Nutrition, Diet Planning, Food Science, Clinical Nutrition, Community Nutrition. Work in hospitals, wellness centers.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-leaf"></i> Wellness focus</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_nutrition">Tuition: 350,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="health">
+                        <div class="program-badge" style="background: var(--blue);">Health</div>
+                        <img src="assets/images/medical secret.jpg" alt="Medical Secretary" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_medsec_full">Medical Secretary</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BEPC / Probatoire / BAC</p>
+                            <p class="program-desc" data-i18n="prog_medsec_desc_full">Modules: Medical Terminology, Office Management, Patient Records, Billing, Communication. Work in clinics, hospitals, doctors' offices.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-file"></i> Administrative</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_medsec">Tuition: 300,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IT & MANAGEMENT PROGRAMS (category: it) -->
+                    <div class="program-detailed-card fade-up" data-category="it">
+                        <div class="program-badge" style="background: var(--green);">IT & Design</div>
+                        <img src="assets/images/multmedia.avif" alt="Multimedia Infographics" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_infograph_full">Multimedia Infographics</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BAC</p>
+                            <p class="program-desc" data-i18n="prog_infograph_desc_full">Master Photoshop, Illustrator, InDesign, Canva, and AI tools (Midjourney, DALL·E). Create logos, posters, social media visuals. Build your portfolio.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-paint-brush"></i> Portfolio</span>
+                                <span><i class="fas fa-briefcase"></i> Freelance ready</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_infograph">Tuition: 275,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="it">
+                        <div class="program-badge" style="background: var(--green);">IT & Design</div>
+                        <img src="assets/images/defo-digital.jpg" alt="Digital Marketing & Community Management" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_digital_full">Digital Marketing & Community Management</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BAC</p>
+                            <p class="program-desc" data-i18n="prog_digital_desc_full">Social media strategy, content creation, analytics, Meta/Google ads, community engagement. Manage brands online.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-chart-line"></i> Analytics</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_digital">Tuition: 275,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="it">
+                        <div class="program-badge" style="background: var(--green);">IT & Design</div>
+                        <img src="assets/images/web dev.jpg" alt="Web Design & Development" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_web_full">Web Design & Development</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: BAC</p>
+                            <p class="program-desc" data-i18n="prog_web_desc_full">HTML/CSS, JavaScript, WordPress, UX/UI principles. Build responsive websites and web applications. Introduction to PHP/MySQL.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-code"></i> Coding</span>
+                                <span><i class="fas fa-briefcase"></i> Projects</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_web">Tuition: 300,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="it">
+                        <div class="program-badge" style="background: var(--green);">IT & Design</div>
+                        <img src="assets/images/computerized-accounting-1200x600.jpg" alt="Computerized Accounting" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_accounting_full">Computerized Accounting & Management</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: Probatoire</p>
+                            <p class="program-desc" data-i18n="prog_accounting_desc_full">Modules: Accounting principles, Sage, QuickBooks, Excel, Business Management. Prepare for accounting assistant roles.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-calculator"></i> Software</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_accounting">Tuition: 275,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="it">
+                        <div class="program-badge" style="background: var(--green);">IT & Design</div>
+                        <img src="assets/images/Secretariat-Assisant-de-Direction.png" alt="Secretariat Comptable" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="prog_secretary_full">Secretariat & Office Management</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Level: Première</p>
+                            <p class="program-desc" data-i18n="prog_secretary_desc_full">Office tools, filing, communication, bookkeeping. Prepare for administrative assistant roles.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 12 months</span>
+                                <span><i class="fas fa-file-word"></i> Office skills</span>
+                                <span><i class="fas fa-briefcase"></i> Internship</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_secretary">Tuition: 250,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHORT COURSES (category: short) -->
+                    <div class="program-detailed-card fade-up" data-category="short">
+                        <div class="program-badge" style="background: var(--red);">Short Course</div>
+                        <img src="assets/images/Chat-GPT-Logo.png" alt="AI for Creatives" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="short_ai_full">AI for Creatives</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Open to all</p>
+                            <p class="program-desc" data-i18n="short_ai_desc">Master ChatGPT, Midjourney, DALL·E, Canva AI. 6 weeks intensive.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 6 weeks</span>
+                                <span><i class="fas fa-robot"></i> Hands-on</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_ai">Tuition: 150,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-detailed-card fade-up" data-category="short">
+                        <div class="program-badge" style="background: var(--red);">Short Course</div>
+                        <img src="assets/images/Phlebotomy Techniques.jpg" alt="Phlebotomy" loading="lazy">
+                        <div class="program-detailed-content">
+                            <h3 data-i18n="short_phlebotomy_full">Phlebotomy Techniques</h3>
+                            <p class="program-level"><i class="fas fa-graduation-cap"></i> Health background</p>
+                            <p class="program-desc" data-i18n="short_phlebotomy_desc">Blood collection, patient preparation, safety. 4 weeks practical.</p>
+                            <div class="program-meta">
+                                <span><i class="fas fa-clock"></i> 4 weeks</span>
+                                <span><i class="fas fa-syringe"></i> Practical</span>
+                            </div>
+                            <div class="program-footer">
+                                <span class="program-fee" data-i18n="fee_phlebotomy">Tuition: 120,000 FCFA</span>
+                                <a href="#" class="btn btn-small" data-i18n="details">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ADMISSION REQUIREMENTS SECTION ========== -->
+        <section class="section admission-section bg-light">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 data-i18n="admission_title">Admission requirements</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="admission-grid">
+                    <div class="admission-card fade-up">
+                        <i class="fas fa-id-card" style="color: var(--blue);"></i>
+                        <h3 data-i18n="admission_docs">Documents required</h3>
+                        <ul>
+                            <li data-i18n="admission_doc1">Photocopy of CNI</li>
+                            <li data-i18n="admission_doc2">Relevant diploma (BEPC/Probatoire/BAC)</li>
+                            <li data-i18n="admission_doc3">2 passport photos (4x4)</li>
+                            <li data-i18n="admission_doc4">One ream of A4 80g paper</li>
+                        </ul>
+                    </div>
+                    <div class="admission-card fade-up">
+                        <i class="fas fa-clock" style="color: var(--green);"></i>
+                        <h3 data-i18n="admission_dates">Key dates</h3>
+                        <ul>
+                            <li data-i18n="admission_date1">Registration opens: September 2025</li>
+                            <li data-i18n="admission_date2">Administrative rentrée: October 6, 2025</li>
+                            <li data-i18n="admission_date3">Classes begin: October 15, 2025</li>
+                        </ul>
+                    </div>
+                    <div class="admission-card fade-up">
+                        <i class="fas fa-credit-card" style="color: var(--red);"></i>
+                        <h3 data-i18n="admission_fees">Fee structure</h3>
+                        <ul>
+                            <li data-i18n="fee_registration">Registration: 25,000 FCFA (all programs)</li>
+                            <li data-i18n="fee_health">Health programs: 350,000 FCFA</li>
+                            <li data-i18n="fee_it">IT/Management: 275,000 - 300,000 FCFA</li>
+                            <li data-i18n="fee_installment">Flexible installment plans available</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA SECTION ========== -->
+        <section class="section cta-section">
+            <div class="container cta-content">
+                <h2 data-i18n="cta_programs">Find your program today</h2>
+                <p data-i18n="cta_programs_sub">Contact us for more information or to schedule a visit.</p>
+                <a href="contact.html" class="btn btn-primary" data-i18n="cta_contact">Enroll now</a>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <img src="assets/images/logo.jpg" alt="VTI UARD" class="footer-logo" width="70">
+                        <p data-i18n="footer_about">Vocational Training Institute of United Academy – MINEFOP accredited. Excellence, employability, innovation.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="quick_links">Quick links</h4>
+                        <ul>
+                            <li><a href="../index.html" data-i18n="nav_home">Home</a></li>
+                            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+                            <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
+                            <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                            <li><a href="#" data-i18n="privacy">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_contact">Contact</h4>
+                        <p><i class="fas fa-map-pin"></i> Yaoundé-Simbock, Cameroun</p>
+                        <p><i class="fas fa-phone"></i> +237 658 72 62 37</p>
+                        <p><i class="fas fa-envelope"></i> diderotfopa@gmail.com</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="newsletter">Newsletter</h4>
+                        <p data-i18n="newsletter_desc">Subscribe for updates and news.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 VTI UARD – United Academy. <span data-i18n="footer_rights">All rights reserved.</span> | <span data-i18n="footer_approval">MINEFOP Agreement N°00300</span></p>
+                    <p class="developer">Developed by <a href="https://www.miraedge.tech" target="_blank" rel="noopener">Mira Edge Technologies</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main JS (shared) -->
+    <script src="assets/js/main.js"></script>
+    <!-- Page-specific JS for filtering -->
+    <script src="assets/js/programs.js"></script>
+</body>
+</html>
