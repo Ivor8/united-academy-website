@@ -451,17 +451,74 @@ h1, h2, h3, h4 {
 /* about */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+}
+
+.about-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.about-image {
+    min-width: 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    border-radius: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 3px solid var(--green-light);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 3px solid var(--green-light);
 }
 
 .about-stats {
     display: flex;
-    gap: 2.2rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
     flex-wrap: wrap;
+    align-items: baseline;
 }
+
+.stat {
+    min-width: 120px;
+}
+
+.stat-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--red);
+    display: block;
+}
+
 
 .stat-num {
     font-size: 2.2rem;
@@ -738,11 +795,20 @@ h1, h2, h3, h4 {
 }
 .footer-col ul li {
     margin-bottom: 0.7rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 .footer-col ul li a {
     color: #ccc;
     text-decoration: none;
     transition: color 0.2s;
+}
+.footer-col p,
+.footer-bottom p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 .footer-col ul li a:hover {
     color: var(--red);
@@ -814,6 +880,355 @@ h1, h2, h3, h4 {
     opacity: 1;
     transform: translateY(0);
 }
+/* added styles for updates */
+/* ===== ADDITIONAL STYLES FOR WHATSAPP BUTTONS ===== */
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid #25D366;
+}
+
+.btn-whatsapp:hover {
+    background: transparent;
+    color: #25D366;
+    transform: scale(1.05);
+}
+
+.btn-whatsapp i {
+    font-size: 1.1rem;
+}
+
+.btn-whatsapp-large {
+    background: #25D366;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border: 2px solid #25D366;
+}
+
+.btn-whatsapp-large:hover {
+    background: transparent;
+    color: #25D366;
+    transform: scale(1.05);
+}
+
+.btn-whatsapp-large i {
+    font-size: 1.3rem;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #25D366;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-link:hover {
+    background: #128C7E;
+    color: white;
+    transform: translateX(5px);
+}
+
+/* ===== VIDEO TESTIMONIALS SECTION ===== */
+.video-testimonials-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.video-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.video-card {
+    background: #1f2937;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 40px -15px rgba(30, 100, 200, 0.2);
+}
+
+.video-card .video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.video-play-btn {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: transform 0.3s;
+    z-index: 10;
+}
+
+.video-play-btn:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.play-video-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+}
+
+.play-video-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+    color: var(--red);
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    font-size: 1.2rem;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.video-duration {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    display: inline-block;
+    background: #f3f4f6;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* Video Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: var(--red);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== COUNCIL SECTION STYLES ===== */
+.council-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4fa 100%);
+}
+
+.council-subtitle {
+    text-align: center;
+    color: var(--gray-mid);
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+.council-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.council-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(30, 100, 200, 0.1);
+}
+
+.council-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px -12px rgba(30, 100, 200, 0.15);
+}
+
+.council-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.council-card h3 {
+    font-size: 1.2rem;
+    color: var(--blue);
+    margin-bottom: 0.8rem;
+}
+
+.council-card p {
+    color: #4b5563;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.council-card p:first-of-type {
+    font-weight: 600;
+    color: var(--green);
+}
+
+.council-mission {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: rgba(30, 100, 200, 0.05);
+    border-radius: 30px;
+    border-left: 4px solid var(--blue);
+    border-right: 4px solid var(--red);
+}
+
+.council-mission p {
+    color: #374151;
+    line-height: 1.7;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    .video-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .council-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-whatsapp-large {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .video-thumbnail {
+        height: 180px;
+    }
+    
+    /* About section tablet fixes */
+    .about-grid {
+        gap: 2rem;
+    }
+    .about-stats {
+        gap: 1.2rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .about-text p {
+        font-size: 1.05rem;
+    }
+
+    .about-stats {
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-info h3 {
+        font-size: 1rem;
+    }
+    
+    .council-card {
+        padding: 1.5rem;
+    }
+}
 
 /* mobile */
 @media (max-width: 900px) {
@@ -833,6 +1248,15 @@ h1, h2, h3, h4 {
     }
     .about-grid, .contact-grid, .footer-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    .stat-num {
+        font-size: 1.8rem;
     }
     .hero-buttons .btn { padding: 0.7rem 1.5rem; }
 }
@@ -842,4 +1266,26 @@ h1, h2, h3, h4 {
     .logo-text { font-size: 1.3rem; }
     .hero-title { font-size: 2rem; }
     .logo-text-wrapper { display: none; }
+    
+    /* About section mobile fixes */
+    .about-grid {
+        gap: 1.5rem;
+    }
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .about-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    .about-stats {
+        margin-top: 1.5rem;
+    }
+    .stat {
+        font-size: 0.9rem;
+    }
+    .stat-num {
+        font-size: 1.5rem;
+    }
 }

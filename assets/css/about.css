@@ -54,6 +54,14 @@
     align-items: center;
 }
 
+.story-text {
+    min-width: 0;
+}
+
+.story-image {
+    min-width: 0;
+}
+
 .story-text h2 {
     color: var(--blue);
     margin-bottom: 1.5rem;
@@ -63,6 +71,9 @@
 .story-text p {
     margin-bottom: 1.2rem;
     line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .story-image {
@@ -71,6 +82,8 @@
 
 .story-image img {
     width: 100%;
+    height: auto;
+    display: block;
     border-radius: 30px;
     box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
     border: 4px solid white;
@@ -98,6 +111,7 @@
 }
 
 .mission-card {
+    min-width: 0;
     background: white;
     padding: 2.5rem 2rem;
     border-radius: 30px;
@@ -128,8 +142,18 @@
     align-items: start;
 }
 
+.founder-image {
+    min-width: 0;
+}
+
+.founder-text {
+    min-width: 0;
+}
+
 .founder-image img {
     width: 100%;
+    height: auto;
+    display: block;
     border-radius: 30px;
     box-shadow: 0 15px 30px -10px rgba(0,0,0,0.2);
     border: 5px solid var(--blue-light);
@@ -160,6 +184,7 @@
 }
 
 .team-card {
+    min-width: 0;
     background: white;
     border-radius: 20px;
     overflow: hidden;
@@ -200,6 +225,7 @@
 }
 
 .infra-item {
+    min-width: 0;
     text-align: center;
     padding: 2rem 1rem;
     background: var(--bg-light);
@@ -224,6 +250,7 @@
 }
 
 .infra-gallery img {
+    display: block;
     width: 100%;
     height: 150px;
     object-fit: cover;
@@ -295,6 +322,10 @@
     .infra-grid {
         grid-template-columns: 1fr;
     }
+    .story-text p,
+    .founder-text p {
+        font-size: 0.95rem;
+    }
     .infra-gallery {
         grid-template-columns: 1fr 1fr;
     }
@@ -309,5 +340,10 @@
     }
     .team-grid {
         grid-template-columns: 1fr;
+    }
+    .story-text p,
+    .founder-text p {
+        font-size: 0.9rem;
+        line-height: 1.7;
     }
 }

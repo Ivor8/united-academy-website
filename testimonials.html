@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- META TAGS (SEO) -->
-    <title>Testimonials | VTI UARD – Student Success Stories</title>
-    <meta name="description" content="Read inspiring success stories from VTI UARD graduates. Real experiences from students in health, IT, and management programs.">
-    <meta name="keywords" content="VTI UARD testimonials, student reviews, success stories, vocational training graduates Cameroon">
-    <meta name="author" content="VTI UARD">
+    <title>Testimonials | UNITED ACADEMY-UARD – Student Success Stories</title>
+    <meta name="description" content="Read inspiring success stories from UNITED ACADEMY-UARD graduates. Real experiences from students in health, IT, and management programs. Watch video testimonials.">
+    <meta name="keywords" content="UNITED ACADEMY-UARD testimonials, student reviews, success stories, vocational training graduates Cameroon, video testimonials">
+    <meta name="author" content="UNITED ACADEMY-UARD">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Student Testimonials – VTI UARD United Academy">
-    <meta property="og:description" content="Hear from our graduates about their journey and success at VTI UARD.">
+    <meta property="og:title" content="Student Testimonials – UNITED ACADEMY-UARD">
+    <meta property="og:description" content="Hear from our graduates about their journey and success at UNITED ACADEMY-UARD.">
     <meta property="og:image" content="assets/images/logo.jpg">
-    <meta property="og:url" content="https://www.vtiuard.cm/testimonials">
-    <link rel="canonical" href="https://www.vtiuard.cm/testimonials">
+    <meta property="og:url" content="https://www.unitedacademy-uard.cm/testimonials">
+    <link rel="canonical" href="https://www.unitedacademy-uard.cm/testimonials">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
@@ -32,21 +32,19 @@
         <header class="main-header">
             <div class="container header-flex">
                 <div class="logo-area">
-                    <img src="assets/images/logo.jpg" alt="VTI UARD United Academy Logo" class="logo-img" width="50" height="50">
+                    <img src="assets/images/logo.jpg" alt="UNITED ACADEMY-UARD Logo" class="logo-img" width="50" height="50">
                     <div class="logo-text-wrapper">
-                        <span class="logo-text">UNITED ACADEMY</span>
+                        <span class="logo-text">UNITED ACADEMY-UARD</span>
                         <span class="logo-tagline">Vocational Training Institute</span>
                     </div>
                 </div>
                 <nav class="main-nav">
                     <ul class="nav-links" id="navLinks">
-                        <li><a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a></li>
+                        <li><a href="index.html" class="nav-link" data-i18n="nav_home">Home</a></li>
                         <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
                         <li><a href="programs.html" class="nav-link" data-i18n="nav_programs">Programs</a></li>
-                        <!-- <li><a href="#why-us" class="nav-link" data-i18n="nav_why">Why us</a></li> -->
-                        <li><a href="testimonials.html" class="nav-link" data-i18n="nav_testimonials">Testimonials</a></li>
+                        <li><a href="testimonials.html" class="nav-link active" data-i18n="nav_testimonials">Testimonials</a></li>
                         <li><a href="blog.html" class="nav-link" data-i18n="nav_news">Updates</a></li>
-                        <!-- <li><a href="#news" class="nav-link" data-i18n="nav_news">News</a></li> -->
                         <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                     <div class="lang-switcher">
@@ -69,32 +67,70 @@
             </div>
         </section>
 
-        <!-- ========== FEATURED TESTIMONIAL (VIDEO/QUOTE) ========== -->
+        <!-- ========== VIDEO TESTIMONIALS SECTION (NEW) ========== -->
+        <section class="section video-testimonials-section">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 data-i18n="video_testimonials_title">Video Testimonials</h2>
+                    <div class="divider"></div>
+                    <p data-i18n="video_testimonials_sub">Watch our students share their experiences</p>
+                </div>
+                <div class="video-testimonials-grid">
+                    <div class="video-card fade-up">
+                        <img src="assets/images/video-thumb1.jpg" alt="Student testimonial video" class="video-thumb">
+                        <a href="https://www.facebook.com/share/v/18Sn5uqGqM/" class="video-play-btn" data-video-url="https://www.facebook.com/share/v/18Sn5uqGqM/"><i class="fas fa-play"></i></a>
+                    </div>
+                    <div class="video-card fade-up">
+                        <img src="assets/images/video-thumb2.jpg" alt="Student testimonial video" class="video-thumb">
+                        <a href="https://www.facebook.com/share/v/1HqC3p5frP/" class="video-play-btn" data-video-url="https://www.facebook.com/share/v/1HqC3p5frP/"><i class="fas fa-play"></i></a>
+                    </div>
+                    <div class="video-card fade-up">
+                        <img src="assets/images/video-thumb3.jpg" alt="Student testimonial video" class="video-thumb">
+                        <a href="https://www.facebook.com/share/v/18Sn5uqGqM/" class="video-play-btn" data-video-url="https://www.facebook.com/share/v/18Sn5uqGqM/"><i class="fas fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== VIDEO MODAL (for playing videos) ========== -->
+        <div id="videoModal" class="video-modal">
+            <div class="video-modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="video-container">
+                    <video id="videoPlayer" width="100%" height="400" controls>
+                        <source id="videoSource" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== FEATURED TESTIMONIAL (QUOTE) ========== -->
         <section class="section featured-testimonial-section">
             <div class="container">
                 <div class="featured-testimonial fade-up">
                     <div class="featured-quote">
                         <i class="fas fa-quote-left quote-icon"></i>
-                        <p class="featured-text" data-i18n="featured_testimonial_text">"VTI UARD didn't just train me – they transformed my life. The hands-on approach, the caring trainers, and the internship opportunity at a top clinic gave me the confidence and skills to start my career immediately after graduation. I'm now working as a pharmacy assistant and planning to open my own pharmacy one day."</p>
+                        <p class="featured-text" data-i18n="featured_testimonial_text">"UNITED ACADEMY-UARD didn't just train me – they transformed my life. The hands-on approach, the caring trainers, and the internship opportunity at a top clinic gave me the confidence and skills to start my career immediately after graduation. I'm now working as a pharmacy assistant and planning to open my own pharmacy one day."</p>
                         <div class="featured-author">
                             <img src="assets/images/testimonial-featured.jpg" alt="Amadou T." class="author-image">
                             <div>
-                                <h4>Amadou T.</h4>
-                                <p>Pharmacy Salesperson, Class of 2025</p>
-                                <p class="author-location">Now at: Zenith Pro Clinic, Yaoundé</p>
+                                <!-- <h4>Amadou T.</h4> -->
+                                <p>Multimedia Infographics, Class of 2025</p>
+                                <!-- <p class="author-location">Now at: Zenith Pro Clinic, Yaoundé</p> -->
                             </div>
                         </div>
                     </div>
                     <div class="featured-video">
                         <img src="assets/images/video-thumb.jpg" alt="Watch Amadou's story" class="video-thumb">
-                        <a href="#" class="video-play-btn"><i class="fas fa-play"></i></a>
+                        <a href="https://www.facebook.com/share/v/18Sn5uqGqM/" class="videos-play-btn" data-video-id="featured" data-video-url="assets/videos/featured.mp4"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== TESTIMONIALS GRID ========== -->
-        <section class="section testimonials-grid-section bg-light">
+        <!-- <section class="section testimonials-grid-section bg-light">
             <div class="container">
                 <div class="section-header fade-up">
                     <h2 data-i18n="more_stories">More success stories</h2>
@@ -102,7 +138,7 @@
                 </div>
 
                 <div class="testimonials-grid-detailed" id="testimonialsGrid">
-                    <!-- Testimonial 1 -->
+
                     <div class="testimonial-detailed-card fade-up">
                         <div class="testimonial-header">
                             <img src="assets/images/testimonial-1.jpg" alt="Marie Claire" class="testimonial-avatar">
@@ -118,7 +154,7 @@
                         <p class="testimonial-year">Class of 2025 · Now at: Zenith Pro Clinic</p>
                     </div>
 
-                    <!-- Testimonial 2 -->
+
                     <div class="testimonial-detailed-card fade-up">
                         <div class="testimonial-header">
                             <img src="assets/images/testimonial-2.jpg" alt="Jean Paul" class="testimonial-avatar">
@@ -130,11 +166,11 @@
                         <div class="testimonial-rating">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-quote">"I learned infographics and AI tools like Midjourney and Photoshop. Now I work as a freelance designer while continuing my studies. The portfolio I built at VTI UARD opened many doors."</p>
+                        <p class="testimonial-quote">"I learned infographics and AI tools like Midjourney and Photoshop. Now I work as a freelance designer while continuing my studies. The portfolio I built at UNITED ACADEMY-UARD opened many doors."</p>
                         <p class="testimonial-year">Class of 2025 · Freelance Designer</p>
                     </div>
 
-                    <!-- Testimonial 3 -->
+
                     <div class="testimonial-detailed-card fade-up">
                         <div class="testimonial-header">
                             <img src="assets/images/testimonial-3.jpg" alt="Stéphanie A." class="testimonial-avatar">
@@ -150,7 +186,7 @@
                         <p class="testimonial-year">Class of 2025 · Pédiatrie Sociale</p>
                     </div>
 
-                    <!-- Testimonial 4 -->
+  
                     <div class="testimonial-detailed-card fade-up">
                         <div class="testimonial-header">
                             <img src="assets/images/testimonial-4.jpg" alt="Hervé N." class="testimonial-avatar">
@@ -166,7 +202,7 @@
                         <p class="testimonial-year">Class of 2025 · Social Media Manager</p>
                     </div>
 
-                    <!-- Testimonial 5 -->
+   
                     <div class="testimonial-detailed-card fade-up">
                         <div class="testimonial-header">
                             <img src="assets/images/testimonial-5.jpg" alt="Christelle D." class="testimonial-avatar">
@@ -182,7 +218,7 @@
                         <p class="testimonial-year">Class of 2025 · Lab Assistant</p>
                     </div>
 
-                    <!-- Testimonial 6 -->
+       
                     <div class="testimonial-detailed-card fade-up">
                         <div class="testimonial-header">
                             <img src="assets/images/testimonial-6.jpg" alt="Patrick K." class="testimonial-avatar">
@@ -199,7 +235,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- ========== STATS SECTION ========== -->
         <section class="section stats-section">
@@ -229,7 +265,7 @@
         <section class="section cta-section">
             <div class="container cta-content">
                 <h2 data-i18n="cta_testimonials">Ready to write your own success story?</h2>
-                <p data-i18n="cta_testimonials_sub">Join VTI UARD and become part of our growing family.</p>
+                <p data-i18n="cta_testimonials_sub">Join UNITED ACADEMY-UARD and become part of our growing family.</p>
                 <a href="contact.html" class="btn btn-primary" data-i18n="cta_contact">Enroll now</a>
             </div>
         </section>
@@ -239,13 +275,13 @@
             <div class="container">
                 <div class="footer-grid">
                     <div class="footer-col">
-                        <img src="assets/images/logo.jpg" alt="VTI UARD" class="footer-logo" width="70">
-                        <p data-i18n="footer_about">Vocational Training Institute of United Academy – MINEFOP accredited. Excellence, employability, innovation.</p>
+                        <img src="assets/images/logo.jpg" alt="UNITED ACADEMY-UARD" class="footer-logo" width="70">
+                        <p data-i18n="footer_about">Vocational Training Institute UNITED ACADEMY-UARD – MINEFOP accredited. Excellence, employability, innovation.</p>
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="quick_links">Quick links</h4>
                         <ul>
-                            <li><a href="../index.html" data-i18n="nav_home">Home</a></li>
+                            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
                             <li><a href="about.html" data-i18n="nav_about">About</a></li>
                             <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
                             <li><a href="testimonials.html" data-i18n="nav_testimonials">Testimonials</a></li>
@@ -256,7 +292,7 @@
                         <h4 data-i18n="footer_contact">Contact</h4>
                         <p><i class="fas fa-map-pin"></i> Yaoundé-Simbock, Cameroun</p>
                         <p><i class="fas fa-phone"></i> +237 658 72 62 37</p>
-                        <p><i class="fas fa-envelope"></i> diderotfopa@gmail.com</p>
+                        <p><i class="fas fa-envelope"></i> info@unitedacademy-uard.cm</p>
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="newsletter">Newsletter</h4>
@@ -273,7 +309,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 VTI UARD – United Academy. <span data-i18n="footer_rights">All rights reserved.</span> | <span data-i18n="footer_approval">MINEFOP Agreement N°00300</span></p>
+                    <p>&copy; 2025 UNITED ACADEMY-UARD. <span data-i18n="footer_rights">All rights reserved.</span> | <span data-i18n="footer_approval">MINEFOP Agreement N° 00300/MINEFOP/SG/DFOP/SDGSF/CSACD/CBAC</span></p>
                     <p class="developer">Developed by <a href="https://www.miraedge.tech" target="_blank" rel="noopener">Mira Edge Technologies</a></p>
                 </div>
             </div>
