@@ -67,7 +67,7 @@
             </div>
         </section>
 
-        <!-- ========== VIDEO TESTIMONIALS SECTION (NEW) ========== -->
+        <!-- ========== VIDEO TESTIMONIALS SECTION ========== -->
         <section class="section video-testimonials-section">
             <div class="container">
                 <div class="section-header fade-up">
@@ -76,31 +76,102 @@
                     <p data-i18n="video_testimonials_sub">Watch our students share their experiences</p>
                 </div>
                 <div class="video-testimonials-grid">
+                    <!-- Video Card 1 -->
                     <div class="video-card fade-up">
-                        <img src="assets/images/video-thumb1.jpg" alt="Student testimonial video" class="video-thumb">
-                        <a href="https://www.facebook.com/share/v/18Sn5uqGqM/" class="video-play-btn" data-video-url="https://www.facebook.com/share/v/18Sn5uqGqM/"><i class="fas fa-play"></i></a>
+                        <div class="video-wrapper">
+                            <video class="video-thumb" poster="assets/images/video-thumb1.jpg" preload="metadata">
+                                <source src="assets/videos/testimonial1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <button class="play-video-btn" data-video-src="assets/videos/testimonial1.mp4" data-video-poster="assets/images/video-thumb1.jpg" data-video-title="Marie Claire - Pharmacy Salesperson" data-video-desc="How I got hired immediately after my internship at Zenith Pro Clinic">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Marie Claire - Pharmacy Salesperson</h3>
+                            <p>"How I got hired immediately after my internship at Zenith Pro Clinic"</p>
+                            <span class="video-duration">2:34</span>
+                        </div>
                     </div>
+
+                    <!-- Video Card 2 -->
                     <div class="video-card fade-up">
-                        <img src="assets/images/video-thumb2.jpg" alt="Student testimonial video" class="video-thumb">
-                        <a href="https://www.facebook.com/share/v/1HqC3p5frP/" class="video-play-btn" data-video-url="https://www.facebook.com/share/v/1HqC3p5frP/"><i class="fas fa-play"></i></a>
+                        <div class="video-wrapper">
+                            <video class="video-thumb" poster="assets/images/video-thumb2.jpg" preload="metadata">
+                                <source src="assets/videos/testimonial2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <button class="play-video-btn" data-video-src="assets/videos/testimonial2.mp4" data-video-poster="assets/images/video-thumb2.jpg" data-video-title="Jean Paul - Multimedia Infographics" data-video-desc="From student to freelance designer using AI tools learned at UNITED ACADEMY-UARD">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Jean Paul - Multimedia Infographics</h3>
+                            <p>"From student to freelance designer using AI tools learned at UNITED ACADEMY-UARD"</p>
+                            <span class="video-duration">3:12</span>
+                        </div>
                     </div>
+
+                    <!-- Video Card 3 -->
                     <div class="video-card fade-up">
-                        <img src="assets/images/video-thumb3.jpg" alt="Student testimonial video" class="video-thumb">
-                        <a href="https://www.facebook.com/share/v/18Sn5uqGqM/" class="video-play-btn" data-video-url="https://www.facebook.com/share/v/18Sn5uqGqM/"><i class="fas fa-play"></i></a>
+                        <div class="video-wrapper">
+                            <video class="video-thumb" poster="assets/images/video-thumb3.jpg" preload="metadata">
+                                <source src="assets/videos/testimonial3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <button class="play-video-btn" data-video-src="assets/videos/testimonial3.mp4" data-video-poster="assets/images/video-thumb3.jpg" data-video-title="Stéphanie A. - Social Care Assistant" data-video-desc="The caring trainers and practical training that prepared me for my career">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Stéphanie A. - Social Care Assistant</h3>
+                            <p>"The caring trainers and practical training that prepared me for my career"</p>
+                            <span class="video-duration">4:01</span>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="video-card fade-up">
+                        <div class="video-wrapper">
+                            <video class="video-thumb" poster="assets/images/video-thumb4.jpg" preload="metadata">
+                                <source src="assets/videos/testimonial4.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <button class="play-video-btn" data-video-src="assets/videos/testimonial4.mp4" data-video-poster="assets/images/video-thumb4.jpg" data-video-title="Hervé N. - Digital Marketing" data-video-desc="Managing real social media accounts during my training gave me the edge">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Hervé N. - Digital Marketing</h3>
+                            <p>"Managing real social media accounts during my training gave me the edge"</p>
+                            <span class="video-duration">2:48</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== VIDEO MODAL (for playing videos) ========== -->
+        <!-- ========== VIDEO MODAL ========== -->
         <div id="videoModal" class="video-modal">
             <div class="video-modal-content">
                 <span class="close-modal">&times;</span>
                 <div class="video-container">
-                    <video id="videoPlayer" width="100%" height="400" controls>
-                        <source id="videoSource" src="" type="video/mp4">
+                    <video id="modalVideoPlayer" width="100%" controls>
+                        <source id="modalVideoSource" src="" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                </div>
+                <div class="video-modal-info" id="videoModalInfo">
+                    <h3 id="modalVideoTitle"></h3>
+                    <p id="modalVideoDesc"></p>
                 </div>
             </div>
         </div>
@@ -113,129 +184,28 @@
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="featured-text" data-i18n="featured_testimonial_text">"UNITED ACADEMY-UARD didn't just train me – they transformed my life. The hands-on approach, the caring trainers, and the internship opportunity at a top clinic gave me the confidence and skills to start my career immediately after graduation. I'm now working as a pharmacy assistant and planning to open my own pharmacy one day."</p>
                         <div class="featured-author">
-                            <img src="assets/images/testimonial-featured.jpg" alt="Amadou T." class="author-image">
+                            <img src="assets/images/testimonial-featured.jpg" alt="Student" class="author-image">
                             <div>
-                                <!-- <h4>Amadou T.</h4> -->
                                 <p>Multimedia Infographics, Class of 2025</p>
-                                <!-- <p class="author-location">Now at: Zenith Pro Clinic, Yaoundé</p> -->
                             </div>
                         </div>
                     </div>
                     <div class="featured-video">
-                        <img src="assets/images/video-thumb.jpg" alt="Watch Amadou's story" class="video-thumb">
-                        <a href="https://www.facebook.com/share/v/18Sn5uqGqM/" class="videos-play-btn" data-video-id="featured" data-video-url="assets/videos/featured.mp4"><i class="fas fa-play"></i></a>
+                        <div class="video-wrapper">
+                            <video class="video-thumb" poster="assets/images/video-thumb-featured.jpg" preload="metadata">
+                                <source src="assets/videos/featured-testimonial.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <button class="video-play-btn" data-video-src="assets/videos/featured-testimonial.mp4" data-video-poster="assets/images/video-thumb-featured.jpg" data-video-title="Featured Testimonial" data-video-desc="Watch Amadou's full story">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- ========== TESTIMONIALS GRID ========== -->
-        <!-- <section class="section testimonials-grid-section bg-light">
-            <div class="container">
-                <div class="section-header fade-up">
-                    <h2 data-i18n="more_stories">More success stories</h2>
-                    <div class="divider"></div>
-                </div>
-
-                <div class="testimonials-grid-detailed" id="testimonialsGrid">
-
-                    <div class="testimonial-detailed-card fade-up">
-                        <div class="testimonial-header">
-                            <img src="assets/images/testimonial-1.jpg" alt="Marie Claire" class="testimonial-avatar">
-                            <div>
-                                <h3>Marie Claire</h3>
-                                <p class="testimonial-program">Pharmacy Salesperson</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The pharmacy course gave me real skills. My internship at Zenith Pro Clinic turned into a job offer! I'm so grateful to the trainers who supported me every step."</p>
-                        <p class="testimonial-year">Class of 2025 · Now at: Zenith Pro Clinic</p>
-                    </div>
-
-
-                    <div class="testimonial-detailed-card fade-up">
-                        <div class="testimonial-header">
-                            <img src="assets/images/testimonial-2.jpg" alt="Jean Paul" class="testimonial-avatar">
-                            <div>
-                                <h3>Jean Paul</h3>
-                                <p class="testimonial-program">Multimedia Infographics</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"I learned infographics and AI tools like Midjourney and Photoshop. Now I work as a freelance designer while continuing my studies. The portfolio I built at UNITED ACADEMY-UARD opened many doors."</p>
-                        <p class="testimonial-year">Class of 2025 · Freelance Designer</p>
-                    </div>
-
-
-                    <div class="testimonial-detailed-card fade-up">
-                        <div class="testimonial-header">
-                            <img src="assets/images/testimonial-3.jpg" alt="Stéphanie A." class="testimonial-avatar">
-                            <div>
-                                <h3>Stéphanie A.</h3>
-                                <p class="testimonial-program">Social Care Assistant</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The trainers are amazing – they really care about each student. I passed my DQP with honors and now work at a pediatric clinic. This is more than a school; it's a family."</p>
-                        <p class="testimonial-year">Class of 2025 · Pédiatrie Sociale</p>
-                    </div>
-
-  
-                    <div class="testimonial-detailed-card fade-up">
-                        <div class="testimonial-header">
-                            <img src="assets/images/testimonial-4.jpg" alt="Hervé N." class="testimonial-avatar">
-                            <div>
-                                <h3>Hervé N.</h3>
-                                <p class="testimonial-program">Digital Marketing</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="testimonial-quote">"The community management course was intensive and practical. I learned to manage real social media accounts. I'm now the social media manager for two local businesses."</p>
-                        <p class="testimonial-year">Class of 2025 · Social Media Manager</p>
-                    </div>
-
-   
-                    <div class="testimonial-detailed-card fade-up">
-                        <div class="testimonial-header">
-                            <img src="assets/images/testimonial-5.jpg" alt="Christelle D." class="testimonial-avatar">
-                            <div>
-                                <h3>Christelle D.</h3>
-                                <p class="testimonial-program">Lab Technician Assistant</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The lab equipment is modern and the practical sessions prepared me well. I got an internship at Centre Médical Grace de Dieu and they hired me immediately after."</p>
-                        <p class="testimonial-year">Class of 2025 · Lab Assistant</p>
-                    </div>
-
-       
-                    <div class="testimonial-detailed-card fade-up">
-                        <div class="testimonial-header">
-                            <img src="assets/images/testimonial-6.jpg" alt="Patrick K." class="testimonial-avatar">
-                            <div>
-                                <h3>Patrick K.</h3>
-                                <p class="testimonial-program">Medical Representative</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-quote">"The advanced program in Medical Representation gave me deep knowledge of pharmacology and sales techniques. I now work for a pharmaceutical company."</p>
-                        <p class="testimonial-year">Class of 2025 · PharmaRep</p>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
         <!-- ========== STATS SECTION ========== -->
         <section class="section stats-section">
@@ -290,9 +260,9 @@
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="footer_contact">Contact</h4>
-                        <p><i class="fas fa-map-pin"></i> Yaoundé-Simbock, Cameroun</p>
-                        <p><i class="fas fa-phone"></i> +237 658 72 62 37</p>
-                        <p><i class="fas fa-envelope"></i> info@unitedacademy-uard.cm</p>
+                        <p><i class="fas fa-map-pin"></i> Yaoundé-Simbock, Montée Mechcam, Roseville Complex (Immeuble Bleu)</p>
+                        <p><i class="fas fa-phone"></i> +237 683 05 93 55 / +237 658 72 62 37</p>
+                        <p><i class="fas fa-envelope"></i> unitedacademyuard@gmail.com</p>
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="newsletter">Newsletter</h4>

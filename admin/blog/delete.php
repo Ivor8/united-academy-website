@@ -1,0 +1,3 @@
+<?php
+// Delete blog post
+?>

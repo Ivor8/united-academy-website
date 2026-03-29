@@ -1,4 +1,4 @@
-/* assets/css/testimonials.css – styles for testimonials page */
+﻿/* assets/css/testimonials.css  styles for testimonials page */
 :root {
     --blue: #1E64C8;
     --green: #2E7D32;
@@ -8,7 +8,7 @@
 
 /* Hero */
 .testimonials-hero {
-      display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 2rem;
@@ -17,9 +17,210 @@
     background-image: linear-gradient(rgba(10,38,71,0.65), rgba(10,38,71,0.65)), url('../images/bg.jpg');
 }
 
-/* Featured testimonial */
+/* Video Testimonials Grid */
+.video-testimonials-section {
+    padding: 4rem 0;
+}
+
+.video-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.video-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px -10px rgba(30, 100, 200, 0.2);
+}
+
+/* Video Wrapper - contains video and overlay */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #1a1a2e;
+    cursor: pointer;
+}
+
+.video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-video-btn, .video-play-btn {
+    background: var(--red);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.play-video-btn i, .video-play-btn i {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4px;
+}
+
+.play-video-btn:hover, .video-play-btn:hover {
+    transform: scale(1.1);
+    background: var(--blue);
+}
+
+/* Video Info - Appears below the video */
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    font-size: 1.2rem;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.video-info p {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.video-duration {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    background: #f3f4f6;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Video Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    color: var(--red);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.video-container {
+    position: relative;
+    background: #000;
+}
+
+.video-container video {
+    width: 100%;
+    max-height: 70vh;
+    display: block;
+}
+
+.video-modal-info {
+    padding: 1rem 1.5rem;
+    background: #111;
+    color: white;
+}
+
+.video-modal-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--red);
+}
+
+.video-modal-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Featured Testimonial Section */
 .featured-testimonial-section {
-    padding-top: 3rem;
+    padding-top: 2rem;
 }
 
 .featured-testimonial {
@@ -29,7 +230,7 @@
     background: white;
     border-radius: 40px;
     overflow: hidden;
-    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
 }
 
 .featured-quote {
@@ -47,10 +248,10 @@
 }
 
 .featured-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1.6;
     color: #1f2937;
-    margin: 2rem 0 2rem 2rem;
+    margin: 1.5rem 0 1.5rem 2rem;
     font-style: italic;
 }
 
@@ -69,124 +270,44 @@
     border: 3px solid var(--green);
 }
 
-.featured-author h4 {
-    font-size: 1.3rem;
-    color: var(--blue);
-    margin-bottom: 0.2rem;
-}
-
 .featured-author p {
     color: #4b5563;
 }
 
-.author-location {
-    font-size: 0.9rem;
-    color: var(--green);
-}
-
+/* Featured Video Section */
 .featured-video {
     position: relative;
-    background: #1f2937;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #1a1a2e;
+    min-height: 350px;
+    overflow: hidden;
 }
 
-.video-thumb {
+.featured-video .video-wrapper {
+    height: 100%;
+    min-height: 350px;
+}
+
+.featured-video .video-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.7;
 }
 
-.videos-play-btn {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background: var(--red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.8rem;
-    text-decoration: none;
-    transition: transform 0.3s;
+.featured-video .video-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-.videos-play-btn:hover {
-    transform: scale(1.1);
-    color: white;
+.featured-video .video-play-btn {
+    width: 80px;
+    height: 80px;
 }
 
-/* Testimonials grid */
-.testimonials-grid-detailed {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+.featured-video .video-play-btn i {
+    font-size: 2.5rem;
 }
 
-.testimonial-detailed-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 30px;
-    box-shadow: 0 10px 25px -10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.testimonial-detailed-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -10px rgba(30,100,200,0.15);
-}
-
-.testimonial-header {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.testimonial-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--green);
-}
-
-.testimonial-header h3 {
-    color: var(--blue);
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-}
-
-.testimonial-program {
-    color: var(--green);
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.testimonial-rating {
-    margin-bottom: 1rem;
-    color: #fbbf24;
-}
-
-.testimonial-quote {
-    color: #374151;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-    font-style: italic;
-}
-
-.testimonial-year {
-    color: #9ca3af;
-    font-size: 0.9rem;
-    border-top: 1px dashed #e5e7eb;
-    padding-top: 1rem;
-}
-
-/* Stats section */
+/* Stats Section */
 .stats-section {
     background: linear-gradient(135deg, var(--blue) 0%, #0A2A5A 100%);
     color: white;
@@ -213,7 +334,7 @@
     opacity: 0.9;
 }
 
-/* CTA */
+/* CTA Section */
 .cta-section {
     background: linear-gradient(135deg, var(--green) 0%, #1e4a2a 100%);
     color: white;
@@ -231,8 +352,16 @@
         min-height: 300px;
     }
     
+    .featured-video .video-wrapper {
+        min-height: 300px;
+    }
+    
     .stats-grid {
         grid-template-columns: 1fr 1fr;
+    }
+    
+    .video-testimonials-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -242,7 +371,7 @@
     }
     
     .featured-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-left: 1rem;
     }
     
@@ -252,11 +381,32 @@
         margin-left: 0;
     }
     
-    .testimonials-grid-detailed {
+    .stats-grid {
         grid-template-columns: 1fr;
     }
     
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .video-wrapper {
+        height: 200px;
+    }
+    
+    .play-video-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .play-video-btn i {
+        font-size: 1.5rem;
+    }
+    
+    .video-info {
+        padding: 1rem;
+    }
+    
+    .video-info h3 {
+        font-size: 1rem;
+    }
+    
+    .video-info p {
+        font-size: 0.85rem;
     }
 }
