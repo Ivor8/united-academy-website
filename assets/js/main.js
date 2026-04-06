@@ -570,7 +570,7 @@
         }
     };
 
-    let currentLang = 'en';
+    let currentLang = 'fr';
 
     // DOM elements
     const langEnBtn = document.getElementById('lang-en');
@@ -708,7 +708,7 @@
     if (categoryFilter) categoryFilter.addEventListener('change', filterPosts);
 
     // initial setup - check for saved language preference
-    const savedLang = localStorage.getItem('uau-language') || 'en';
+    const savedLang = localStorage.getItem('uau-language') || 'fr';
     setLanguage(savedLang);
     renderBlogPosts(savedLang);
 
