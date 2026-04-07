@@ -13,6 +13,8 @@ $success = '';
 $debugMessages = []; // Array to store all debug messages
 $formData = []; // Store submitted form data
 
+echo "Page loaded at " . date('H:i:s') . "<br>";
+
 // Function to add debug message
 function addDebug($message, $type = 'info') {
     global $debugMessages;
@@ -24,6 +26,7 @@ function addDebug($message, $type = 'info') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "Testimonial form submitted<br>";
     addDebug("=== TESTIMONIAL FORM SUBMITTED ===", 'info');
     addDebug("POST data received", 'debug');
     
@@ -118,10 +121,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Execute INSERT
+        echo "About to execute testimonial insert<br>";
         if (!$stmt->execute($params)) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Database insert failed: " . $errorInfo[2]);
         }
+        echo "Testimonial insert executed successfully<br>";
         
         $testimonialId = $pdo->lastInsertId();
         addDebug("✅ Database INSERT successful! Testimonial ID: " . $testimonialId, 'success');
@@ -133,9 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         addDebug("✅ Activity logged", 'success');
         
         addDebug("🎉 SUCCESS! Testimonial created successfully!", 'success');
+        echo "Testimonial created successfully<br>";
         $success = true;
         
     } catch (Exception $e) {
+        echo "Testimonial error: " . $e->getMessage() . "<br>";
         $error = $e->getMessage();
         addDebug("❌ EXCEPTION CAUGHT: " . $e->getMessage(), 'error');
         addDebug("Stack trace: " . $e->getTraceAsString(), 'error');
@@ -413,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div id="mediaPreview" class="media-preview"></div>
         
         <div class="form-group">
-            <button type="submit" class="action-btn edit-btn" style="padding: 0.75rem 2rem;">
+            <button type="submit" class="action-btn edit-btn no-loading" style="padding: 0.75rem 2rem;">
                 <i class="fas fa-save"></i> Add Testimonial
             </button>
         </div>

@@ -267,7 +267,7 @@ $extraCss = '<style>
         <div id="mediaPreview" class="media-preview"></div>
         
         <div class="form-group">
-            <button type="submit" class="action-btn edit-btn" style="padding: 0.75rem 2rem; font-size: 1rem;">
+            <button type="submit" class="action-btn edit-btn no-loading" style="padding: 0.75rem 2rem; font-size: 1rem;">
                 <i class="fas fa-save"></i> Update Testimonial
             </button>
         </div>

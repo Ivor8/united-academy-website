@@ -175,7 +175,7 @@ $extraJs = '<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     });
     
     // Set existing content
-    quill.root.innerHTML = `<?php echo addslashes($post['content']); ?>`;
+    quill.root.innerHTML = `<?php echo addslashes($post["content"]); ?>`;
     
     document.querySelector(\'form\').addEventListener(\'submit\', function() {
         document.querySelector(\'[name="content"]\').value = quill.root.innerHTML;

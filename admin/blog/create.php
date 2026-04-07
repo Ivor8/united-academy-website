@@ -13,6 +13,8 @@ $success = '';
 $debugMessages = []; // Array to store all debug messages
 $formData = []; // Store submitted form data
 
+echo "Page loaded at " . date('H:i:s') . "<br>";
+
 // Function to add debug message
 function addDebug($message, $type = 'info') {
     global $debugMessages;
@@ -30,6 +32,7 @@ $categories = ['blog', 'news', 'events', 'publications', 'video'];
 $tags = $pdo->query("SELECT * FROM tags ORDER BY name")->fetchAll();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "Form submitted<br>";
     addDebug("=== FORM SUBMITTED ===", 'info');
     addDebug("POST data received", 'debug');
     
@@ -133,10 +136,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Execute INSERT
+        echo "About to execute insert<br>";
         if (!$stmt->execute($params)) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Database insert failed: " . $errorInfo[2]);
         }
+        echo "Insert executed successfully<br>";
         
         $postId = $pdo->lastInsertId();
         addDebug("✅ Database INSERT successful! Post ID: " . $postId, 'success');
@@ -163,9 +168,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         addDebug("✅ Activity logged", 'success');
         
         addDebug("🎉 SUCCESS! Blog post created successfully!", 'success');
+        echo "Blog post created successfully<br>";
         $success = true;
         
     } catch (Exception $e) {
+        echo "Error occurred: " . $e->getMessage() . "<br>";
         $error = $e->getMessage();
         addDebug("❌ EXCEPTION CAUGHT: " . $e->getMessage(), 'error');
         addDebug("Stack trace: " . $e->getTraceAsString(), 'error');
@@ -429,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         
         <div class="form-group">
-            <button type="submit" class="action-btn edit-btn" style="padding: 0.75rem 2rem;">
+            <button type="submit" class="action-btn edit-btn no-loading" style="padding: 0.75rem 2rem;">
                 <i class="fas fa-save"></i> Create Post
             </button>
         </div>

@@ -208,3 +208,2143 @@ Array
 )
 
 --------------------------------------------------------------------------------
+[2026-04-07 10:13:11] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:11] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:11] Database connection FAILED
+Array
+(
+    [error] => SQLSTATE[HY000] [1049] Unknown database 'united_academ'
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:13:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:14:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:14:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:17:10] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:17:10] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:18:06] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:18:06] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 10:18:08] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 10:18:08] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 11:40:21] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 11:40:21] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => co4oglrhcmh2obbjsbbtisnvua
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:46] Unauthorized access attempt to /uard/admin/
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:56:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:57:00] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:57:00] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:57:00] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:57:00] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:57:06] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:57:06] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 13:59:07] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 13:59:07] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 5j1dpui0teomasm8aek0iciruf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:09:43] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:09:43] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:09:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:09:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:09:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:09:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:10:42] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:10:42] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:10:43] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:10:43] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:10:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:10:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:14:40] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:14:40] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:14:42] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:14:42] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:20] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:20] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:20] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:20] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:32] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:32] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:32] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:22:32] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:48] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:48] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:48] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:48] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:50] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:50] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:50] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:24:50] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:25:25] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:25:26] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:25:26] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:25:26] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:31:21] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:31:21] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:31:21] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:31:21] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:43:03] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:43:03] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:43:03] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:43:03] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:44:54] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:44:54] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:44:54] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:44:54] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:17] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:17] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:17] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:17] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] 📁 Upload started
+Array
+(
+    [name] => email.png
+    [full_path] => email.png
+    [type] => image/png
+    [tmp_name] => C:\xampp\tmp\php690E.tmp
+    [error] => 0
+    [size] => 20388
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] ✅ Upload success
+http://localhost/uard/uploads/blog/1775565943_69d4fc77a8d81.png
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] 📁 Upload started
+Array
+(
+    [name] => email.png
+    [full_path] => email.png
+    [type] => image/png
+    [tmp_name] => C:\xampp\tmp\php690F.tmp
+    [error] => 0
+    [size] => 20388
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:43] ✅ Upload success
+http://localhost/uard/uploads/blog/1775565943_69d4fc77aaa4a.png
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:46] 🚀 CONFIG LOADED
+Array
+(
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+    [user_id] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:46] 🔐 Login check
+Array
+(
+    [user_id] => 1
+    [logged_in] => 1
+    [result] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:46] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:45:46] ✅ Database connected successfully
+--------------------------------------------------------------------------------
+[2026-04-07 14:48:21] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:48:21] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 14:55:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 14:55:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 15:03:27] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 15:03:27] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:39:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:39:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:40:08] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:40:08] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:40:11] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:40:11] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:40:16] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:40:16] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] Upload parameters
+Array
+(
+    [type] => testimonials
+    [file_info] => Array
+        (
+            [name] => web.png
+            [error] => 0
+            [size] => 30214
+            [tmp_name] => C:\xampp\tmp\php19DD.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] Checking base directory
+Array
+(
+    [path] => C:/xampp/htdocs/uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] Checking type directory
+Array
+(
+    [path] => C:/xampp/htdocs/uard/uploads/testimonials/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] File info
+Array
+(
+    [original_name] => web.png
+    [extension] => png
+    [new_name] => 1775580079_69d533af2f7e7.png
+    [size_bytes] => 30214
+    [size_mb] => 0.03
+    [tmp_name] => C:\xampp\tmp\php19DD.tmp
+    [target_path] => C:/xampp/htdocs/uard/uploads/testimonials/1775580079_69d533af2f7e7.png
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] SUCCESS: File uploaded
+Array
+(
+    [path] => C:/xampp/htdocs/uard/uploads/testimonials/1775580079_69d533af2f7e7.png
+    [url] => http://localhost/uard/uploads/testimonials/1775580079_69d533af2f7e7.png
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:19] File verification passed
+Array
+(
+    [size] => 30214
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:22] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:22] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:22] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:22] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:41:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:42:10] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:42:10] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 18:42:10] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 18:42:10] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:18] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:18] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:18] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:18] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:23] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:23] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:23] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:23] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:24] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:24] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:24] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:24] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:26] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:26] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:26] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:26] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:31] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:31] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:31] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:31] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:32] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:32] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:32] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:32] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:34] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:34] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:34] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:34] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:36] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:36] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:36] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:20:36] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:44] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:44] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:44] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:44] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:53] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:54] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:22:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:30] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:30] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:31] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:31] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:36] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:36] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:36] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:23:36] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:24:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:24:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:24:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:24:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:24:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:24:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:25:07] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:25:07] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:27:09] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:27:09] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:27:10] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:27:10] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:04] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:04] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:04] Unauthorized access attempt to /uard/admin/blog/index.php
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:04] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:04] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:20] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:20] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:21] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:21] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:28:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:37] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:37] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:43] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:43] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:43] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:43] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:53] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:53] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:32:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:10] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:10] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:10] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:10] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:38] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:38] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:41] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:41] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:41] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:33:41] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:42] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:42] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:48] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:48] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:48] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:48] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:40:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:42:24] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:42:24] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:42:26] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:42:26] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:42:26] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:42:26] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:00] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:00] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:00] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:00] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:05] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:05] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:05] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:05] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:13] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-07 19:43:13] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 1s548cmbq37ac2cv3ijthn4klf
+)
+
+--------------------------------------------------------------------------------
