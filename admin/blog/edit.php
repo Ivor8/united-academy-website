@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = sanitize($_POST['title']);
     $slug = sanitize($_POST['slug']);
     $excerpt = sanitize($_POST['excerpt']);
-    $content = $_POST['content'];
     $category = sanitize($_POST['category']);
     $status = sanitize($_POST['status']);
     $featured = isset($_POST['featured']) ? 1 : 0;
@@ -70,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Update post
     $stmt = $pdo->prepare("
         UPDATE blog_posts 
-        SET title = ?, slug = ?, excerpt = ?, content = ?, featured_image = ?, media_type = ?, media_url = ?, video_poster = ?, category = ?, status = ?, featured = ? 
+        SET title = ?, slug = ?, excerpt = ?, featured_image = ?, media_type = ?, media_url = ?, video_poster = ?, category = ?, status = ?, featured = ? 
         WHERE id = ?
     ");
     
-    if ($stmt->execute([$title, $slug, $excerpt, $content, $featuredImage, $mediaType, $mediaUrl, $videoPoster, $category, $status, $featured, $postId])) {
+    if ($stmt->execute([$title, $slug, $excerpt, $featuredImage, $mediaType, $mediaUrl, $videoPoster, $category, $status, $featured, $postId])) {
         
         // Update tags
         $pdo->prepare("DELETE FROM blog_post_tags WHERE blog_post_id = ?")->execute([$postId]);
@@ -95,8 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$extraCss = '<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<style>
+$extraCss = '<style>
     .form-container {
         max-width: 1000px;
         margin: 0 auto;
@@ -122,9 +120,6 @@ $extraCss = '<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="styl
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
-    }
-    .editor-container {
-        height: 400px;
     }
     .tag-group {
         display: flex;
@@ -156,30 +151,7 @@ $extraCss = '<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="styl
         font-size: 0.85rem;
     }
 </style>';
-$extraJs = '<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-    var quill = new Quill(\'#editor\', {
-        theme: \'snow\',
-        placeholder: \'Write your blog post content here...\',
-        modules: {
-            toolbar: [
-                [{ \'header\': [1, 2, 3, 4, 5, 6, false] }],
-                [\'bold\', \'italic\', \'underline\', \'strike\'],
-                [\'blockquote\', \'code-block\'],
-                [{ \'list\': \'ordered\'}, { \'list\': \'bullet\' }],
-                [\'link\', \'image\', \'video\'],
-                [\'clean\']
-            ]
-        }
-    });
-    
-    // Set existing content
-    quill.root.innerHTML = `<?php echo addslashes($post["content"]); ?>`;
-    
-    document.querySelector(\'form\').addEventListener(\'submit\', function() {
-        document.querySelector(\'[name="content"]\').value = quill.root.innerHTML;
-    });
-    
+$extraJs = '<script>
     function previewMedia() {
         const mediaType = document.querySelector(\'[name="media_type"]\').value;
         const mediaUrl = document.querySelector(\'[name="media_url"]\').value;
@@ -268,12 +240,6 @@ $extraJs = '<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <div class="form-group">
             <label>Excerpt / Short Description</label>
             <textarea name="excerpt" rows="3"><?php echo htmlspecialchars($post['excerpt']); ?></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label>Content *</label>
-            <div id="editor" class="editor-container"></div>
-            <input type="hidden" name="content">
         </div>
         
         <div class="form-row">

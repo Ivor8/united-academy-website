@@ -69,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $logStmt->execute([$_SESSION['user_id'], $testimonialId]);
         
         $success = 'Testimonial updated successfully!';
-        header('refresh:2;url=index.php');
     } else {
         $error = 'Failed to update testimonial. Please try again.';
     }
