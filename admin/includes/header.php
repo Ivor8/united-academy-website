@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'auth.php';
+require_once 'functions.php';
 
 if (!isset($noAuthCheck) || !$noAuthCheck) {
     requireLogin();
@@ -18,7 +19,7 @@ $userRole = getUserRole();
     <title><?php echo isset($pageTitle) ? $pageTitle . ' | ' . SITE_NAME . ' Admin' : SITE_NAME . ' Admin Dashboard'; ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>assets/css/admin-style.css">
+    <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>assets/css/admin-style.css?v=1.1">
     <?php if (isset($extraCss)) echo $extraCss; ?>
 </head>
 <body>

@@ -19,6 +19,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Add this to the end of your admin-style.css file */
+.hidden {
+    display: none !important;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -704,235 +708,235 @@ body {
    =================================== */
 
 .form-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    padding: 2rem !important;
+    background: var(--white) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 0.9rem;
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+    color: var(--dark) !important;
+    font-size: 0.9rem !important;
 }
 
 .form-group input, 
 .form-group select, 
 .form-group textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
-    font-family: inherit;
-    font-size: 0.9rem;
-    transition: var(--transition);
-    background: var(--white);
-    box-sizing: border-box;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    border: 2px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    font-family: inherit !important;
+    font-size: 0.9rem !important;
+    transition: var(--transition) !important;
+    background: var(--white) !important;
+    box-sizing: border-box !important;
 }
 
 .form-group input:focus, 
 .form-group select:focus, 
 .form-group textarea:focus {
-    outline: none;
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(30, 100, 200, 0.1);
+    outline: none !important;
+    border-color: var(--blue) !important;
+    box-shadow: 0 0 0 3px rgba(30, 100, 200, 0.1) !important;
 }
 
 .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
 }
 
 .editor-container {
-    height: 400px;
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
-    overflow: hidden;
+    height: 400px !important;
+    border: 2px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
 }
 
 .editor-container .ql-toolbar {
-    border: none;
-    border-bottom: 2px solid #E2E8F0;
-    background: var(--light);
+    border: none !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+    background: var(--light) !important;
 }
 
 .editor-container .ql-container {
-    border: none;
-    font-size: 0.9rem;
+    border: none !important;
+    font-size: 0.9rem !important;
 }
 
 .tag-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
 }
 
 .tag-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: var(--light);
-    border: 2px solid #E2E8F0;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: var(--transition);
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    background: var(--light) !important;
+    border: 2px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
 }
 
 .tag-checkbox:hover {
-    border-color: var(--blue);
-    background: rgba(30, 100, 200, 0.05);
+    border-color: var(--blue) !important;
+    background: rgba(30, 100, 200, 0.05) !important;
 }
 
 .tag-checkbox input {
-    width: auto;
-    margin: 0;
+    width: auto !important;
+    margin: 0 !important;
 }
 
 .tag-checkbox input:checked + label {
-    color: var(--blue);
-    font-weight: 600;
+    color: var(--blue) !important;
+    font-weight: 600 !important;
 }
 
 .media-preview {
-    margin-top: 1rem;
-    max-width: 300px;
-    border-radius: 12px;
-    overflow: hidden;
+    margin-top: 1rem !important;
+    max-width: 300px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
 }
 
 .media-preview img,
 .media-preview video {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100% !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
 }
 
 .btn {
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    padding: 0.75rem 2rem !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    font-size: 0.9rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
 }
 
 .btn-primary {
-    background: var(--blue);
-    color: white;
+    background: var(--blue) !important;
+    color: white !important;
 }
 
 .btn-primary:hover {
-    background: #1565c0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+    background: #1565c0 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2) !important;
 }
 
 .btn-secondary {
-    background: var(--gray);
-    color: white;
+    background: var(--gray) !important;
+    color: white !important;
 }
 
 .btn-secondary:hover {
-    background: #475569;
-    transform: translateY(-2px);
+    background: #475569 !important;
+    transform: translateY(-2px) !important;
 }
 
 .alert {
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
+    padding: 1rem 1.5rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 500 !important;
 }
 
 .alert-success {
-    background: rgba(46, 125, 50, 0.1);
-    color: var(--green);
-    border: 2px solid rgba(46, 125, 50, 0.2);
+    background: rgba(46, 125, 50, 0.1) !important;
+    color: var(--green) !important;
+    border: 2px solid rgba(46, 125, 50, 0.2) !important;
 }
 
 .alert-error {
-    background: rgba(211, 47, 47, 0.1);
-    color: var(--red);
-    border: 2px solid rgba(211, 47, 47, 0.2);
+    background: rgba(211, 47, 47, 0.1) !important;
+    color: var(--red) !important;
+    border: 2px solid rgba(211, 47, 47, 0.2) !important;
 }
 
 .checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    background: var(--light);
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: var(--transition);
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem !important;
+    background: var(--light) !important;
+    border: 2px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
 }
 
 .checkbox-group:hover {
-    border-color: var(--blue);
-    background: rgba(30, 100, 200, 0.05);
+    border-color: var(--blue) !important;
+    background: rgba(30, 100, 200, 0.05) !important;
 }
 
 .checkbox-group input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-    transform: scale(1.2);
+    width: auto !important;
+    margin: 0 !important;
+    transform: scale(1.2) !important;
 }
 
 input[type="file"] {
-    padding: 0.5rem;
-    border: 2px dashed #E2E8F0;
-    background: var(--light);
-    cursor: pointer;
+    padding: 0.5rem !important;
+    border: 2px dashed #E2E8F0 !important;
+    background: var(--light) !important;
+    cursor: pointer !important;
 }
 
 input[type="file"]:hover {
-    border-color: var(--blue);
-    background: rgba(30, 100, 200, 0.05);
+    border-color: var(--blue) !important;
+    background: rgba(30, 100, 200, 0.05) !important;
 }
 
 /* Testimonial Form Specific Styles */
 .rating-select {
-    display: flex;
-    gap: 0.5rem;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    padding: 0.75rem;
-    background: var(--light);
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
+    display: flex !important;
+    gap: 0.5rem !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    padding: 0.75rem !important;
+    background: var(--light) !important;
+    border: 2px solid #E2E8F0 !important;
+    border-radius: 12px !important;
 }
 
 .rating-select input {
-    display: none;
+    display: none !important;
 }
 
 .rating-select label {
-    font-size: 1.5rem;
-    color: #CBD5E1;
-    cursor: pointer;
-    transition: var(--transition);
+    font-size: 1.5rem !important;
+    color: #CBD5E1 !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
 }
 
 .rating-select label:hover,
 .rating-select label:hover ~ label,
 .rating-select input:checked ~ label {
-    color: #FBBF24;
-    transform: scale(1.1);
+    color: #FBBF24 !important;
+    transform: scale(1.1) !important;
 }
 
 /* Form Responsive */
