@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/header.php';
 
-if (!hasPermission('delete_testimonials')) {
+if (!hasPermission('approve_testimonials')) {
     header('Location: index.php');
     exit();
 }
@@ -9,8 +9,8 @@ if (!hasPermission('delete_testimonials')) {
 $pdo = getDB();
 $testimonialId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Get testimonial info for logging
-$stmt = $pdo->prepare("SELECT student_name FROM testimonials WHERE id = ?");
+// Get testimonial info
+$stmt = $pdo->prepare("SELECT student_name, status FROM testimonials WHERE id = ?");
 $stmt->execute([$testimonialId]);
 $testimonial = $stmt->fetch();
 
@@ -19,25 +19,31 @@ if (!$testimonial) {
     exit();
 }
 
+if ($testimonial['status'] === 'approved') {
+    $_SESSION['info'] = 'Testimonial is already approved.';
+    header('Location: index.php');
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
-    $deleteStmt = $pdo->prepare("DELETE FROM testimonials WHERE id = ?");
-    if ($deleteStmt->execute([$testimonialId])) {
+    $approveStmt = $pdo->prepare("UPDATE testimonials SET status = 'approved' WHERE id = ?");
+    if ($approveStmt->execute([$testimonialId])) {
         // Log activity
-        $logStmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, table_name, record_id, new_data) VALUES (?, 'DELETE', 'testimonials', ?, ?)");
+        $logStmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, table_name, record_id, new_data) VALUES (?, 'APPROVE', 'testimonials', ?, ?)");
         $logStmt->execute([$_SESSION['user_id'], $testimonialId, json_encode(['student_name' => $testimonial['student_name']])]);
         
-        $_SESSION['success'] = 'Testimonial deleted successfully!';
+        $_SESSION['success'] = 'Testimonial approved successfully!';
         header('Location: index.php');
         exit();
     } else {
-        $error = 'Failed to delete testimonial. Please try again.';
+        $error = 'Failed to approve testimonial. Please try again.';
     }
 }
 ?>
 
 <div class="form-container">
     <div class="card-header">
-        <h1><i class="fas fa-trash"></i> Delete Testimonial</h1>
+        <h1><i class="fas fa-check"></i> Approve Testimonial</h1>
         <a href="index.php" class="view-all">Back to Testimonials</a>
     </div>
     
@@ -45,20 +51,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
         <div class="alert alert-error"><?php echo $error; ?></div>
     <?php endif; ?>
     
-    <div class="delete-confirmation animate-slide-up">
-        <div class="delete-warning">
-            <i class="fas fa-exclamation-triangle"></i>
-            <h2>Are you sure you want to delete this testimonial?</h2>
+    <div class="approve-confirmation animate-slide-up">
+        <div class="approve-warning">
+            <i class="fas fa-check-circle" style="color: var(--green); font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h2>Approve this testimonial?</h2>
             <p><strong><?php echo htmlspecialchars($testimonial['student_name']); ?></strong></p>
-            <p>This action cannot be undone. The testimonial will be permanently removed from the system.</p>
+            <p>Once approved, this testimonial will be visible on the public website.</p>
         </div>
         
-        <form method="POST" class="delete-form">
+        <form method="POST" class="approve-form">
             <input type="hidden" name="confirm" value="1">
             <div class="form-actions">
                 <a href="index.php" class="btn btn-secondary">Cancel</a>
-                <button type="submit" class="btn btn-danger">
-                    <i class="fas fa-trash"></i> Delete Testimonial
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-check"></i> Approve Testimonial
                 </button>
             </div>
         </form>
@@ -66,31 +72,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
 </div>
 
 <style>
-.delete-confirmation {
+.approve-confirmation {
     max-width: 600px;
     margin: 2rem auto;
 }
-.delete-warning {
+.approve-warning {
     text-align: center;
     padding: 2rem;
     background: var(--light);
     border-radius: 12px;
     margin-bottom: 2rem;
 }
-.delete-warning i {
-    font-size: 3rem;
-    color: var(--orange);
+.approve-warning h2 {
+    color: var(--green);
     margin-bottom: 1rem;
 }
-.delete-warning h2 {
-    color: var(--red);
-    margin-bottom: 1rem;
-}
-.delete-warning p {
+.approve-warning p {
     margin-bottom: 0.5rem;
     color: var(--dark);
 }
-.delete-form {
+.approve-form {
     text-align: center;
 }
 .form-actions {
@@ -114,8 +115,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
     background: var(--gray);
     color: white;
 }
-.btn-danger {
-    background: var(--red);
+.btn-success {
+    background: var(--green);
     color: white;
 }
 .btn:hover {

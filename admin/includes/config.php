@@ -9,9 +9,9 @@ define('DB_NAME', 'united_academy');
 
 // Site Configuration
 define('SITE_NAME', 'UNITED ACADEMY-UARD');
-define('SITE_URL', 'http://localhost/united-academy/');
+define('SITE_URL', 'http://localhost/uard/');
 define('ADMIN_URL', SITE_URL . 'admin/');
-define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/united-academy/uploads/');
+define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/uard/uploads/');
 define('UPLOAD_URL', SITE_URL . 'uploads/');
 
 // Error Reporting (disable in production)

@@ -1,0 +1,1058 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : lun. 06 avr. 2026 à 18:37
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `united_academy`
+--
+
+DELIMITER $$
+--
+-- Procédures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_increment_blog_views` (IN `p_blog_id` INT UNSIGNED)   BEGIN
+    UPDATE blog_posts SET views = views + 1 WHERE id = p_blog_id;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_log_activity` (IN `p_user_id` INT UNSIGNED, IN `p_action` VARCHAR(100), IN `p_table_name` VARCHAR(100), IN `p_record_id` INT UNSIGNED, IN `p_old_data` JSON, IN `p_new_data` JSON, IN `p_ip_address` VARCHAR(45), IN `p_user_agent` TEXT)   BEGIN
+    INSERT INTO activity_logs (user_id, action, table_name, record_id, old_data, new_data, ip_address, user_agent)
+    VALUES (p_user_id, p_action, p_table_name, p_record_id, p_old_data, p_new_data, p_ip_address, p_user_agent);
+END$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `about_content`
+--
+
+CREATE TABLE `about_content` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `section_key` varchar(100) NOT NULL,
+  `section_title` varchar(255) DEFAULT NULL,
+  `content` longtext DEFAULT NULL,
+  `media_url` varchar(500) DEFAULT NULL,
+  `media_type` enum('image','video') DEFAULT 'image',
+  `order_position` int(11) DEFAULT 0,
+  `is_active` tinyint(1) DEFAULT 1,
+  `updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `about_content`
+--
+
+INSERT INTO `about_content` (`id`, `section_key`, `section_title`, `content`, `media_url`, `media_type`, `order_position`, `is_active`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'our_story', 'Our Story', 'The Vocational Training Institute UNITED ACADEMY-UARD was founded with a clear vision: to bridge the gap between academic knowledge and professional reality in Cameroon.', NULL, 'image', 1, 1, NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(2, 'mission', 'Our Mission', 'To train qualified, competent and ethical professionals who meet the needs of the Cameroonian job market.', NULL, 'image', 2, 1, NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(3, 'vision', 'Our Vision', 'To become a center of excellence in vocational training in Central Africa.', NULL, 'image', 3, 1, NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(4, 'values', 'Our Values', 'Excellence, integrity, practical innovation, respect, and commitment to each student\'s success.', NULL, 'image', 4, 1, NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(5, 'council_message', 'Conseil d\'Établissement', 'Le Conseil d\'Établissement assure l\'orientation stratégique, la gouvernance pédagogique et le suivi institutionnel de l\'établissement.', NULL, 'image', 5, 1, NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `academic_years`
+--
+
+CREATE TABLE `academic_years` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `is_current` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activity_logs`
+--
+
+CREATE TABLE `activity_logs` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `action` varchar(100) NOT NULL,
+  `table_name` varchar(100) DEFAULT NULL,
+  `record_id` int(10) UNSIGNED DEFAULT NULL,
+  `old_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`old_data`)),
+  `new_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`new_data`)),
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `blog_posts`
+--
+
+CREATE TABLE `blog_posts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `excerpt` text DEFAULT NULL,
+  `content` longtext DEFAULT NULL,
+  `featured_image` varchar(255) DEFAULT NULL,
+  `media_type` enum('image','video') DEFAULT 'image',
+  `media_url` varchar(500) DEFAULT NULL,
+  `video_poster` varchar(500) DEFAULT NULL,
+  `category` enum('blog','news','events','publications','video') NOT NULL DEFAULT 'blog',
+  `status` enum('draft','published','archived') DEFAULT 'draft',
+  `featured` tinyint(1) DEFAULT 0,
+  `views` int(10) UNSIGNED DEFAULT 0,
+  `author_id` int(10) UNSIGNED NOT NULL,
+  `published_at` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déclencheurs `blog_posts`
+--
+DELIMITER $$
+CREATE TRIGGER `trg_blog_publish_date` BEFORE UPDATE ON `blog_posts` FOR EACH ROW BEGIN
+    IF NEW.status = 'published' AND OLD.status != 'published' THEN
+        SET NEW.published_at = NOW();
+    END IF;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `blog_post_tags`
+--
+
+CREATE TABLE `blog_post_tags` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `blog_post_id` int(10) UNSIGNED NOT NULL,
+  `tag_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `council_members`
+--
+
+CREATE TABLE `council_members` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `position` enum('president','vice_president','secretary','academic_advisor','industry_rep','parent_rep','member') NOT NULL,
+  `bio` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `order_position` int(11) DEFAULT 0,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `login_history`
+--
+
+CREATE TABLE `login_history` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `login_time` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `login_history`
+--
+
+INSERT INTO `login_history` (`id`, `user_id`, `ip_address`, `user_agent`, `login_time`) VALUES
+(1, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-29 14:20:48'),
+(2, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-06 17:20:55');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `media_library`
+--
+
+CREATE TABLE `media_library` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_path` varchar(500) NOT NULL,
+  `file_type` varchar(50) DEFAULT NULL,
+  `file_size` int(10) UNSIGNED DEFAULT NULL,
+  `mime_type` varchar(100) DEFAULT NULL,
+  `alt_text` varchar(255) DEFAULT NULL,
+  `uploaded_by` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `partners`
+--
+
+CREATE TABLE `partners` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `category` varchar(50) DEFAULT NULL,
+  `order_position` int(11) DEFAULT 0,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `password_reset_tokens`
+--
+
+CREATE TABLE `password_reset_tokens` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `expires_at` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `permissions`
+--
+
+CREATE TABLE `permissions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `permission_name` varchar(100) NOT NULL,
+  `permission_slug` varchar(100) NOT NULL,
+  `module` varchar(50) NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `permission_name`, `permission_slug`, `module`, `description`, `created_at`) VALUES
+(1, 'View Users', 'view_users', 'users', 'Can view list of users', '2026-03-28 17:34:45'),
+(2, 'Create Users', 'create_users', 'users', 'Can create new users', '2026-03-28 17:34:45'),
+(3, 'Edit Users', 'edit_users', 'users', 'Can edit user information', '2026-03-28 17:34:45'),
+(4, 'Delete Users', 'delete_users', 'users', 'Can delete users', '2026-03-28 17:34:45'),
+(5, 'Manage Roles', 'manage_roles', 'users', 'Can manage user roles and permissions', '2026-03-28 17:34:45'),
+(6, 'View Blog', 'view_blog', 'blog', 'Can view blog posts', '2026-03-28 17:34:45'),
+(7, 'Create Blog', 'create_blog', 'blog', 'Can create new blog posts', '2026-03-28 17:34:45'),
+(8, 'Edit Blog', 'edit_blog', 'blog', 'Can edit blog posts', '2026-03-28 17:34:45'),
+(9, 'Delete Blog', 'delete_blog', 'blog', 'Can delete blog posts', '2026-03-28 17:34:45'),
+(10, 'Publish Blog', 'publish_blog', 'blog', 'Can publish/unpublish blog posts', '2026-03-28 17:34:45'),
+(11, 'View Testimonials', 'view_testimonials', 'testimonials', 'Can view testimonials', '2026-03-28 17:34:45'),
+(12, 'Create Testimonials', 'create_testimonials', 'testimonials', 'Can create new testimonials', '2026-03-28 17:34:45'),
+(13, 'Edit Testimonials', 'edit_testimonials', 'testimonials', 'Can edit testimonials', '2026-03-28 17:34:45'),
+(14, 'Delete Testimonials', 'delete_testimonials', 'testimonials', 'Can delete testimonials', '2026-03-28 17:34:45'),
+(15, 'Approve Testimonials', 'approve_testimonials', 'testimonials', 'Can approve testimonials', '2026-03-28 17:34:45'),
+(16, 'View Programs', 'view_programs', 'programs', 'Can view programs', '2026-03-28 17:34:45'),
+(17, 'Create Programs', 'create_programs', 'programs', 'Can create new programs', '2026-03-28 17:34:45'),
+(18, 'Edit Programs', 'edit_programs', 'programs', 'Can edit programs', '2026-03-28 17:34:45'),
+(19, 'Delete Programs', 'delete_programs', 'programs', 'Can delete programs', '2026-03-28 17:34:45'),
+(20, 'Edit About', 'edit_about', 'about', 'Can edit about page content', '2026-03-28 17:34:45'),
+(21, 'Edit Council', 'edit_council', 'about', 'Can edit council section', '2026-03-28 17:34:45'),
+(22, 'Upload Media', 'upload_media', 'media', 'Can upload media files', '2026-03-28 17:34:45'),
+(23, 'Delete Media', 'delete_media', 'media', 'Can delete media files', '2026-03-28 17:34:45');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `programs`
+--
+
+CREATE TABLE `programs` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `category` enum('health','it','short') NOT NULL,
+  `level` varchar(50) DEFAULT NULL,
+  `duration` varchar(50) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `curriculum` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `icon_class` varchar(50) DEFAULT NULL,
+  `features` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`features`)),
+  `order_position` int(11) DEFAULT 0,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `program_requirements`
+--
+
+CREATE TABLE `program_requirements` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `program_id` int(10) UNSIGNED NOT NULL,
+  `requirement` text NOT NULL,
+  `order_position` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `role_name` varchar(50) NOT NULL,
+  `role_slug` varchar(50) NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`, `role_slug`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Super Admin', 'super_admin', 'Full system access, can manage all users and settings', '2026-03-28 17:34:44', '2026-03-28 17:34:44'),
+(2, 'Admin', 'admin', 'Can manage content, users, and view reports', '2026-03-28 17:34:44', '2026-03-28 17:34:44'),
+(3, 'Teacher', 'teacher', 'Can manage courses, assignments, and student grades', '2026-03-28 17:34:44', '2026-03-28 17:34:44'),
+(4, 'Student', 'student', 'Can view courses, submit assignments, and access learning materials', '2026-03-28 17:34:44', '2026-03-28 17:34:44'),
+(5, 'Parent', 'parent', 'Can view student progress and communicate with teachers', '2026-03-28 17:34:44', '2026-03-28 17:34:44'),
+(6, 'Content Manager', 'content_manager', 'Can manage blog, testimonials, and public content', '2026-03-28 17:34:44', '2026-03-28 17:34:44');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role_permissions`
+--
+
+CREATE TABLE `role_permissions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `permission_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(128) NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `payload` text DEFAULT NULL,
+  `last_activity` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `setting_key` varchar(100) NOT NULL,
+  `setting_value` text DEFAULT NULL,
+  `setting_type` enum('text','number','boolean','json','image') DEFAULT 'text',
+  `group_name` varchar(50) DEFAULT 'general',
+  `description` text DEFAULT NULL,
+  `updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `settings`
+--
+
+INSERT INTO `settings` (`id`, `setting_key`, `setting_value`, `setting_type`, `group_name`, `description`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'site_name', 'UNITED ACADEMY-UARD', 'text', 'general', 'Site name displayed in browser tab', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(2, 'site_description', 'Vocational Training Institute - MINEFOP Accredited', 'text', 'general', 'Site description for SEO', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(3, 'site_email', 'info@unitedacademy-uard.cm', 'text', 'contact', 'Default contact email', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(4, 'site_phone', '+237 658 72 62 37', 'text', 'contact', 'Default contact phone', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(5, 'site_address', 'Yaoundé VI, Simbock, Montée Mech-Cam (Blue building), Cameroun', 'text', 'contact', 'Physical address', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(6, 'facebook_url', '#', 'text', 'social', 'Facebook page URL', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(7, 'twitter_url', '#', 'text', 'social', 'Twitter/X page URL', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(8, 'linkedin_url', '#', 'text', 'social', 'LinkedIn page URL', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(9, 'instagram_url', '#', 'text', 'social', 'Instagram page URL', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(10, 'whatsapp_number', '237677544988', 'text', 'social', 'WhatsApp contact number', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(11, 'footer_about', 'Vocational Training Institute UNITED ACADEMY-UARD – MINEFOP accredited. Excellence, employability, innovation.', 'text', 'footer', 'Footer about text', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(12, 'agreement_number', '00300/MINEFOP/SG/DFOP/SDGSF/CSACD/CBAC', 'text', 'legal', 'MINEFOP agreement number', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45'),
+(13, 'agreement_date', '2024-06-28', 'text', 'legal', 'Date of MINEFOP agreement', NULL, '2026-03-28 17:34:45', '2026-03-28 17:34:45');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `student_enrollments`
+--
+
+CREATE TABLE `student_enrollments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `program_id` int(10) UNSIGNED NOT NULL,
+  `academic_year_id` int(10) UNSIGNED NOT NULL,
+  `enrollment_date` date NOT NULL,
+  `status` enum('pending','active','graduated','dropped') DEFAULT 'pending',
+  `registration_number` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `student_parents`
+--
+
+CREATE TABLE `student_parents` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `student_id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL,
+  `relationship` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tags`
+--
+
+CREATE TABLE `tags` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `slug` varchar(50) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `tags`
+--
+
+INSERT INTO `tags` (`id`, `name`, `slug`, `created_at`) VALUES
+(1, 'Health', 'health', '2026-03-28 17:34:45'),
+(2, 'IT', 'it', '2026-03-28 17:34:45'),
+(3, 'Student Success', 'student-success', '2026-03-28 17:34:45'),
+(4, 'Events', 'events', '2026-03-28 17:34:45'),
+(5, 'Internship', 'internship', '2026-03-28 17:34:45'),
+(6, 'Announcements', 'announcements', '2026-03-28 17:34:45'),
+(7, 'Publications', 'publications', '2026-03-28 17:34:45'),
+(8, 'Video', 'video', '2026-03-28 17:34:45');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `testimonials`
+--
+
+CREATE TABLE `testimonials` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `student_name` varchar(100) NOT NULL,
+  `student_program` varchar(100) DEFAULT NULL,
+  `student_avatar` varchar(255) DEFAULT NULL,
+  `testimonial_text` text NOT NULL,
+  `media_type` enum('image','video') DEFAULT 'image',
+  `media_url` varchar(500) DEFAULT NULL,
+  `video_poster` varchar(500) DEFAULT NULL,
+  `rating` tinyint(3) UNSIGNED DEFAULT 5,
+  `featured` tinyint(1) DEFAULT 0,
+  `status` enum('pending','approved','rejected') DEFAULT 'pending',
+  `graduation_year` year(4) DEFAULT NULL,
+  `current_position` varchar(100) DEFAULT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `author_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `profile_image` varchar(255) DEFAULT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  `last_login` datetime DEFAULT NULL,
+  `email_verified_at` datetime DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_by` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password_hash`, `first_name`, `last_name`, `phone`, `profile_image`, `role_id`, `is_active`, `last_login`, `email_verified_at`, `remember_token`, `created_by`, `created_at`, `updated_at`) VALUES
+(1, 'superadmin', 'admin@unitedacademy-uard.cm', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Super', 'Admin', NULL, NULL, 1, 1, '2026-04-06 17:20:55', NULL, NULL, NULL, '2026-03-28 17:34:45', '2026-04-06 16:20:55');
+
+--
+-- Déclencheurs `users`
+--
+DELIMITER $$
+CREATE TRIGGER `trg_log_user_creation` AFTER INSERT ON `users` FOR EACH ROW BEGIN
+    INSERT INTO activity_logs (user_id, action, table_name, record_id, new_data)
+    VALUES (NEW.created_by, 'CREATE', 'users', NEW.id, JSON_OBJECT('username', NEW.username, 'email', NEW.email, 'role_id', NEW.role_id));
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `vw_active_programs`
+-- (Voir ci-dessous la vue réelle)
+--
+CREATE TABLE `vw_active_programs` (
+`id` int(10) unsigned
+,`name` varchar(100)
+,`slug` varchar(100)
+,`category` enum('health','it','short')
+,`level` varchar(50)
+,`duration` varchar(50)
+,`description` text
+,`curriculum` text
+,`image` varchar(255)
+,`icon_class` varchar(50)
+,`features` longtext
+,`order_position` int(11)
+,`is_active` tinyint(1)
+,`created_at` timestamp
+,`updated_at` timestamp
+,`requirements` mediumtext
+);
+
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `vw_approved_testimonials`
+-- (Voir ci-dessous la vue réelle)
+--
+CREATE TABLE `vw_approved_testimonials` (
+`id` int(10) unsigned
+,`student_name` varchar(100)
+,`student_program` varchar(100)
+,`student_avatar` varchar(255)
+,`testimonial_text` text
+,`media_type` enum('image','video')
+,`media_url` varchar(500)
+,`video_poster` varchar(500)
+,`rating` tinyint(3) unsigned
+,`featured` tinyint(1)
+,`graduation_year` year(4)
+,`current_position` varchar(100)
+,`company_name` varchar(100)
+,`created_at` timestamp
+);
+
+-- --------------------------------------------------------
+
+--
+-- Doublure de structure pour la vue `vw_published_blog_posts`
+-- (Voir ci-dessous la vue réelle)
+--
+CREATE TABLE `vw_published_blog_posts` (
+`id` int(10) unsigned
+,`title` varchar(255)
+,`slug` varchar(255)
+,`excerpt` text
+,`content` longtext
+,`featured_image` varchar(255)
+,`media_type` enum('image','video')
+,`media_url` varchar(500)
+,`video_poster` varchar(500)
+,`category` enum('blog','news','events','publications','video')
+,`featured` tinyint(1)
+,`views` int(10) unsigned
+,`published_at` datetime
+,`first_name` varchar(100)
+,`last_name` varchar(100)
+,`author_username` varchar(50)
+,`tags` mediumtext
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `vw_active_programs`
+--
+DROP TABLE IF EXISTS `vw_active_programs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_active_programs`  AS SELECT `p`.`id` AS `id`, `p`.`name` AS `name`, `p`.`slug` AS `slug`, `p`.`category` AS `category`, `p`.`level` AS `level`, `p`.`duration` AS `duration`, `p`.`description` AS `description`, `p`.`curriculum` AS `curriculum`, `p`.`image` AS `image`, `p`.`icon_class` AS `icon_class`, `p`.`features` AS `features`, `p`.`order_position` AS `order_position`, `p`.`is_active` AS `is_active`, `p`.`created_at` AS `created_at`, `p`.`updated_at` AS `updated_at`, group_concat(`pr`.`requirement` order by `pr`.`order_position` ASC separator '||') AS `requirements` FROM (`programs` `p` left join `program_requirements` `pr` on(`p`.`id` = `pr`.`program_id`)) WHERE `p`.`is_active` = 1 GROUP BY `p`.`id` ORDER BY `p`.`order_position` ASC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `vw_approved_testimonials`
+--
+DROP TABLE IF EXISTS `vw_approved_testimonials`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_approved_testimonials`  AS SELECT `t`.`id` AS `id`, `t`.`student_name` AS `student_name`, `t`.`student_program` AS `student_program`, `t`.`student_avatar` AS `student_avatar`, `t`.`testimonial_text` AS `testimonial_text`, `t`.`media_type` AS `media_type`, `t`.`media_url` AS `media_url`, `t`.`video_poster` AS `video_poster`, `t`.`rating` AS `rating`, `t`.`featured` AS `featured`, `t`.`graduation_year` AS `graduation_year`, `t`.`current_position` AS `current_position`, `t`.`company_name` AS `company_name`, `t`.`created_at` AS `created_at` FROM `testimonials` AS `t` WHERE `t`.`status` = 'approved' ORDER BY `t`.`featured` DESC, `t`.`created_at` DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la vue `vw_published_blog_posts`
+--
+DROP TABLE IF EXISTS `vw_published_blog_posts`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_published_blog_posts`  AS SELECT `bp`.`id` AS `id`, `bp`.`title` AS `title`, `bp`.`slug` AS `slug`, `bp`.`excerpt` AS `excerpt`, `bp`.`content` AS `content`, `bp`.`featured_image` AS `featured_image`, `bp`.`media_type` AS `media_type`, `bp`.`media_url` AS `media_url`, `bp`.`video_poster` AS `video_poster`, `bp`.`category` AS `category`, `bp`.`featured` AS `featured`, `bp`.`views` AS `views`, `bp`.`published_at` AS `published_at`, `u`.`first_name` AS `first_name`, `u`.`last_name` AS `last_name`, `u`.`username` AS `author_username`, group_concat(distinct `t`.`name` order by `t`.`name` ASC separator ', ') AS `tags` FROM (((`blog_posts` `bp` left join `users` `u` on(`bp`.`author_id` = `u`.`id`)) left join `blog_post_tags` `bpt` on(`bp`.`id` = `bpt`.`blog_post_id`)) left join `tags` `t` on(`bpt`.`tag_id` = `t`.`id`)) WHERE `bp`.`status` = 'published' GROUP BY `bp`.`id` ORDER BY `bp`.`published_at` DESC ;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `about_content`
+--
+ALTER TABLE `about_content`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `section_key` (`section_key`),
+  ADD KEY `updated_by` (`updated_by`);
+
+--
+-- Index pour la table `academic_years`
+--
+ALTER TABLE `academic_years`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `activity_logs`
+--
+ALTER TABLE `activity_logs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_activity_logs_user_id` (`user_id`),
+  ADD KEY `idx_activity_logs_created_at` (`created_at`),
+  ADD KEY `idx_activity_logs_action` (`action`);
+
+--
+-- Index pour la table `blog_posts`
+--
+ALTER TABLE `blog_posts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`),
+  ADD KEY `author_id` (`author_id`),
+  ADD KEY `idx_blog_posts_status` (`status`),
+  ADD KEY `idx_blog_posts_category` (`category`),
+  ADD KEY `idx_blog_posts_published_at` (`published_at`),
+  ADD KEY `idx_blog_posts_featured` (`featured`),
+  ADD KEY `idx_blog_posts_slug` (`slug`);
+
+--
+-- Index pour la table `blog_post_tags`
+--
+ALTER TABLE `blog_post_tags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_post_tag` (`blog_post_id`,`tag_id`),
+  ADD KEY `tag_id` (`tag_id`);
+
+--
+-- Index pour la table `council_members`
+--
+ALTER TABLE `council_members`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `login_history`
+--
+ALTER TABLE `login_history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Index pour la table `media_library`
+--
+ALTER TABLE `media_library`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uploaded_by` (`uploaded_by`);
+
+--
+-- Index pour la table `partners`
+--
+ALTER TABLE `partners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_email` (`email`),
+  ADD KEY `idx_token` (`token`);
+
+--
+-- Index pour la table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permission_name` (`permission_name`),
+  ADD UNIQUE KEY `permission_slug` (`permission_slug`);
+
+--
+-- Index pour la table `programs`
+--
+ALTER TABLE `programs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`),
+  ADD KEY `idx_programs_category` (`category`),
+  ADD KEY `idx_programs_is_active` (`is_active`);
+
+--
+-- Index pour la table `program_requirements`
+--
+ALTER TABLE `program_requirements`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `program_id` (`program_id`);
+
+--
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `role_name` (`role_name`),
+  ADD UNIQUE KEY `role_slug` (`role_slug`);
+
+--
+-- Index pour la table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_role_permission` (`role_id`,`permission_id`),
+  ADD KEY `permission_id` (`permission_id`);
+
+--
+-- Index pour la table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Index pour la table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `setting_key` (`setting_key`),
+  ADD KEY `updated_by` (`updated_by`);
+
+--
+-- Index pour la table `student_enrollments`
+--
+ALTER TABLE `student_enrollments`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `registration_number` (`registration_number`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `program_id` (`program_id`),
+  ADD KEY `academic_year_id` (`academic_year_id`);
+
+--
+-- Index pour la table `student_parents`
+--
+ALTER TABLE `student_parents`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_student_parent` (`student_id`,`parent_id`),
+  ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Index pour la table `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Index pour la table `testimonials`
+--
+ALTER TABLE `testimonials`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author_id` (`author_id`),
+  ADD KEY `idx_testimonials_status` (`status`),
+  ADD KEY `idx_testimonials_featured` (`featured`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `created_by` (`created_by`),
+  ADD KEY `idx_users_email` (`email`),
+  ADD KEY `idx_users_role_id` (`role_id`),
+  ADD KEY `idx_users_is_active` (`is_active`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `about_content`
+--
+ALTER TABLE `about_content`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `academic_years`
+--
+ALTER TABLE `academic_years`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `activity_logs`
+--
+ALTER TABLE `activity_logs`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `blog_posts`
+--
+ALTER TABLE `blog_posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `blog_post_tags`
+--
+ALTER TABLE `blog_post_tags`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `council_members`
+--
+ALTER TABLE `council_members`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `login_history`
+--
+ALTER TABLE `login_history`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `media_library`
+--
+ALTER TABLE `media_library`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `partners`
+--
+ALTER TABLE `partners`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT pour la table `programs`
+--
+ALTER TABLE `programs`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `program_requirements`
+--
+ALTER TABLE `program_requirements`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `student_enrollments`
+--
+ALTER TABLE `student_enrollments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `student_parents`
+--
+ALTER TABLE `student_parents`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `testimonials`
+--
+ALTER TABLE `testimonials`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `about_content`
+--
+ALTER TABLE `about_content`
+  ADD CONSTRAINT `about_content_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `activity_logs`
+--
+ALTER TABLE `activity_logs`
+  ADD CONSTRAINT `activity_logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Contraintes pour la table `blog_posts`
+--
+ALTER TABLE `blog_posts`
+  ADD CONSTRAINT `blog_posts_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `blog_post_tags`
+--
+ALTER TABLE `blog_post_tags`
+  ADD CONSTRAINT `blog_post_tags_ibfk_1` FOREIGN KEY (`blog_post_id`) REFERENCES `blog_posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `blog_post_tags_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `login_history`
+--
+ALTER TABLE `login_history`
+  ADD CONSTRAINT `login_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `media_library`
+--
+ALTER TABLE `media_library`
+  ADD CONSTRAINT `media_library_ibfk_1` FOREIGN KEY (`uploaded_by`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `program_requirements`
+--
+ALTER TABLE `program_requirements`
+  ADD CONSTRAINT `program_requirements_ibfk_1` FOREIGN KEY (`program_id`) REFERENCES `programs` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `role_permissions`
+--
+ALTER TABLE `role_permissions`
+  ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD CONSTRAINT `sessions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `settings`
+--
+ALTER TABLE `settings`
+  ADD CONSTRAINT `settings_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `student_enrollments`
+--
+ALTER TABLE `student_enrollments`
+  ADD CONSTRAINT `student_enrollments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `student_enrollments_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `programs` (`id`),
+  ADD CONSTRAINT `student_enrollments_ibfk_3` FOREIGN KEY (`academic_year_id`) REFERENCES `academic_years` (`id`);
+
+--
+-- Contraintes pour la table `student_parents`
+--
+ALTER TABLE `student_parents`
+  ADD CONSTRAINT `student_parents_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `student_parents_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `testimonials`
+--
+ALTER TABLE `testimonials`
+  ADD CONSTRAINT `testimonials_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
