@@ -90,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $logStmt->execute([$_SESSION['user_id'], $postId]);
         
         $success = 'Blog post updated successfully!';
-        header('refresh:2;url=index.php');
     } else {
         $error = 'Failed to update blog post. Please try again.';
     }
@@ -335,7 +334,7 @@ $extraJs = '<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         </div>
         
         <div class="form-group">
-            <button type="submit" class="action-btn edit-btn" style="padding: 0.75rem 2rem; font-size: 1rem;">
+            <button type="submit" class="action-btn edit-btn no-loading" style="padding: 0.75rem 2rem; font-size: 1rem;">
                 <i class="fas fa-save"></i> Update Post
             </button>
         </div>

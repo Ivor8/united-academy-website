@@ -9,3 +9,4 @@
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\uard\admin\blog\index.php on line 376
+[07-Apr-2026 19:46:56 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\uard\admin\includes\header.php:91) in C:\xampp\htdocs\uard\admin\blog\edit.php on line 93

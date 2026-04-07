@@ -60,12 +60,17 @@ function getUserPermissions($roleId) {
 
 // Check permission
 function hasPermission($permissionSlug) {
+    // Temporary fix: Allow all permissions for admin (role_id = 1)
+    if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == 1) {
+        return true;
+    }
+
     if (!isset($_SESSION['role_id'])) return false;
-    
+
     if (!isset($_SESSION['permissions'])) {
         $_SESSION['permissions'] = getUserPermissions($_SESSION['role_id']);
     }
-    
+
     return in_array($permissionSlug, $_SESSION['permissions']);
 }
 

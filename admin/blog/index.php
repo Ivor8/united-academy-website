@@ -35,16 +35,6 @@ $posts = $stmt->fetchAll();
 
 ?>
 
-<!-- Debug: Show user permissions -->
-<div style="background: #f0f0f0; padding: 10px; margin: 10px; border: 1px solid #ccc; font-family: monospace; font-size: 12px;">
-    <strong>Debug - User Permissions:</strong><br>
-    Role ID: <?php echo isset($_SESSION['role_id']) ? $_SESSION['role_id'] : 'Not set'; ?><br>
-    Permissions: <?php echo isset($_SESSION['permissions']) ? implode(', ', $_SESSION['permissions']) : 'Not loaded'; ?><br>
-    Has delete_blog: <?php echo hasPermission('delete_blog') ? 'YES' : 'NO'; ?><br>
-    Has create_blog: <?php echo hasPermission('create_blog') ? 'YES' : 'NO'; ?><br>
-    Has edit_blog: <?php echo hasPermission('edit_blog') ? 'YES' : 'NO'; ?>
-</div>
-
 <div class="blog-management">
     <style>
         :root {
@@ -659,17 +649,11 @@ $posts = $stmt->fetchAll();
                             <a href="edit.php?id=<?php echo $post['id']; ?>" class="action-btn edit-btn no-loading" title="Edit">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <!-- Temporarily show delete button for testing -->
-                            <a href="delete.php?id=<?php echo $post['id']; ?>" class="action-btn delete-btn" title="Delete" onclick="return confirm('Are you sure you want to delete this post?')">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <!-- Original permission check (commented out for testing):
                             <?php if (hasPermission('delete_blog')): ?>
                             <a href="delete.php?id=<?php echo $post['id']; ?>" class="action-btn delete-btn" title="Delete" onclick="return confirm('Are you sure you want to delete this post?')">
                                 <i class="fas fa-trash"></i>
                             </a>
                             <?php endif; ?>
-                            -->
                             <a href="<?php echo SITE_URL . 'blog.php?id=' . $post['id']; ?>" target="_blank" class="action-btn view-btn" title="View">
                                 <i class="fas fa-eye"></i>
                             </a>
