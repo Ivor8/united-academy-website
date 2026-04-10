@@ -99,7 +99,7 @@ $testimonials = $testimonialStmt->fetchAll();
         <!-- ========== HERO SECTION (thicker overlay) ========== -->
         <section id="home" class="hero">
             <div class="hero-slider">
-                <div class="slide active" style="background-image: url('assets/images/hero1.jpg');"></div>
+                <div class="slide active" style="background-image: url('assets/images/school building.jpeg');"></div>
                 <div class="slide" style="background-image: url('assets/images/hero2.jpg');"></div>
             </div>
             <div class="thick-overlay"></div>
@@ -138,7 +138,7 @@ $testimonials = $testimonialStmt->fetchAll();
                         </div>
                     </div>
                     <div class="about-image fade-up">
-                        <img src="assets/images/about top.jpg" alt="Students at UNITED ACADEMY-UARD lab" loading="lazy">
+                        <img src="assets/images/school building.jpeg" alt="Students at UNITED ACADEMY-UARD lab" loading="lazy">
                     </div>
                 </div>
             </div>

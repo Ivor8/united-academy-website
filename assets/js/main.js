@@ -439,8 +439,10 @@
             values_title: "Nos valeurs",
             values_text: "Excellence, intégrité, innovation pratique, respect et engagement envers la réussite de chaque étudiant.",
             // Index page specific content
-            index_about_p1: "<strong>L'Institut de Formation Professionnelle UNITED ACADEMY-UARD</strong> est un centre agréé MINEFOP (Agrément N° <strong>00300/MINEFOP/SG/DFOP/SDGSF/CSACD/CBAC</strong>) situé à Yaoundé, Simbock. Depuis 2024, nous allonsions l'excellence académique aux compétences pratiques pour préparer la prochaine génération de professionnels de la santé, de l'informatique et du management.",
+            index_about_p1: "<strong>L'Institut de Formation Professionnelle UNITED ACADEMY-UARD</strong> est un centre agréé MINEFOP (Agrément N° <strong>00300/MINEFOP/SG/DFOP/SDGSF/CSACD/CBAC</strong>) situé à Yaoundé, Simbock. Depuis 2024, nous allionsions l'excellence académique aux compétences pratiques pour préparer la prochaine génération de professionnels de la santé, de l'informatique et du management.",
             index_about_p2: "Notre mission : délivrer des qualifications certifiées (DQP/CQP) avec un taux de réussite de 100%, grâce à des formateurs experts et des installations modernes. Nous sommes <em>l'école des talents multiples</em> - enracinée dans les valeurs camerounaises et les standards mondiaux.",
+            hero_title: "Bienvenue à <span class='accent'>UNITED ACADEMY-UARD</span>",
+            hero_subtitle: "Votre passerelle vers l'excellence professionnelle au Cameroun",
             why_accredited_desc: "La reconnaissance officielle garantit la validité nationale de votre certification.",
             why_experts_desc: "Apprenez des professionnels de l'industrie avec une expérience réelle.",
             why_jobs_desc: "Taux d'emploi de 98% grâce à notre vaste réseau de partenaires.",

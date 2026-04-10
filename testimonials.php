@@ -80,7 +80,7 @@ $imageTestimonials = array_filter($testimonials, function($t) {
             <div class="container hero-content">
                 <h1>Student <span class="highlight">Testimonials</span></h1>
                 <div class="hero-divider"></div>
-                <p class="hero-subtitle">Real stories from our graduates</p>
+                <!-- <p class="hero-subtitle">Real stories from our graduates</p> -->
             </div>
         </section>
 
