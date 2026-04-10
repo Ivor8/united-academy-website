@@ -4,26 +4,53 @@ require_once 'admin/includes/config.php';
 // Get database connection
 $pdo = getDB();
 
-// Get slug from URL
-$slug = isset($_GET['slug']) ? sanitize($_GET['slug']) : '';
+// Helper function to get proper image URL
+function getImageUrl($imagePath) {
+    if (empty($imagePath)) {
+        return '';
+    }
+    // If it already starts with http, it's a full URL
+    if (strpos($imagePath, 'http') === 0) {
+        return $imagePath;
+    }
+    // Otherwise, append to UPLOAD_URL
+    return UPLOAD_URL . $imagePath;
+}
 
-if (empty($slug)) {
+// Get slug or id from URL
+$slug = isset($_GET['slug']) ? sanitize($_GET['slug']) : '';
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if (empty($slug) && empty($id)) {
     header('Location: blog.php');
     exit();
 }
 
-// Get blog post
-$stmt = $pdo->prepare("
+// Build query based on parameter
+$query = "
     SELECT bp.*, u.first_name, u.last_name, u.username as author_username,
            GROUP_CONCAT(t.name ORDER BY t.name) as tags
     FROM blog_posts bp 
     LEFT JOIN users u ON bp.author_id = u.id 
     LEFT JOIN blog_post_tags bpt ON bp.id = bpt.blog_post_id
     LEFT JOIN tags t ON bpt.tag_id = t.id
-    WHERE bp.slug = ? AND bp.status = 'published'
-    GROUP BY bp.id
-");
-$stmt->execute([$slug]);
+    WHERE bp.status = 'published'";
+
+$params = [];
+
+if (!empty($slug)) {
+    $query .= " AND bp.slug = ?";
+    $params[] = $slug;
+} elseif (!empty($id)) {
+    $query .= " AND bp.id = ?";
+    $params[] = $id;
+}
+
+$query .= " GROUP BY bp.id";
+
+// Get blog post
+$stmt = $pdo->prepare($query);
+$stmt->execute($params);
 $post = $stmt->fetch();
 
 if (!$post) {
@@ -65,7 +92,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
     <!-- Open Graph -->
     <meta property="og:title" content="<?php echo htmlspecialchars($post['title']); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars(strip_tags($post['excerpt'])); ?>">
-    <meta property="og:image" content="<?php echo SITE_URL . (empty($post['featured_image']) ? 'assets/images/logo.jpg' : UPLOAD_URL . $post['featured_image']); ?>">
+    <meta property="og:image" content="<?php echo empty($post['featured_image']) ? SITE_URL . 'assets/images/logo.jpg' : getImageUrl($post['featured_image']); ?>">
     <meta property="og:url" content="<?php echo SITE_URL; ?>blog-single.php?slug=<?php echo $post['slug']; ?>">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
@@ -74,7 +101,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($post['title']); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars(strip_tags($post['excerpt'])); ?>">
-    <meta name="twitter:image" content="<?php echo SITE_URL . (empty($post['featured_image']) ? 'assets/images/logo.jpg' : UPLOAD_URL . $post['featured_image']); ?>">
+    <meta name="twitter:image" content="<?php echo empty($post['featured_image']) ? SITE_URL . 'assets/images/logo.jpg' : getImageUrl($post['featured_image']); ?>">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo SITE_URL; ?>blog-single.php?slug=<?php echo $post['slug']; ?>">
@@ -91,291 +118,403 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
     <link rel="stylesheet" href="assets/css/style.css">
     
     <style>
+        body {
+            background: #f7f9fc;
+            color: #102a43;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
         .blog-hero {
-            background: linear-gradient(135deg, rgba(30, 100, 200, 0.9), rgba(30, 100, 200, 0.7)), 
-                        url('<?php echo empty($post['featured_image']) ? 'assets/images/hero1.jpg' : UPLOAD_URL . $post['featured_image']; ?>');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            color: white;
-            text-align: center;
-            padding: 8rem 2rem;
-            margin-bottom: 3rem;
-            border-radius: 16px;
             position: relative;
             overflow: hidden;
+            border-radius: 26px;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(135deg, rgba(14, 64, 139, 0.85), rgba(26, 115, 232, 0.72)),
+                        url('<?php echo empty($post['featured_image']) ? 'assets/images/hero1.jpg' : getImageUrl($post['featured_image']); ?>');
+            background-size: cover;
+            background-position: center center;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
         }
-        
+
         .blog-hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
+            inset: 0;
+            background: rgba(10, 25, 47, 0.35);
         }
-        
+
         .blog-hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
+            width: 100%;
             max-width: 800px;
-            margin: 0 auto;
+            text-align: center;
+            color: #ffffff;
         }
-        
+
         .blog-category {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            color: #f8fafc;
+            padding: 0.75rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-        
+
         .blog-title {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            line-height: 1.1;
+            font-size: clamp(2.2rem, 3vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin: 0 0 1.2rem;
+            letter-spacing: -0.02em;
         }
-        
+
         .blog-meta {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 1.75rem;
+            font-size: 0.95rem;
+            color: rgba(241, 245, 249, 0.95);
+            opacity: 0.95;
+        }
+
+        .blog-meta span {
+            display: inline-flex;
             align-items: center;
-            gap: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.9;
+            gap: 0.5rem;
         }
-        
+
         .blog-meta i {
-            margin-right: 0.5rem;
+            color: rgba(241, 245, 249, 0.9);
         }
-        
+
         .blog-content {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            background: white;
+            max-width: 920px;
+            margin: -4rem auto 2.5rem;
+            background: #ffffff;
             padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            line-height: 1.8;
+            border-radius: 28px;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+            line-height: 1.85;
+            color: #334155;
+            border: 1px solid rgba(148, 163, 184, 0.18);
         }
-        
+
         .blog-content h1,
         .blog-content h2,
         .blog-content h3 {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
-            color: #1E293B;
-        }
-        
-        .blog-content h1 {
-            font-size: 2.5rem;
+            color: #102a43;
             font-weight: 700;
         }
-        
+
+        .blog-content h1 {
+            font-size: 2.25rem;
+        }
+
         .blog-content h2 {
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 1.8rem;
         }
-        
+
         .blog-content h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.4rem;
         }
-        
-        .blog-content p {
+
+        .blog-content p,
+        .blog-content ul,
+        .blog-content ol,
+        .blog-content blockquote {
+            color: #475569;
+            font-size: 1rem;
             margin-bottom: 1.5rem;
-            color: #4B5563;
         }
-        
+
+        .blog-content ul,
+        .blog-content ol {
+            padding-left: 1.35rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.8rem;
+        }
+
         .blog-content img {
-            max-width: 100%;
+            width: 100%;
+            max-height: 620px;
             height: auto;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 2.2rem 0;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            object-fit: cover;
         }
-        
+
+        .blog-excerpt {
+            margin-bottom: 2rem;
+            padding: 1.75rem 1.8rem;
+            background: #eef2ff;
+            border-left: 4px solid #2563eb;
+            color: #102a43;
+            border-radius: 18px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .blog-content blockquote {
+            padding: 1.8rem 1.6rem;
+            margin: 2rem 0;
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            border-radius: 18px;
+        }
+
         .blog-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 2rem 0;
+            gap: 0.75rem;
+            margin: 2rem 0 0;
         }
-        
+
         .tag {
-            background: #F1F5F9;
-            color: #1E64C8;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            background: #eef2ff;
+            color: #1e3a8a;
+            padding: 0.7rem 1rem;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
         }
-        
+
         .tag:hover {
-            background: #1E64C8;
-            color: white;
+            background: #1d4ed8;
+            color: #ffffff;
             transform: translateY(-2px);
         }
-        
+
         .blog-footer {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: #F8FAFC;
-            border-radius: 16px;
-            text-align: center;
+            max-width: 920px;
+            margin: 0 auto 3rem;
+            padding: 2.2rem 2.4rem;
+            border-radius: 26px;
+            background: #ffffff;
+            border: 1px solid rgba(148, 163, 184, 0.14);
+            box-shadow: 0 22px 50px rgba(15, 23, 42, 0.05);
         }
-        
+
         .author-info {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: auto 1fr;
             gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #E2E8F0;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            color: #64748B;
-            font-size: 1.5rem;
+            margin-bottom: 2rem;
         }
-        
+
+        .author-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: #f8fafc;
+            display: grid;
+            place-items: center;
+            color: #1e3a8a;
+            font-size: 1.75rem;
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .author-details h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1E293B;
-            margin-bottom: 0.25rem;
+            margin: 0 0 0.35rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
         }
-        
+
         .author-details p {
-            color: #64748B;
-            font-size: 0.9rem;
+            margin: 0;
+            color: #64748b;
+            font-size: 0.95rem;
         }
-        
+
         .blog-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            text-align: center;
         }
-        
+
         .stat-item {
-            text-align: center;
+            padding: 1rem 1rem;
+            border-radius: 18px;
+            background: #f8fafc;
+            border: 1px solid rgba(148, 163, 184, 0.12);
         }
-        
+
         .stat-number {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
+            color: #1d4ed8;
             font-weight: 700;
-            color: #1E64C8;
-            display: block;
         }
-        
+
         .stat-label {
-            color: #64748B;
-            font-size: 0.85rem;
+            color: #64748b;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        
+
         .related-posts {
-            margin-top: 3rem;
+            max-width: 920px;
+            margin: 0 auto;
         }
-        
+
         .related-posts h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1E293B;
-            margin-bottom: 2rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.75rem;
             text-align: center;
+            color: #102a43;
         }
-        
+
         .related-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
-        
+
         .related-card {
-            background: white;
-            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 22px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        
+
         .related-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
         }
-        
+
         .related-image {
             width: 100%;
-            height: 200px;
+            aspect-ratio: 16 / 10;
             object-fit: cover;
-            background: #E2E8F0;
+            background: #cbd5e1;
         }
-        
+
         .related-content {
-            padding: 1.5rem;
+            padding: 1.4rem 1.5rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            flex: 1;
         }
-        
+
         .related-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1E293B;
-            margin-bottom: 0.5rem;
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #102a43;
             line-height: 1.4;
         }
-        
+
         .related-meta {
-            font-size: 0.85rem;
-            color: #64748B;
+            font-size: 0.9rem;
+            color: #64748b;
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             align-items: center;
-            gap: 1rem;
         }
-        
-        @media (max-width: 768px) {
-            .blog-hero {
-                padding: 4rem 1rem;
+
+        .related-meta i {
+            color: #2563eb;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                padding: 1.5rem 1.25rem 2.5rem;
             }
-            
+
+            .blog-content {
+                margin-top: -3.25rem;
+                padding: 2.4rem 2rem;
+            }
+
+            .blog-hero {
+                min-height: 360px;
+                padding: 3rem 1.5rem 2.5rem;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .blog-hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+            .main-header .logo-area .logo-text-wrapper {
+                display: none;
+            }
+            .blog-content,
+            .blog-footer,
+            .related-posts {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            .blog-footer {
+                padding: 1.75rem 1.25rem;
+            }
+
             .blog-title {
                 font-size: 2rem;
             }
-            
-            .blog-content {
-                padding: 2rem 1.5rem;
-                margin: 0 auto 2rem;
-            }
-            
-            .blog-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: flex-start;
-            }
-            
-            .related-grid {
+
+            .blog-stats {
                 grid-template-columns: 1fr;
+            }
+
+            .author-info {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+
+            .author-details {
+                align-items: center;
             }
         }
     </style>
@@ -391,7 +530,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
                 <h1 class="blog-title"><?php echo htmlspecialchars($post['title']); ?></h1>
                 <div class="blog-meta">
                     <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($post['first_name'] . ' ' . $post['last_name']); ?></span>
-                    <span><i class="fas fa-calendar"></i> <?php echo date('F j, Y', strtotime($post['published_at'])); ?></span>
+                    <span><i class="fas fa-calendar"></i> <?php echo !empty($post['published_at']) ? date('F j, Y', strtotime($post['published_at'])) : 'Date not set'; ?></span>
                     <span><i class="fas fa-eye"></i> <?php echo number_format($post['views']); ?> views</span>
                 </div>
             </div>
@@ -399,7 +538,17 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
         
         <!-- Blog Content -->
         <section class="blog-content">
-            <?php echo $post['content']; ?>
+            <?php if (!empty($post['excerpt'])): ?>
+                <div class="blog-excerpt"><?php echo nl2br(htmlspecialchars($post['excerpt'])); ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($post['content'])): ?>
+                <div class="blog-body"><?php echo $post['content']; ?></div>
+            <?php else: ?>
+                <div class="blog-body">
+                    <p>This article does not contain a body yet. Please add the blog content in the admin panel.</p>
+                </div>
+            <?php endif; ?>
             
             <!-- Tags -->
             <?php if (!empty($tags)): ?>
@@ -418,14 +567,14 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
             <div class="author-info">
                 <div class="author-avatar">
                     <?php if (!empty($post['featured_image'])): ?>
-                        <img src="<?php echo UPLOAD_URL . $post['featured_image']; ?>" alt="<?php echo htmlspecialchars($post['first_name']); ?>">
+                        <img src="<?php echo getImageUrl($post['featured_image']); ?>" alt="<?php echo htmlspecialchars($post['first_name']); ?>">
                     <?php else: ?>
                         <i class="fas fa-user"></i>
                     <?php endif; ?>
                 </div>
                 <div class="author-details">
                     <h4><?php echo htmlspecialchars($post['first_name'] . ' ' . $post['last_name']); ?></h4>
-                    <p><?php echo date('F j, Y', strtotime($post['published_at'])); ?></p>
+                    <p><?php echo !empty($post['published_at']) ? date('F j, Y', strtotime($post['published_at'])) : 'Date not set'; ?></p>
                 </div>
             </div>
             
@@ -453,7 +602,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
                     <?php foreach ($relatedPosts as $related): ?>
                         <a href="blog-single.php?slug=<?php echo $related['slug']; ?>" class="related-card">
                             <?php if (!empty($related['featured_image'])): ?>
-                                <img src="<?php echo UPLOAD_URL . $related['featured_image']; ?>" alt="<?php echo htmlspecialchars($related['title']); ?>" class="related-image">
+                                <img src="<?php echo getImageUrl($related['featured_image']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>" class="related-image">
                             <?php else: ?>
                                 <div class="related-image" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
                                     <i class="fas fa-blog"></i>
@@ -462,7 +611,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
                             <div class="related-content">
                                 <h4 class="related-title"><?php echo htmlspecialchars($related['title']); ?></h4>
                                 <div class="related-meta">
-                                    <span><i class="fas fa-calendar"></i> <?php echo date('M j, Y', strtotime($related['published_at'])); ?></span>
+                                    <span><i class="fas fa-calendar"></i> <?php echo !empty($related['published_at']) ? date('M j, Y', strtotime($related['published_at'])) : 'Date not set'; ?></span>
                                     <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($related['first_name']); ?></span>
                                 </div>
                             </div>

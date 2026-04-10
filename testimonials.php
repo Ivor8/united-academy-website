@@ -18,21 +18,14 @@ $imageTestimonials = array_filter($testimonials, function($t) {
     return $t['media_type'] === 'image' || !$t['media_url'];
 });
 
-// Get featured testimonial
-$featuredTestimonial = null;
-foreach ($testimonials as $testimonial) {
-    if ($testimonial['featured']) {
-        $featuredTestimonial = $testimonial;
-        break;
-    }
-}
+// REMOVED: truncate() function is already defined in config.php
+// Just use it directly - no need to redeclare
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- META TAGS (SEO) -->
     <title>Testimonials | UNITED ACADEMY-UARD – Student Success Stories</title>
     <meta name="description" content="Read inspiring success stories from UNITED ACADEMY-UARD graduates. Real experiences from students in health, IT, and management programs. Watch video testimonials.">
     <meta name="keywords" content="UNITED ACADEMY-UARD testimonials, student reviews, success stories, vocational training graduates Cameroon, video testimonials">
@@ -51,8 +44,8 @@ foreach ($testimonials as $testimonial) {
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Testimonials CSS -->
-    <link rel="stylesheet" href="assets/css/testimonials.css">
+    <!-- Testimonials Redesign CSS -->
+    <link rel="stylesheet" href="assets/css/testimonials-redesign.css">
 </head>
 <body>
     <div class="page-wrapper">
@@ -62,10 +55,6 @@ foreach ($testimonials as $testimonial) {
             <div class="container header-flex">
                 <div class="logo-area">
                     <img src="assets/images/logo.jpg" alt="UNITED ACADEMY-UARD Logo" class="logo-img" width="50" height="50">
-                    <div class="logo-text-wrapper">
-                        <span class="logo-text">UNITED ACADEMY-UARD</span>
-                        <span class="logo-tagline">Vocational Training Institute</span>
-                    </div>
                 </div>
                 <nav class="main-nav">
                     <ul class="nav-links" id="navLinks">
@@ -86,50 +75,63 @@ foreach ($testimonials as $testimonial) {
             </div>
         </header>
 
-        <!-- ========== PAGE HERO ========== -->
-        <section class="page-hero testimonials-hero">
-            <div class="page-hero-overlay"></div>
-            <div class="container page-hero-content">
-                <h1 data-i18n="testimonials_page_title">Student <span class="accent">Testimonials</span></h1>
-                <div class="divider"></div>
-                <p data-i18n="testimonials_page_sub">Real stories from our graduates</p>
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero-section">
+            <div class="container hero-content">
+                <h1>Student <span class="highlight">Testimonials</span></h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">Real stories from our graduates</p>
             </div>
         </section>
 
         <!-- ========== VIDEO TESTIMONIALS SECTION ========== -->
         <?php if (count($videoTestimonials) > 0): ?>
-        <section class="section video-testimonials-section">
+        <section class="testimonials-section">
             <div class="container">
-                <div class="section-header fade-up">
-                    <h2 data-i18n="video_testimonials_title">Video Testimonials</h2>
-                    <div class="divider"></div>
-                    <p data-i18n="video_testimonials_sub">Watch our students share their experiences</p>
+                <div class="section-header">
+                    <h2>Video <span class="highlight">Testimonials</span></h2>
+                    <div class="section-divider"></div>
+                    <p>Watch our students share their experiences</p>
                 </div>
-                <div class="video-testimonials-grid">
-                    <?php foreach (array_slice($videoTestimonials, 0, 4) as $testimonial): ?>
-                        <div class="video-card fade-up">
-                            <div class="video-wrapper">
-                                <video class="video-thumb" poster="<?php echo htmlspecialchars($testimonial['video_poster'] ?: 'assets/images/default-video-thumb.jpg'); ?>" preload="metadata">
-                                    <source src="<?php echo htmlspecialchars($testimonial['media_url']); ?>" type="video/mp4">
-                                    Your browser does not support video tag.
-                                </video>
-                                <div class="video-overlay">
-                                    <button class="play-video-btn" 
-                                            data-video-src="<?php echo htmlspecialchars($testimonial['media_url']); ?>" 
-                                            data-video-poster="<?php echo htmlspecialchars($testimonial['video_poster'] ?: 'assets/images/default-video-thumb.jpg'); ?>" 
-                                            data-video-title="<?php echo htmlspecialchars($testimonial['student_name']); ?> - <?php echo htmlspecialchars($testimonial['student_program'] ?: 'Graduate'); ?>" 
-                                            data-video-desc="<?php echo htmlspecialchars(truncate($testimonial['testimonial_text'], 100)); ?>">
-                                        <i class="fas fa-play-circle"></i>
-                                    </button>
+                <div class="testimonials-grid">
+                    <?php foreach ($videoTestimonials as $testimonial): ?>
+                        <div class="testimonial-card video-card-item">
+                            <div class="testimonial-card-inner">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
                                 </div>
-                            </div>
-                            <div class="video-info">
-                                <h3><?php echo htmlspecialchars($testimonial['student_name']); ?> - <?php echo htmlspecialchars($testimonial['student_program'] ?: 'Graduate'); ?></h3>
-                                <p>"<?php echo htmlspecialchars(truncate($testimonial['testimonial_text'], 80)); ?>"</p>
-                                <span class="video-duration">
-                                    <i class="fas fa-star"></i> 
-                                    <?php echo str_repeat('★', $testimonial['rating']); ?><?php echo str_repeat('☆', 5 - $testimonial['rating']); ?>
-                                </span>
+                                <p class="testimonial-text">"<?php echo htmlspecialchars($testimonial['testimonial_text']); ?>"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <?php if ($testimonial['student_avatar']): ?>
+                                            <img src="<?php echo htmlspecialchars($testimonial['student_avatar']); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>">
+                                        <?php else: ?>
+                                            <i class="fas fa-user-circle"></i>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="author-details">
+                                        <h4><?php echo htmlspecialchars($testimonial['student_name']); ?></h4>
+                                        <p class="program"><?php echo htmlspecialchars($testimonial['student_program'] ?: 'Graduate'); ?></p>
+                                        <?php if ($testimonial['graduation_year']): ?>
+                                            <p class="graduation-year">Class of <?php echo $testimonial['graduation_year']; ?></p>
+                                        <?php endif; ?>
+                                        <?php if ($testimonial['current_position']): ?>
+                                            <p class="position"><?php echo htmlspecialchars($testimonial['current_position']); ?><?php if ($testimonial['company_name']): ?> at <?php echo htmlspecialchars($testimonial['company_name']); endif; ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="testimonial-footer">
+                                    <div class="rating">
+                                        <?php 
+                                        $rating = (int)$testimonial['rating'];
+                                        for($i = 1; $i <= 5; $i++): ?>
+                                            <i class="fas fa-star<?php echo $i <= $rating ? '' : '-o'; ?>"></i>
+                                        <?php endfor; ?>
+                                    </div>
+                                    <a href="<?php echo htmlspecialchars($testimonial['media_url']); ?>" class="video-play-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fas fa-play-circle"></i> Watch Video
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -138,134 +140,78 @@ foreach ($testimonials as $testimonial) {
         </section>
         <?php endif; ?>
 
-        <!-- ========== VIDEO MODAL ========== -->
-        <div id="videoModal" class="video-modal">
-            <div class="video-modal-content">
-                <span class="close-modal">&times;</span>
-                <div class="video-container">
-                    <video id="modalVideoPlayer" width="100%" controls>
-                        <source id="modalVideoSource" src="" type="video/mp4">
-                        Your browser does not support video tag.
-                    </video>
-                </div>
-                <div class="video-modal-info" id="videoModalInfo">
-                    <h3 id="modalVideoTitle"></h3>
-                    <p id="modalVideoDesc"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== FEATURED TESTIMONIAL (QUOTE) ========== -->
-        <?php if ($featuredTestimonial): ?>
-        <section class="section featured-testimonial-section">
-            <div class="container">
-                <div class="featured-testimonial fade-up">
-                    <div class="featured-quote">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p class="featured-text"><?php echo htmlspecialchars($featuredTestimonial['testimonial_text']); ?></p>
-                        <div class="featured-author">
-                            <?php if ($featuredTestimonial['student_avatar']): ?>
-                                <img src="<?php echo htmlspecialchars($featuredTestimonial['student_avatar']); ?>" alt="Student" class="author-image">
-                            <?php else: ?>
-                                <div class="author-image" style="background: var(--light); display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas fa-user" style="font-size: 2rem; color: var(--gray);"></i>
-                                </div>
-                            <?php endif; ?>
-                            <div>
-                                <p><strong><?php echo htmlspecialchars($featuredTestimonial['student_name']); ?></strong></p>
-                                <p><?php echo htmlspecialchars($featuredTestimonial['student_program'] ?: 'Graduate'); ?><?php if ($featuredTestimonial['graduation_year']) echo ', Class of ' . $featuredTestimonial['graduation_year']; ?></p>
-                                <?php if ($featuredTestimonial['current_position']): ?>
-                                    <p><?php echo htmlspecialchars($featuredTestimonial['current_position']); ?><?php if ($featuredTestimonial['company_name']) echo ' at ' . htmlspecialchars($featuredTestimonial['company_name']); ?></p>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php if ($featuredTestimonial['media_type'] === 'video' && $featuredTestimonial['media_url']): ?>
-                        <div class="featured-video">
-                            <div class="video-wrapper">
-                                <video class="video-thumb" poster="<?php echo htmlspecialchars($featuredTestimonial['video_poster'] ?: 'assets/images/default-video-thumb.jpg'); ?>" preload="metadata">
-                                    <source src="<?php echo htmlspecialchars($featuredTestimonial['media_url']); ?>" type="video/mp4">
-                                    Your browser does not support video tag.
-                                </video>
-                                <div class="video-overlay">
-                                    <button class="video-play-btn" 
-                                            data-video-src="<?php echo htmlspecialchars($featuredTestimonial['media_url']); ?>" 
-                                            data-video-poster="<?php echo htmlspecialchars($featuredTestimonial['video_poster'] ?: 'assets/images/default-video-thumb.jpg'); ?>" 
-                                            data-video-title="Featured Testimonial" 
-                                            data-video-desc="<?php echo htmlspecialchars($featuredTestimonial['student_name']); ?>'s full story">
-                                        <i class="fas fa-play-circle"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </section>
-        <?php endif; ?>
-
         <!-- ========== STATS SECTION ========== -->
-        <section class="section stats-section">
+        <section class="stats-section">
             <div class="container">
                 <div class="stats-grid">
-                    <div class="stat-item fade-up">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label" data-i18n="stat_success">Success rate</span>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Success Rate</div>
                     </div>
-                    <div class="stat-item fade-up">
-                        <span class="stat-number"><?php echo count($testimonials); ?>+</span>
-                        <span class="stat-label" data-i18n="stat_graduates">Graduates</span>
+                    <div class="stat-card">
+                        <div class="stat-number"><?php echo count($testimonials); ?>+</div>
+                        <div class="stat-label">Happy Graduates</div>
                     </div>
-                    <div class="stat-item fade-up">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label" data-i18n="stat_employment">Employment rate</span>
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Employment Rate</div>
                     </div>
-                    <div class="stat-item fade-up">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label" data-i18n="stat_partners">Partner clinics</span>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Partner Clinics</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== ALL TESTIMONIALS SECTION ========== -->
+        <!-- ========== WRITTEN TESTIMONIALS SECTION ========== -->
         <?php if (count($imageTestimonials) > 0): ?>
-        <section class="section testimonials-grid-section">
+        <section class="testimonials-section written-section">
             <div class="container">
-                <div class="section-header fade-up">
-                    <h2>Student Success Stories</h2>
-                    <div class="divider"></div>
+                <div class="section-header">
+                    <h2>Success <span class="highlight">Stories</span></h2>
+                    <div class="section-divider"></div>
+                    <p>What our graduates say about us</p>
                 </div>
                 <div class="testimonials-grid">
                     <?php foreach ($imageTestimonials as $testimonial): ?>
-                        <div class="testimonial-card fade-up">
-                            <div class="testimonial-header">
-                                <?php if ($testimonial['student_avatar']): ?>
-                                    <img src="<?php echo htmlspecialchars($testimonial['student_avatar']); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>" class="student-avatar">
-                                <?php else: ?>
-                                    <div class="student-avatar" style="background: var(--light); display: flex; align-items: center; justify-content: center;">
-                                        <i class="fas fa-user" style="color: var(--gray);"></i>
+                        <div class="testimonial-card">
+                            <div class="testimonial-card-inner">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">"<?php echo htmlspecialchars($testimonial['testimonial_text']); ?>"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <?php if ($testimonial['student_avatar']): ?>
+                                            <img src="<?php echo htmlspecialchars($testimonial['student_avatar']); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>">
+                                        <?php else: ?>
+                                            <i class="fas fa-user-circle"></i>
+                                        <?php endif; ?>
                                     </div>
-                                <?php endif; ?>
-                                <div class="student-info">
-                                    <h4><?php echo htmlspecialchars($testimonial['student_name']); ?></h4>
-                                    <p><?php echo htmlspecialchars($testimonial['student_program'] ?: 'Graduate'); ?><?php if ($testimonial['graduation_year']) echo ', Class of ' . $testimonial['graduation_year']; ?></p>
-                                    <?php if ($testimonial['current_position']): ?>
-                                        <p class="current-position"><?php echo htmlspecialchars($testimonial['current_position']); ?><?php if ($testimonial['company_name']) echo ' at ' . htmlspecialchars($testimonial['company_name']); ?></p>
+                                    <div class="author-details">
+                                        <h4><?php echo htmlspecialchars($testimonial['student_name']); ?></h4>
+                                        <p class="program"><?php echo htmlspecialchars($testimonial['student_program'] ?: 'Graduate'); ?></p>
+                                        <?php if ($testimonial['graduation_year']): ?>
+                                            <p class="graduation-year">Class of <?php echo $testimonial['graduation_year']; ?></p>
+                                        <?php endif; ?>
+                                        <?php if ($testimonial['current_position']): ?>
+                                            <p class="position"><?php echo htmlspecialchars($testimonial['current_position']); ?><?php if ($testimonial['company_name']): ?> at <?php echo htmlspecialchars($testimonial['company_name']); endif; ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="testimonial-footer">
+                                    <div class="rating">
+                                        <?php 
+                                        $rating = (int)$testimonial['rating'];
+                                        for($i = 1; $i <= 5; $i++): ?>
+                                            <i class="fas fa-star<?php echo $i <= $rating ? '' : '-o'; ?>"></i>
+                                        <?php endfor; ?>
+                                    </div>
+                                    <?php if ($testimonial['featured']): ?>
+                                        <span class="featured-badge"><i class="fas fa-trophy"></i> Featured</span>
                                     <?php endif; ?>
                                 </div>
-                            </div>
-                            <div class="testimonial-content">
-                                <i class="fas fa-quote-left quote-icon"></i>
-                                <p><?php echo htmlspecialchars($testimonial['testimonial_text']); ?></p>
-                            </div>
-                            <div class="testimonial-footer">
-                                <div class="rating">
-                                    <?php echo str_repeat('★', $testimonial['rating']); ?><?php echo str_repeat('☆', 5 - $testimonial['rating']); ?>
-                                </div>
-                                <?php if ($testimonial['featured']): ?>
-                                    <span class="featured-badge"><i class="fas fa-star"></i> Featured</span>
-                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -275,11 +221,11 @@ foreach ($testimonials as $testimonial) {
         <?php endif; ?>
 
         <!-- ========== CTA SECTION ========== -->
-        <section class="section cta-section">
+        <section class="cta-section">
             <div class="container cta-content">
-                <h2 data-i18n="cta_testimonials">Ready to write your own success story?</h2>
-                <p data-i18n="cta_testimonials_sub">Join UNITED ACADEMY-UARD and become part of our growing family.</p>
-                <a href="contact.php" class="btn btn-primary" data-i18n="cta_contact">Enroll now</a>
+                <h2>Ready to write your own <span class="highlight">success story?</span></h2>
+                <p>Join UNITED ACADEMY-UARD and become part of our growing family</p>
+                <a href="contact.php" class="cta-button">Enroll Now <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
@@ -332,44 +278,6 @@ foreach ($testimonials as $testimonial) {
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <!-- Testimonials JS -->
-    <script>
-        // Video modal functionality
-        const videoModal = document.getElementById('videoModal');
-        const modalVideoPlayer = document.getElementById('modalVideoPlayer');
-        const modalVideoSource = document.getElementById('modalVideoSource');
-        const modalVideoTitle = document.getElementById('modalVideoTitle');
-        const modalVideoDesc = document.getElementById('modalVideoDesc');
-
-        // Play video buttons
-        document.querySelectorAll('.play-video-btn, .video-play-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const videoSrc = this.dataset.videoSrc;
-                const videoPoster = this.dataset.videoPoster;
-                const videoTitle = this.dataset.videoTitle;
-                const videoDesc = this.dataset.videoDesc;
-
-                modalVideoPlayer.poster = videoPoster;
-                modalVideoSource.src = videoSrc;
-                modalVideoTitle.textContent = videoTitle;
-                modalVideoDesc.textContent = videoDesc;
-                videoModal.style.display = 'flex';
-                modalVideoPlayer.load();
-            });
-        });
-
-        // Close modal
-        document.querySelector('.close-modal').addEventListener('click', function() {
-            videoModal.style.display = 'none';
-            modalVideoPlayer.pause();
-        });
-
-        // Close modal on outside click
-        videoModal.addEventListener('click', function(e) {
-            if (e.target === videoModal) {
-                videoModal.style.display = 'none';
-                modalVideoPlayer.pause();
-            }
-        });
-    </script>
+    <script src="assets/js/testimonials-redesign.js"></script>
 </body>
 </html>

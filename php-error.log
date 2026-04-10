@@ -10,3 +10,45 @@ Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\uard\admin\blog\index.php on line 376
 [07-Apr-2026 19:46:56 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\uard\admin\includes\header.php:91) in C:\xampp\htdocs\uard\admin\blog\edit.php on line 93
+[07-Apr-2026 21:09:46 Europe/Berlin] PHP Warning:  include(includes/header.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\blog-single.php on line 398
+[07-Apr-2026 21:09:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'includes/header.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\blog-single.php on line 398
+[07-Apr-2026 21:09:46 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 408
+[07-Apr-2026 21:09:46 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 442
+[07-Apr-2026 21:09:46 Europe/Berlin] PHP Warning:  include(includes/footer.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\blog-single.php on line 490
+[07-Apr-2026 21:09:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'includes/footer.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\blog-single.php on line 490
+[07-Apr-2026 21:10:23 Europe/Berlin] PHP Warning:  include(includes/header.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\blog-single.php on line 398
+[07-Apr-2026 21:10:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'includes/header.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\blog-single.php on line 398
+[07-Apr-2026 21:10:23 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 408
+[07-Apr-2026 21:10:23 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 442
+[07-Apr-2026 21:10:23 Europe/Berlin] PHP Warning:  include(includes/footer.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\blog-single.php on line 490
+[07-Apr-2026 21:10:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'includes/footer.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\blog-single.php on line 490
+[08-Apr-2026 13:19:15 Europe/Berlin] PHP Warning:  include(includes/header.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\blog-single.php on line 398
+[08-Apr-2026 13:19:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'includes/header.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\blog-single.php on line 398
+[08-Apr-2026 13:19:15 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 408
+[08-Apr-2026 13:19:15 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 442
+[08-Apr-2026 13:19:15 Europe/Berlin] PHP Warning:  include(includes/footer.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\blog-single.php on line 490
+[08-Apr-2026 13:19:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'includes/footer.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\blog-single.php on line 490
+[08-Apr-2026 13:21:45 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 408
+[08-Apr-2026 13:21:45 Europe/Berlin] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\uard\blog-single.php on line 442
+[08-Apr-2026 15:09:21 Europe/Berlin] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\uard\index.php on line 5
+[08-Apr-2026 15:09:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\uard\index.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\index.php on line 5
+[08-Apr-2026 15:10:18 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:10:27 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:10:28 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:10:28 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:10:58 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:19:43 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:19:48 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 15:21:51 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 17:25:08 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 17:25:18 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 17:28:05 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[08-Apr-2026 17:47:14 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[10-Apr-2026 09:16:01 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[10-Apr-2026 09:16:20 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[10-Apr-2026 09:17:34 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[10-Apr-2026 11:27:29 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[10-Apr-2026 11:27:37 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245

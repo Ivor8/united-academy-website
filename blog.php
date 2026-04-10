@@ -104,6 +104,67 @@ $featuredPost = $featuredStmt->fetch();
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Blog page CSS -->
     <link rel="stylesheet" href="assets/css/blog.css">
+    <style>
+        /* Enhanced blog card hover effects */
+        .blog-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(30,100,200,0.15);
+        }
+        
+        .blog-card:hover .blog-image {
+            transform: scale(1.08);
+        }
+        
+        .blog-card:hover .video-overlay {
+            opacity: 1;
+        }
+        
+        .read-more-btn:hover {
+            background: linear-gradient(135deg, #2E7D32, #1E64C8) !important;
+            transform: translateX(5px);
+        }
+        
+        .read-more-btn:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Enhanced video overlay animation */
+        .video-overlay:hover {
+            opacity: 1 !important;
+        }
+        
+        .play-video-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Smooth animations */
+        .blog-card {
+            animation: cardSlideIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes cardSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive enhancements */
+        @media (max-width: 768px) {
+            .blog-card:hover {
+                transform: translateY(-5px) scale(1.01);
+            }
+            
+            .read-more-btn {
+                padding: 0.7rem 1.2rem !important;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="page-wrapper">
@@ -113,19 +174,15 @@ $featuredPost = $featuredStmt->fetch();
             <div class="container header-flex">
                 <div class="logo-area">
                     <img src="assets/images/logo.jpg" alt="UNITED ACADEMY-UARD Logo" class="logo-img" width="50" height="50">
-                    <div class="logo-text-wrapper">
-                        <span class="logo-text">UNITED ACADEMY-UARD</span>
-                        <span class="logo-tagline">Vocational Training Institute</span>
-                    </div>
                 </div>
                 <nav class="main-nav">
                     <ul class="nav-links" id="navLinks">
                         <li><a href="index.php" class="nav-link" data-i18n="nav_home">Home</a></li>
-                        <li><a href="about.php" class="nav-link" data-i18n="nav_about">About</a></li>
-                        <li><a href="programs.php" class="nav-link" data-i18n="nav_programs">Programs</a></li>
+                        <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
+                        <li><a href="programs.html" class="nav-link" data-i18n="nav_programs">Programs</a></li>
                         <li><a href="testimonials.php" class="nav-link" data-i18n="nav_testimonials">Testimonials</a></li>
                         <li><a href="blog.php" class="nav-link active" data-i18n="nav_news">Updates</a></li>
-                        <li><a href="contact.php" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+                        <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                     <div class="lang-switcher">
                         <button id="lang-en" class="lang-btn">EN</button>
@@ -226,48 +283,51 @@ $featuredPost = $featuredStmt->fetch();
                 <div class="blog-posts-grid" id="blogPostsGrid">
                     <?php if (count($posts) > 0): ?>
                         <?php foreach ($posts as $post): ?>
-                            <article class="blog-card fade-up">
-                                <div class="blog-card-image">
+                            <article class="blog-card fade-up" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid rgba(30,100,200,0.1);">
+                                <div class="blog-card-image" style="position: relative; height: 220px; overflow: hidden;">
                                     <?php if ($post['media_type'] === 'video' && $post['media_url']): ?>
-                                        <video poster="<?php echo htmlspecialchars($post['video_poster'] ?: $post['featured_image']); ?>" preload="metadata" class="blog-video">
+                                        <video poster="<?php echo htmlspecialchars($post['video_poster'] ?: $post['featured_image']); ?>" preload="metadata" class="blog-video" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
                                             <source src="<?php echo htmlspecialchars($post['media_url']); ?>" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
-                                        <div class="video-overlay">
-                                            <button class="play-video-btn" onclick="window.open('blog-single.php?id=<?php echo $post['id']; ?>', '_blank')">
-                                                <i class="fas fa-play-circle"></i>
+                                        <div class="video-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+                                            <button class="play-video-btn" onclick="window.open('blog-single.php?id=<?php echo $post['id']; ?>', '_blank')" style="background: rgba(255,255,255,0.9); border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s;">
+                                                <i class="fas fa-play-circle" style="font-size: 24px; color: var(--blue);"></i>
                                             </button>
                                         </div>
                                     <?php else: ?>
-                                        <img src="<?php echo htmlspecialchars($post['featured_image'] ?: 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>" class="blog-image">
+                                        <img src="<?php echo htmlspecialchars($post['featured_image'] ?: 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>" class="blog-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
                                     <?php endif; ?>
-                                    <div class="post-category"><?php echo ucfirst($post['category']); ?></div>
+                                    <div class="post-category" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #1E64C8, #2E7D32); color: white; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"><?php echo ucfirst($post['category']); ?></div>
                                 </div>
-                                <div class="blog-card-content">
-                                    <h3><a href="blog-single.php?id=<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['title']); ?></a></h3>
-                                    <p><?php echo htmlspecialchars(truncate($post['excerpt'] ?: strip_tags($post['content']), 120)); ?></p>
-                                    <div class="post-meta">
+                                <div class="blog-card-content" style="padding: 1.8rem;">
+                                    <h3 style="font-size: 1.4rem; color: #1E64C8; margin-bottom: 1rem; line-height: 1.4;"><a href="blog-single.php?id=<?php echo $post['id']; ?>" style="text-decoration: none; color: inherit;"><?php echo htmlspecialchars($post['title']); ?></a></h3>
+                                    <p style="color: #4b5563; margin-bottom: 1.5rem; line-height: 1.6;"><?php echo htmlspecialchars(truncate($post['excerpt'] ?: strip_tags($post['content']), 120)); ?></p>
+                                    <div class="post-meta" style="display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.85rem; color: #6b7280;">
                                         <span class="post-author">
-                                            <i class="fas fa-user"></i> 
+                                            <i class="fas fa-user" style="color: #2E7D32; margin-right: 0.3rem;"></i> 
                                             <?php echo htmlspecialchars($post['first_name'] . ' ' . $post['last_name']); ?>
                                         </span>
                                         <span class="post-date">
-                                            <i class="fas fa-calendar"></i> 
+                                            <i class="fas fa-calendar" style="color: #2E7D32; margin-right: 0.3rem;"></i> 
                                             <?php echo formatDate($post['published_at']); ?>
                                         </span>
                                         <span class="post-views">
-                                            <i class="fas fa-eye"></i> 
+                                            <i class="fas fa-eye" style="color: #2E7D32; margin-right: 0.3rem;"></i> 
                                             <?php echo number_format($post['views']); ?>
                                         </span>
                                     </div>
                                     <?php if ($post['tags']): ?>
-                                        <div class="post-tags">
+                                        <div class="post-tags" style="margin-bottom: 1.5rem;">
                                             <?php $tags = explode(',', $post['tags']); ?>
                                             <?php foreach (array_slice($tags, 0, 3) as $tag): ?>
-                                                <span class="tag"><?php echo htmlspecialchars(trim($tag)); ?></span>
+                                                <span class="tag" style="display: inline-block; background: #f3f4f6; color: #4b5563; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin-right: 0.5rem; margin-bottom: 0.5rem;"><?php echo htmlspecialchars(trim($tag)); ?></span>
                                             <?php endforeach; ?>
                                         </div>
                                     <?php endif; ?>
+                                    <div style="border-top: 1px solid #e5e7eb; padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center;">
+                                        <a href="blog-single.php?id=<?php echo $post['id']; ?>" class="read-more-btn" style="background: linear-gradient(135deg, #1E64C8, #2E7D32); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;">Read More <i class="fas fa-arrow-right"></i></a>
+                                    </div>
                                 </div>
                             </article>
                         <?php endforeach; ?>
@@ -385,10 +445,10 @@ $featuredPost = $featuredStmt->fetch();
                         <h4 data-i18n="quick_links">Quick links</h4>
                         <ul>
                             <li><a href="index.php" data-i18n="nav_home">Home</a></li>
-                            <li><a href="about.php" data-i18n="nav_about">About</a></li>
-                            <li><a href="programs.php" data-i18n="nav_programs">Programs</a></li>
+                            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+                            <li><a href="programs.html" data-i18n="nav_programs">Programs</a></li>
                             <li><a href="blog.php" data-i18n="nav_blog">Blog</a></li>
-                            <li><a href="contact.php" data-i18n="nav_contact">Contact</a></li>
+                            <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
