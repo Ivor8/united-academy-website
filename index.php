@@ -105,8 +105,8 @@ $testimonials = $testimonialStmt->fetchAll();
             <div class="thick-overlay"></div>
             <div class="container hero-content">
                 <div class="hero-text-box fade-up">
-                    <h1 class="hero-title">Welcome to <span class="accent">UNITED ACADEMY-UARD</span></h1>
-                    <p class="hero-sub">Your gateway to professional excellence in Cameroon</p>
+                    <h1 class="hero-title" data-i18n="hero_title">Welcome to <span class="accent">UNITED ACADEMY-UARD</span></h1>
+                    <p class="hero-sub" data-i18n="hero_subtitle">Your gateway to professional excellence in Cameroon</p>
                     <div class="hero-buttons">
                         <a href="programs.html" class="btn btn-primary" data-i18n="explore_programs">Explore Programs</a>
                         <a href="contact.html" class="btn btn-outline" data-i18n="contact_us">Contact Us</a>
@@ -128,8 +128,8 @@ $testimonials = $testimonialStmt->fetchAll();
                 </div>
                 <div class="about-grid">
                     <div class="about-text fade-up">
-                        <p><strong>Vocational Training Institute UNITED ACADEMY-UARD</strong> is a MINEFOP-accredited center (Agreement N° <strong>00300/MINEFOP/SG/DFOP/SDGSF/CSACD/CBAC</strong>) located in Yaoundé, Simbock. Since 2024, we blend academic excellence with hands-on skills to prepare the next generation of health, IT, and management professionals.</p>
-                        <p>Our mission: deliver certified qualifications (DQP/CQP) with a 100% success rate, thanks to expert trainers and modern facilities. We are <em>the school of multiple talents</em> - rooted in Cameroonian values and global standards.</p>
+                        <p data-i18n="index_about_p1"><strong>Vocational Training Institute UNITED ACADEMY-UARD</strong> is a MINEFOP-accredited center (Agreement N° <strong>00300/MINEFOP/SG/DFOP/SDGSF/CSACD/CBAC</strong>) located in Yaoundé, Simbock. Since 2024, we blend academic excellence with hands-on skills to prepare the next generation of health, IT, and management professionals.</p>
+                        <p data-i18n="index_about_p2">Our mission: deliver certified qualifications (DQP/CQP) with a 100% success rate, thanks to expert trainers and modern facilities. We are <em>the school of multiple talents</em> - rooted in Cameroonian values and global standards.</p>
                         <div class="about-stats">
                             <div class="stat"><span class="stat-num">100%</span> <span data-i18n="about_success">success rate</span></div>
                             <div class="stat"><span class="stat-num">8+</span> <span data-i18n="about_programs">specialized programs</span></div>
