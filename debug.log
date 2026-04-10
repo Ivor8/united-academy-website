@@ -4974,3 +4974,68 @@ Array
 )
 
 --------------------------------------------------------------------------------
+[2026-04-10 11:56:13] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 11:56:13] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => kgea6g2ce7765ldhrrgr1p94if
+)
+
+--------------------------------------------------------------------------------
+[2026-04-10 11:58:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 11:58:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 4fp3aao57s1btpdd3pujjj9hpm
+)
+
+--------------------------------------------------------------------------------
+[2026-04-10 12:20:06] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 12:20:06] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => 4fp3aao57s1btpdd3pujjj9hpm
+)
+
+--------------------------------------------------------------------------------
+[2026-04-10 12:20:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 12:20:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => uuumn2vha8q6mj4t53a804u8mp
+)
+
+--------------------------------------------------------------------------------
+[2026-04-10 12:21:07] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 12:21:07] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => uuumn2vha8q6mj4t53a804u8mp
+)
+
+--------------------------------------------------------------------------------

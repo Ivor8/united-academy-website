@@ -444,6 +444,35 @@
             council_parent_name: "Mme. Thérèse Essama",
             council_parent_desc: "Défenseur du bien-être des étudiants et de l'engagement communautaire",
             council_mission: "Le Conseil d'Établissement supervise l'orientation stratégique, assure l'assurance qualité et maintient l'alignement de nos programmes sur les normes nationales de formation professionnelle. Le conseil se réunit trimestriellement pour examiner les performances académiques, approuver les nouveaux programmes et renforcer les partenariats avec les parties prenantes de l'industrie.",
+            council_intro: "Le Conseil d'Établissement du Vocational Training Institute of United Academy (VTI-UARD) assure la direction stratégique, la gouvernance pédagogique et la supervision institutionnelle de l'établissement, en conformité stricte avec les missions et exigences du Ministère de l'Emploi et de la Formation Professionnelle (MINEFOP).",
+            council_vision: "Conformément à la politique nationale de formation professionnelle, le VTI-UARD aligne ses actions sur une approche de formation par compétences, visant la qualification professionnelle, l'employabilité et l'intégration socio-professionnelle durable des apprenants.",
+            council_competence_title: "Formation par Compétences et Cadres Professionnels",
+            council_competence_text: "Le Conseil d'Établissement veille à ce que tous les programmes offerts par le VTI-UARD soient conçus et mis en oeuvre sur la base de :",
+            council_competence_1: "cadres professionnels et de compétences, en ligne avec les réalités du marché du travail",
+            council_competence_2: "programmes structurés autour de situations professionnelles, de savoir-faire pratiques et de compétences mesurables",
+            council_competence_3: "une articulation équilibrée entre enseignement théorique, travaux pratiques, stages professionnels et immersion en milieu de travail",
+            council_competence_conclusion: "Cette approche permet aux apprenants de développer des compétences directement utilisables dans leur futur environnement professionnel, conformément aux directives du MINEFOP.",
+            council_qualification_title: "Qualification Professionnelle et Certification",
+            council_qualification_text: "Le Conseil d'Établissement accorde une importance particulière à la qualification professionnelle, comprise comme la reconnaissance formelle des compétences acquises à l'issue d'un parcours de formation.",
+            council_qualification_assures: "À cet égard, il assure :",
+            council_qualification_1: "la conformité des parcours de formation aux niveaux de qualification professionnelle reconnus",
+            council_qualification_2: "la mise en oeuvre de méthodes d'évaluation objectives, normées et transparentes, alignées sur les exigences du MINEFOP",
+            council_qualification_3: "la crédibilité et la valeur professionnelle des attestations et certificats délivrés",
+            council_insertion_title: "Insertion socioprofessionnelle et partenariats",
+            council_insertion_text: "Dans la logique d'insertion professionnelle prônée par le MINEFOP, le Conseil d'Établissement encourage :",
+            council_insertion_1: "le développement de partenariats solides avec les entreprises, structures professionnelles et institutions publiques ou privées",
+            council_insertion_2: "l'organisation et le suivi rigoureux des stages académiques et professionnels, intégrés comme composante obligatoire des parcours de formation",
+            council_insertion_3: "l'accompagnement des apprenants vers l'emploi, l'auto-emploi et l'entrepreneuriat",
+            council_insertion_conclusion: "Le VTI-UARD se positionne ainsi comme un acteur de la lutte contre le chômage, en formant une main-d'oeuvre qualifiée, immédiatement opérationnelle et adaptée aux besoins du tissu socio-économique.",
+            council_governance_title: "Gouvernance, discipline et assurance qualité",
+            council_governance_text: "Le Conseil d'Établissement veille à :",
+            council_governance_1: "l'application stricte des textes réglementaires encadrant les établissements privés de formation professionnelle",
+            council_governance_2: "la mise en place de mécanismes d'assurance et d'amélioration continue de la qualité",
+            council_governance_3: "le respect de la discipline, de l'éthique, de la responsabilité et du professionnalisme par l'ensemble des acteurs de l'institution",
+            council_governance_conclusion: "Ces exigences constituent un gage de crédibilité auprès du MINEFOP, des partenaires professionnels et des bénéficiaires de la formation.",
+            council_engagement_title: "Engagement institutionnel",
+            council_engagement_text: "Le Conseil d'Établissement réaffirme sa détermination à faire du Vocational Training Institute of United Academy (VTI-UARD) une institution de référence en matière de formation professionnelle par compétences, contribuant efficacement au développement du capital humain et à la croissance socio-économique.",
+            council_engagement_invitation: "Il invite les apprenants, les formateurs, le personnel administratif et les partenaires à oeuvrer collectivement, dans un esprit de rigueur et d'excellence, pour le rayonnement du VTI-UARD.",
             infra_title: "Nos infrastructures",
             infra_lab: "Laboratoire paramédical entièrement équipé avec microscopes, centrifugeuses, stéthoscopes et matériel de simulation.",
             infra_computer: "Postes informatiques modernes, vidéoprojecteurs et suite logicielle créative.",
@@ -602,7 +631,10 @@
                 el.placeholder = i18n[lang][key];
             }
         });
-        renderBlogPosts(lang);
+        // Only call renderBlogPosts if function exists (for blog page)
+        if (typeof renderBlogPosts === 'function') {
+            renderBlogPosts(lang);
+        }
     }
 
     // blog dataset
@@ -710,7 +742,10 @@
     // initial setup - check for saved language preference
     const savedLang = localStorage.getItem('uau-language') || 'fr';
     setLanguage(savedLang);
-    renderBlogPosts(savedLang);
+    // Only call renderBlogPosts if function exists (for blog page)
+    if (typeof renderBlogPosts === 'function') {
+        renderBlogPosts(savedLang);
+    }
 
     // lang buttons
     langEnBtn.addEventListener('click', () => setLanguage('en'));
