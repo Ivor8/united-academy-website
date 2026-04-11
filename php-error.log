@@ -92,3 +92,16 @@ Array
 
 --------------------------------------------------------------------------------
 [11-Apr-2026 14:16:21 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 245
+[2026-04-11 14:49:41] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-11 14:49:41] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => mrv2sk86t0dce9j7ut8qvdqeeb
+)
+
+--------------------------------------------------------------------------------

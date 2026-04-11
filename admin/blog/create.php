@@ -275,18 +275,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const mediaTypeSelect = document.getElementById("mediaType");
     const mediaImageRow = document.getElementById("mediaImageRow");
     const mediaVideoRow = document.getElementById("mediaVideoRow");
+    const mediaPdfRow = document.getElementById("mediaPdfRow");
     const mediaUrlInput = document.getElementById("mediaUrlInput");
     const mediaPreview = document.getElementById("mediaPreview");
     
     if (mediaTypeSelect) {
         function toggleMediaFields() {
-            if (mediaTypeSelect.value === "video") {
-                mediaImageRow.classList.add("hidden");
-                mediaVideoRow.classList.remove("hidden");
-            } else {
-                mediaImageRow.classList.remove("hidden");
-                mediaVideoRow.classList.add("hidden");
-            }
+            const selectedType = mediaTypeSelect.value;
+            mediaImageRow.style.display = selectedType === "image" ? "block" : "none";
+            mediaVideoRow.style.display = selectedType === "video" ? "block" : "none";
+            mediaPdfRow.style.display = selectedType === "pdf" ? "block" : "none";
             previewMedia();
         }
         
@@ -418,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
 
-        <div id="mediaPdfRow" class="hidden">
+        <div id="mediaPdfRow" style="display: none;">
             <div class="form-group">
                 <label>Upload PDF Document</label>
                 <input type="file" name="media_file" accept="application/pdf">
@@ -426,7 +424,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         
-        <div id="mediaVideoRow" class="hidden">
+        <div id="mediaVideoRow" style="display: none;">
             <div class="form-group">
                 <label>Media URL (Video)</label>
                 <input type="text" id="mediaUrlInput" name="media_url" placeholder="https://example.com/video.mp4" value="<?php echo isset($formData['media_url']) ? htmlspecialchars($formData['media_url']) : ''; ?>">
