@@ -5416,3 +5416,29 @@ Array
 )
 
 --------------------------------------------------------------------------------
+[2026-04-10 21:15:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 21:15:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------
+[2026-04-10 21:15:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-04-10 21:15:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:/xampp/htdocs/uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => khccm53inkuv9q9fl1h3r0aotu
+)
+
+--------------------------------------------------------------------------------

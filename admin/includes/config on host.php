@@ -9,7 +9,7 @@ define('DB_NAME', 'unite2778402');
 
 // Site Configuration
 define('SITE_NAME', 'UNITED ACADEMY-UARD');
-define('SITE_URL', 'http://localhost/uard/');
+define('SITE_URL', 'http://www.unitedacademy-uard.org/uard/');
 define('ADMIN_URL', SITE_URL . 'admin/');
 define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/uard/uploads/');
 define('UPLOAD_URL', SITE_URL . 'uploads/');
