@@ -104,7 +104,7 @@ $imageTestimonials = array_filter($testimonials, function($t) {
                                 <div class="testimonial-author">
                                     <div class="author-avatar">
                                         <?php if ($testimonial['student_avatar']): ?>
-                                            <img src="<?php echo htmlspecialchars($testimonial['student_avatar']); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>">
+                                            <img src="<?php echo htmlspecialchars(getUploadUrl($testimonial['student_avatar'])); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>">
                                         <?php else: ?>
                                             <i class="fas fa-user-circle"></i>
                                         <?php endif; ?>
