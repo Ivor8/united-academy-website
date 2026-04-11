@@ -128,7 +128,7 @@ $imageTestimonials = array_filter($testimonials, function($t) {
                                             <i class="fas fa-star<?php echo $i <= $rating ? '' : '-o'; ?>"></i>
                                         <?php endfor; ?>
                                     </div>
-                                    <a href="<?php echo htmlspecialchars($testimonial['media_url']); ?>" class="video-play-link" target="_blank" rel="noopener noreferrer">
+                                    <a href="<?php echo htmlspecialchars(getUploadUrl($testimonial['media_url'])); ?>" class="video-play-link" target="_blank" rel="noopener noreferrer">
                                         <i class="fas fa-play-circle"></i> Watch Video
                                     </a>
                                 </div>
@@ -184,7 +184,7 @@ $imageTestimonials = array_filter($testimonials, function($t) {
                                 <div class="testimonial-author">
                                     <div class="author-avatar">
                                         <?php if ($testimonial['student_avatar']): ?>
-                                            <img src="<?php echo htmlspecialchars($testimonial['student_avatar']); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>">
+                                            <img src="<?php echo htmlspecialchars(getUploadUrl($testimonial['student_avatar'])); ?>" alt="<?php echo htmlspecialchars($testimonial['student_name']); ?>">
                                         <?php else: ?>
                                             <i class="fas fa-user-circle"></i>
                                         <?php endif; ?>

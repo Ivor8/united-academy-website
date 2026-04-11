@@ -310,8 +310,8 @@ $testimonials = $testimonialStmt->fetchAll();
                             <article class="blog-card fade-up">
                                 <div class="blog-card-image">
                                     <?php if ($post['media_type'] === 'video' && $post['media_url']): ?>
-                                        <video poster="<?php echo htmlspecialchars($post['video_poster'] ?: $post['featured_image']); ?>" preload="metadata" class="blog-video">
-                                            <source src="<?php echo htmlspecialchars($post['media_url']); ?>" type="video/mp4">
+                                        <video poster="<?php echo htmlspecialchars(getUploadUrl($post['video_poster'] ?: $post['featured_image'])); ?>" preload="metadata" class="blog-video">
+                                            <source src="<?php echo htmlspecialchars(getUploadUrl($post['media_url'])); ?>" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
                                         <div class="video-overlay">
@@ -320,7 +320,7 @@ $testimonials = $testimonialStmt->fetchAll();
                                             </button>
                                         </div>
                                     <?php else: ?>
-                                        <img src="<?php echo htmlspecialchars($post['featured_image'] ?: 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>" class="blog-image">
+                                        <img src="<?php echo htmlspecialchars(!empty($post['featured_image']) ? getUploadUrl($post['featured_image']) : 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>" class="blog-image">
                                     <?php endif; ?>
                                     <div class="post-category"><?php echo ucfirst($post['category']); ?></div>
                                 </div>

@@ -626,7 +626,7 @@ $posts = $stmt->fetchAll();
                     <tr>
                         <td>
                             <?php if ($post['featured_image']): ?>
-                                <img src="<?php echo $post['featured_image']; ?>" alt="" class="blog-image">
+                                <img src="<?php echo getUploadUrl($post['featured_image']); ?>" alt="" class="blog-image">
                             <?php else: ?>
                                 <div class="blog-image" style="background: var(--light); display: flex; align-items: center; justify-content: center;">
                                     <i class="fas fa-image"></i>

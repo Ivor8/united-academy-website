@@ -773,4 +773,65 @@
 
     // contact form prevent
     document.getElementById('quickContactForm')?.addEventListener('submit', (e) => e.preventDefault());
+
+    const whatsappNumbers = [
+        { label: '+237 683 05 93 55', value: '237683059355' },
+        { label: '+237 658 72 62 37', value: '237658726237' }
+    ];
+
+    function buildWhatsappChooser(message) {
+        const existing = document.getElementById('whatsappChooserOverlay');
+        if (existing) {
+            existing.remove();
+        }
+
+        const overlay = document.createElement('div');
+        overlay.id = 'whatsappChooserOverlay';
+        overlay.className = 'whatsapp-chooser-overlay';
+        overlay.innerHTML = `
+            <div class="whatsapp-chooser-card">
+                <button type="button" class="chooser-close" aria-label="Close chooser">×</button>
+                <h3>Contact us on WhatsApp</h3>
+                <p>Select the number you want to message.</p>
+                <div class="chooser-list">
+                    ${whatsappNumbers.map(number => `<button type="button" class="chooser-number" data-number="${number.value}">${number.label}</button>`).join('')}
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        overlay.querySelector('.chooser-close').addEventListener('click', () => overlay.remove());
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) {
+                overlay.remove();
+            }
+        });
+
+        overlay.querySelectorAll('.chooser-number').forEach(button => {
+            button.addEventListener('click', function() {
+                const number = this.dataset.number;
+                const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+                overlay.remove();
+            });
+        });
+    }
+
+    function parseWhatsappMessage(href) {
+        try {
+            const url = new URL(href);
+            return url.searchParams.get('text') || 'Hello, I am interested in UNITED ACADEMY-UARD';
+        } catch (e) {
+            return 'Hello, I am interested in UNITED ACADEMY-UARD';
+        }
+    }
+
+    document.addEventListener('click', function(event) {
+        const anchor = event.target.closest('a[href*="wa.me"]');
+        if (!anchor) return;
+        event.preventDefault();
+        const message = parseWhatsappMessage(anchor.href);
+        buildWhatsappChooser(message);
+    });
 })();

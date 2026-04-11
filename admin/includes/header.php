@@ -52,12 +52,12 @@ $userRole = getUserRole();
                         <i class="fas fa-chevron-down group-toggle"></i>
                     </div>
                     <div class="nav-group-items">
-                        <a href="blog/index.php" class="nav-subitem <?php echo strpos($currentPage, 'blog') !== false ? 'active' : ''; ?>">
+                        <a href="<?php echo ADMIN_URL; ?>blog/index.php" class="nav-subitem <?php echo strpos($currentPage, 'blog') !== false ? 'active' : ''; ?>">
                             <i class="fas fa-list"></i>
                             <span>All Posts</span>
                         </a>
                         <?php if (hasPermission('create_blog')): ?>
-                        <a href="blog/create.php" class="nav-subitem">
+                        <a href="<?php echo ADMIN_URL; ?>blog/create.php" class="nav-subitem">
                             <i class="fas fa-plus"></i>
                             <span>Add New Post</span>
                         </a>
@@ -74,12 +74,12 @@ $userRole = getUserRole();
                         <i class="fas fa-chevron-down group-toggle"></i>
                     </div>
                     <div class="nav-group-items">
-                        <a href="testimonials/index.php" class="nav-subitem <?php echo strpos($currentPage, 'testimonials') !== false ? 'active' : ''; ?>">
+                        <a href="<?php echo ADMIN_URL; ?>testimonials/index.php" class="nav-subitem <?php echo strpos($currentPage, 'testimonials') !== false ? 'active' : ''; ?>">
                             <i class="fas fa-list"></i>
                             <span>All Testimonials</span>
                         </a>
                         <?php if (hasPermission('create_testimonials')): ?>
-                        <a href="testimonials/create.php" class="nav-subitem">
+                        <a href="<?php echo ADMIN_URL; ?>testimonials/create.php" class="nav-subitem">
                             <i class="fas fa-plus"></i>
                             <span>Add New</span>
                         </a>
@@ -88,12 +88,12 @@ $userRole = getUserRole();
                 </div>
                 <?php endif; ?>
                 
-                <a href="profile.php" class="nav-item <?php echo $currentPage == 'profile.php' ? 'active' : ''; ?>">
+                <a href="<?php echo ADMIN_URL; ?>profile.php" class="nav-item <?php echo $currentPage == 'profile.php' ? 'active' : ''; ?>">
                     <i class="fas fa-user-circle"></i>
                     <span>My Profile</span>
                 </a>
                 
-                <a href="logout.php" class="nav-item logout">
+                <a href="<?php echo ADMIN_URL; ?>logout.php" class="nav-item logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </a>

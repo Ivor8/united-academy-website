@@ -98,6 +98,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($videoPoster) {
                 addDebug("✅ Video poster URL added: " . $videoPoster, 'success');
             }
+        } elseif ($mediaType === 'pdf' && isset($_FILES['media_file']) && $_FILES['media_file']['error'] === UPLOAD_ERR_OK) {
+            addDebug("PDF file detected: " . $_FILES['media_file']['name'], 'info');
+            $uploaded = uploadFile($_FILES['media_file'], 'blog');
+            if ($uploaded) {
+                $mediaUrl = $uploaded;
+                addDebug("✅ PDF uploaded successfully: " . $mediaUrl, 'success');
+            } else {
+                addDebug("⚠️ PDF upload failed", 'warning');
+            }
         } elseif ($mediaType === 'image' && isset($_FILES['media_image']) && $_FILES['media_image']['error'] === UPLOAD_ERR_OK) {
             addDebug("Media image detected: " . $_FILES['media_image']['name'], 'info');
             $uploaded = uploadFile($_FILES['media_image'], 'blog');
@@ -396,6 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <select name="media_type" id="mediaType">
                     <option value="image" <?php echo (isset($formData['media_type']) && $formData['media_type'] === 'image') ? 'selected' : ''; ?>>Image</option>
                     <option value="video" <?php echo (isset($formData['media_type']) && $formData['media_type'] === 'video') ? 'selected' : ''; ?>>Video</option>
+                    <option value="pdf" <?php echo (isset($formData['media_type']) && $formData['media_type'] === 'pdf') ? 'selected' : ''; ?>>PDF</option>
                 </select>
             </div>
         </div>
@@ -405,6 +415,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 <label>Upload Media Image</label>
                 <input type="file" name="media_image" accept="image/*">
                 <small style="color: var(--gray);">JPG, PNG, GIF up to 10MB</small>
+            </div>
+        </div>
+
+        <div id="mediaPdfRow" class="hidden">
+            <div class="form-group">
+                <label>Upload PDF Document</label>
+                <input type="file" name="media_file" accept="application/pdf">
+                <small style="color: var(--gray);">PDF file up to 20MB</small>
             </div>
         </div>
         
@@ -442,6 +460,23 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     </form>
     
+    <script>
+        const mediaTypeSelect = document.getElementById('mediaType');
+        const mediaImageRow = document.getElementById('mediaImageRow');
+        const mediaVideoRow = document.getElementById('mediaVideoRow');
+        const mediaPdfRow = document.getElementById('mediaPdfRow');
+
+        function updateMediaInputs() {
+            const type = mediaTypeSelect.value;
+            mediaImageRow.style.display = type === 'image' ? 'block' : 'none';
+            mediaVideoRow.style.display = type === 'video' ? 'block' : 'none';
+            mediaPdfRow.style.display = type === 'pdf' ? 'block' : 'none';
+        }
+
+        mediaTypeSelect.addEventListener('change', updateMediaInputs);
+        updateMediaInputs();
+    </script>
+
     <!-- Debug Console -->
     <?php if (!empty($debugMessages)): ?>
     <div class="debug-console">

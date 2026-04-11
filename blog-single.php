@@ -4,19 +4,6 @@ require_once 'admin/includes/config.php';
 // Get database connection
 $pdo = getDB();
 
-// Helper function to get proper image URL
-function getImageUrl($imagePath) {
-    if (empty($imagePath)) {
-        return '';
-    }
-    // If it already starts with http, it's a full URL
-    if (strpos($imagePath, 'http') === 0) {
-        return $imagePath;
-    }
-    // Otherwise, append to UPLOAD_URL
-    return UPLOAD_URL . $imagePath;
-}
-
 // Get slug or id from URL
 $slug = isset($_GET['slug']) ? sanitize($_GET['slug']) : '';
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -92,7 +79,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
     <!-- Open Graph -->
     <meta property="og:title" content="<?php echo htmlspecialchars($post['title']); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars(strip_tags($post['excerpt'])); ?>">
-    <meta property="og:image" content="<?php echo empty($post['featured_image']) ? SITE_URL . 'assets/images/logo.jpg' : getImageUrl($post['featured_image']); ?>">
+    <meta property="og:image" content="<?php echo empty($post['featured_image']) ? SITE_URL . 'assets/images/logo.jpg' : getUploadUrl($post['featured_image']); ?>">
     <meta property="og:url" content="<?php echo SITE_URL; ?>blog-single.php?slug=<?php echo $post['slug']; ?>">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
@@ -101,7 +88,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($post['title']); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars(strip_tags($post['excerpt'])); ?>">
-    <meta name="twitter:image" content="<?php echo empty($post['featured_image']) ? SITE_URL . 'assets/images/logo.jpg' : getImageUrl($post['featured_image']); ?>">
+    <meta name="twitter:image" content="<?php echo empty($post['featured_image']) ? SITE_URL . 'assets/images/logo.jpg' : getUploadUrl($post['featured_image']); ?>">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo SITE_URL; ?>blog-single.php?slug=<?php echo $post['slug']; ?>">
@@ -142,7 +129,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
             justify-content: center;
             padding: 4rem 2rem 3rem;
             background: linear-gradient(135deg, rgba(14, 64, 139, 0.85), rgba(26, 115, 232, 0.72)),
-                        url('<?php echo empty($post['featured_image']) ? 'assets/images/hero1.jpg' : getImageUrl($post['featured_image']); ?>');
+                        url('<?php echo empty($post['featured_image']) ? 'assets/images/hero1.jpg' : getUploadUrl($post['featured_image']); ?>');
             background-size: cover;
             background-position: center center;
             box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
@@ -305,6 +292,29 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .blog-download-panel {
+            margin: 1.75rem 0 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.95rem 1.4rem;
+            background: linear-gradient(135deg, #E12D39, #D02A31);
+            color: white;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 18px 40px rgba(225, 45, 57, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 50px rgba(225, 45, 57, 0.25);
         }
 
         .tag:hover {
@@ -549,6 +559,15 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
                     <p>This article does not contain a body yet. Please add the blog content in the admin panel.</p>
                 </div>
             <?php endif; ?>
+
+            <?php if ($post['media_type'] === 'pdf' && !empty($post['media_url'])): ?>
+                <div class="blog-download-panel">
+                    <a href="<?php echo htmlspecialchars(getUploadUrl($post['media_url'])); ?>" class="download-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-pdf"></i>
+                        Download attached PDF
+                    </a>
+                </div>
+            <?php endif; ?>
             
             <!-- Tags -->
             <?php if (!empty($tags)): ?>
@@ -567,7 +586,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
             <div class="author-info">
                 <div class="author-avatar">
                     <?php if (!empty($post['featured_image'])): ?>
-                        <img src="<?php echo getImageUrl($post['featured_image']); ?>" alt="<?php echo htmlspecialchars($post['first_name']); ?>">
+                        <img src="<?php echo getUploadUrl($post['featured_image']); ?>" alt="<?php echo htmlspecialchars($post['first_name']); ?>">
                     <?php else: ?>
                         <i class="fas fa-user"></i>
                     <?php endif; ?>
@@ -602,7 +621,7 @@ $tags = !empty($post['tags']) ? explode(',', $post['tags']) : [];
                     <?php foreach ($relatedPosts as $related): ?>
                         <a href="blog-single.php?slug=<?php echo $related['slug']; ?>" class="related-card">
                             <?php if (!empty($related['featured_image'])): ?>
-                                <img src="<?php echo getImageUrl($related['featured_image']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>" class="related-image">
+                                <img src="<?php echo getUploadUrl($related['featured_image']); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>" class="related-image">
                             <?php else: ?>
                                 <div class="related-image" style="background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
                                     <i class="fas fa-blog"></i>

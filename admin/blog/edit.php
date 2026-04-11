@@ -59,6 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['video_poster'])) {
             $videoPoster = sanitize($_POST['video_poster']);
         }
+    } elseif ($mediaType === 'pdf' && isset($_FILES['media_file']) && $_FILES['media_file']['error'] === UPLOAD_ERR_OK) {
+        $uploaded = uploadFile($_FILES['media_file'], 'blog');
+        if ($uploaded) {
+            $mediaUrl = $uploaded;
+        }
     } elseif ($mediaType === 'image' && isset($_FILES['media_image']) && $_FILES['media_image']['error'] === UPLOAD_ERR_OK) {
         $uploaded = uploadFile($_FILES['media_image'], 'blog');
         if ($uploaded) {
@@ -248,7 +253,7 @@ $extraJs = '<script>
                 <input type="file" name="featured_image" accept="image/*">
                 <?php if ($post['featured_image']): ?>
                     <div class="current-media">
-                        Current: <img src="<?php echo $post['featured_image']; ?>" alt="" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; vertical-align: middle;">
+                        Current: <img src="<?php echo getUploadUrl($post['featured_image']); ?>" alt="" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; vertical-align: middle;">
                     </div>
                 <?php endif; ?>
             </div>
@@ -258,6 +263,7 @@ $extraJs = '<script>
                 <select name="media_type" onchange="previewMedia()">
                     <option value="image" <?php echo $post['media_type'] === 'image' ? 'selected' : ''; ?>>Image</option>
                     <option value="video" <?php echo $post['media_type'] === 'video' ? 'selected' : ''; ?>>Video</option>
+                    <option value="pdf" <?php echo $post['media_type'] === 'pdf' ? 'selected' : ''; ?>>PDF</option>
                 </select>
             </div>
         </div>
@@ -268,7 +274,19 @@ $extraJs = '<script>
                 <input type="file" name="media_image" accept="image/*">
                 <?php if ($post['media_type'] === 'image' && $post['media_url']): ?>
                     <div class="current-media">
-                        Current: <img src="<?php echo $post['media_url']; ?>" alt="" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; vertical-align: middle;">
+                        Current: <img src="<?php echo getUploadUrl($post['media_url']); ?>" alt="" style="width: 100px; height: 60px; object-fit: cover; border-radius: 4px; vertical-align: middle;">
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="form-row" id="mediaPdfRow" style="display: <?php echo $post['media_type'] === 'pdf' ? 'grid' : 'none'; ?>;">
+            <div class="form-group">
+                <label>Upload PDF Document</label>
+                <input type="file" name="media_file" accept="application/pdf">
+                <?php if ($post['media_type'] === 'pdf' && $post['media_url']): ?>
+                    <div class="current-media">
+                        Current: <a href="<?php echo getUploadUrl($post['media_url']); ?>" target="_blank" rel="noopener noreferrer" style="font-weight: 600; color: #1E64C8;">View existing PDF</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -312,15 +330,13 @@ $extraJs = '<script>
     const mediaTypeSelect = document.querySelector('[name="media_type"]');
     const mediaImageRow = document.getElementById('mediaImageRow');
     const mediaVideoRow = document.getElementById('mediaVideoRow');
+    const mediaPdfRow = document.getElementById('mediaPdfRow');
     
     function toggleMediaFields() {
-        if (mediaTypeSelect.value === 'video') {
-            mediaImageRow.style.display = 'none';
-            mediaVideoRow.style.display = 'grid';
-        } else {
-            mediaImageRow.style.display = 'grid';
-            mediaVideoRow.style.display = 'none';
-        }
+        const type = mediaTypeSelect.value;
+        mediaImageRow.style.display = type === 'image' ? 'grid' : 'none';
+        mediaVideoRow.style.display = type === 'video' ? 'grid' : 'none';
+        mediaPdfRow.style.display = type === 'pdf' ? 'grid' : 'none';
     }
     
     mediaTypeSelect.addEventListener('change', toggleMediaFields);

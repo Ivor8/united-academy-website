@@ -233,8 +233,8 @@ $featuredPost = $featuredStmt->fetch();
                     <div class="featured-content">
                         <div class="featured-image">
                             <?php if ($featuredPost['media_type'] === 'video' && $featuredPost['media_url']): ?>
-                                <video poster="<?php echo htmlspecialchars($featuredPost['video_poster'] ?: $featuredPost['featured_image']); ?>" preload="metadata" class="featured-video">
-                                    <source src="<?php echo htmlspecialchars($featuredPost['media_url']); ?>" type="video/mp4">
+                                <video poster="<?php echo htmlspecialchars(getUploadUrl($featuredPost['video_poster'] ?: $featuredPost['featured_image'])); ?>" preload="metadata" class="featured-video">
+                                    <source src="<?php echo htmlspecialchars(getUploadUrl($featuredPost['media_url'])); ?>" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                                 <div class="video-overlay">
@@ -243,7 +243,10 @@ $featuredPost = $featuredStmt->fetch();
                                     </button>
                                 </div>
                             <?php else: ?>
-                                <img src="<?php echo htmlspecialchars($featuredPost['featured_image'] ?: 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($featuredPost['title']); ?>" class="featured-image-img">
+                                <img src="<?php echo htmlspecialchars(!empty($featuredPost['featured_image']) ? getUploadUrl($featuredPost['featured_image']) : 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($featuredPost['title']); ?>" class="featured-image-img">
+                            <?php endif; ?>
+                            <?php if ($featuredPost['media_type'] === 'pdf' && $featuredPost['media_url']): ?>
+                                <div class="pdf-badge" style="position:absolute; top: 15px; left: 15px; background: #E12D39; color: #fff; padding: 0.45rem 0.9rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">PDF</div>
                             <?php endif; ?>
                         </div>
                         <div class="featured-text">
@@ -286,8 +289,8 @@ $featuredPost = $featuredStmt->fetch();
                             <article class="blog-card fade-up" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid rgba(30,100,200,0.1);">
                                 <div class="blog-card-image" style="position: relative; height: 220px; overflow: hidden;">
                                     <?php if ($post['media_type'] === 'video' && $post['media_url']): ?>
-                                        <video poster="<?php echo htmlspecialchars($post['video_poster'] ?: $post['featured_image']); ?>" preload="metadata" class="blog-video" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
-                                            <source src="<?php echo htmlspecialchars($post['media_url']); ?>" type="video/mp4">
+                                        <video poster="<?php echo htmlspecialchars(getUploadUrl($post['video_poster'] ?: $post['featured_image'])); ?>" preload="metadata" class="blog-video" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                                            <source src="<?php echo htmlspecialchars(getUploadUrl($post['media_url'])); ?>" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
                                         <div class="video-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
@@ -296,7 +299,10 @@ $featuredPost = $featuredStmt->fetch();
                                             </button>
                                         </div>
                                     <?php else: ?>
-                                        <img src="<?php echo htmlspecialchars($post['featured_image'] ?: 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>" class="blog-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                                        <img src="<?php echo htmlspecialchars(!empty($post['featured_image']) ? getUploadUrl($post['featured_image']) : 'assets/images/default-blog.jpg'); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>" class="blog-image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                                    <?php endif; ?>
+                                    <?php if ($post['media_type'] === 'pdf' && $post['media_url']): ?>
+                                        <div class="pdf-badge" style="position:absolute; top: 15px; left: 15px; background: #E12D39; color: #fff; padding: 0.45rem 0.9rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">PDF</div>
                                     <?php endif; ?>
                                     <div class="post-category" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #1E64C8, #2E7D32); color: white; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700;"><?php echo ucfirst($post['category']); ?></div>
                                 </div>
@@ -325,8 +331,11 @@ $featuredPost = $featuredStmt->fetch();
                                             <?php endforeach; ?>
                                         </div>
                                     <?php endif; ?>
-                                    <div style="border-top: 1px solid #e5e7eb; padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center;">
-                                        <a href="blog-single.php?id=<?php echo $post['id']; ?>" class="read-more-btn" style="background: linear-gradient(135deg, #1E64C8, #2E7D32); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <div style="border-top: 1px solid #e5e7eb; padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+                                        <?php if ($post['media_type'] === 'pdf' && $post['media_url']): ?>
+                                            <a href="<?php echo htmlspecialchars(getUploadUrl($post['media_url'])); ?>" class="btn btn-whatsapp" style="background: #E12D39; border-color: #E12D39; margin-right: 0.75rem;" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-download"></i> Download PDF</a>
+                                        <?php endif; ?>
+                                        <a href="blog-single.php?id=<?php echo $post['id']; ?>" class="read-more-btn" style="background: linear-gradient(135deg, #1E64C8, #2E7D32); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.5rem;">Read More <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </article>

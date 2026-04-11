@@ -9,16 +9,34 @@ define('DB_NAME', 'united_academy');
 
 // Site Configuration
 define('SITE_NAME', 'UNITED ACADEMY-UARD');
-define('SITE_URL', 'http://localhost/uard/');
+
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ? 'https://' : 'http://';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$scriptPath = $_SERVER['SCRIPT_NAME'] ?? '/';
+$baseDir = dirname($scriptPath);
+$basePath = rtrim(preg_replace('#/admin(/.*)?$#', '', $baseDir), '/');
+if ($basePath === '') {
+    $basePath = '/';
+}
+define('SITE_URL', $protocol . $host . $basePath . (substr($basePath, -1) === '/' ? '' : '/'));
 define('ADMIN_URL', SITE_URL . 'admin/');
-define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/uard/uploads/');
+$appRoot = realpath(dirname(__DIR__, 2));
+if ($appRoot === false) {
+    $appRoot = rtrim($_SERVER['DOCUMENT_ROOT'], '/\\') . '/';
+} else {
+    $appRoot = rtrim($appRoot, '/\\') . '/';
+}
+define('BASE_PATH', $appRoot);
+define('UPLOAD_PATH', BASE_PATH . 'uploads/');
 define('UPLOAD_URL', SITE_URL . 'uploads/');
+
+define('ERROR_LOG_PATH', BASE_PATH . 'php-error.log');
 
 // Error Reporting (enable for debugging)
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('log_errors', 1);
-ini_set('error_log', $_SERVER['DOCUMENT_ROOT'] . '/uard/php-error.log');
+ini_set('error_log', ERROR_LOG_PATH);
 
 // Database Connection
 function getDB() {
@@ -36,7 +54,7 @@ function getDB() {
 
 // Debug function for troubleshooting
 function debug_log($message, $data = null) {
-    $debugFile = $_SERVER['DOCUMENT_ROOT'] . '/uard/debug.log';
+    $debugFile = defined('ERROR_LOG_PATH') ? ERROR_LOG_PATH : BASE_PATH . 'debug.log';
     $timestamp = date('Y-m-d H:i:s');
     $logMessage = "[$timestamp] $message";
     if ($data !== null) {
@@ -93,7 +111,7 @@ function uploadFile($file, $type = 'blog') {
     }
     
     // Create base upload directory
-    $baseDir = $_SERVER['DOCUMENT_ROOT'] . '/uard/uploads/';
+    $baseDir = BASE_PATH . 'uploads/';
     debug_log("Checking base directory", ['path' => $baseDir, 'exists' => file_exists($baseDir)]);
     
     if (!file_exists($baseDir)) {
@@ -145,7 +163,7 @@ function uploadFile($file, $type = 'blog') {
     ]);
     
     // Allowed file types
-    $allowedTypes = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'mp4', 'mov', 'avi', 'webm'];
+    $allowedTypes = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'mp4', 'mov', 'avi', 'webm', 'pdf'];
     
     if (!in_array($fileExt, $allowedTypes)) {
         $error = "File type '$fileExt' not allowed. Allowed: " . implode(', ', $allowedTypes);
@@ -153,8 +171,8 @@ function uploadFile($file, $type = 'blog') {
         return false;
     }
     
-    // Check file size (max 10MB for images, 50MB for videos)
-    $maxSize = in_array($fileExt, ['mp4', 'mov', 'avi', 'webm']) ? 52428800 : 10485760;
+    // Check file size (max 20MB for images/PDF, 50MB for videos)
+    $maxSize = in_array($fileExt, ['mp4', 'mov', 'avi', 'webm']) ? 52428800 : 20971520;
     if ($file['size'] > $maxSize) {
         $error = "File too large. Size: " . round($file['size']/1048576, 2) . "MB, Max: " . ($maxSize/1048576) . "MB";
         debug_log($error);
@@ -226,6 +244,37 @@ function truncate($text, $limit = 100) {
         return substr($text, 0, $limit) . '...';
     }
     return $text;
+}
+
+// Normalize saved upload URLs and relative upload paths for current environment
+function getUploadUrl($path) {
+    if (empty($path)) {
+        return '';
+    }
+    $path = trim($path);
+    
+    if (filter_var($path, FILTER_VALIDATE_URL)) {
+        $parsed = parse_url($path);
+        if ($parsed && !empty($parsed['path'])) {
+            $lowerPath = strtolower($parsed['path']);
+            $uploadsPos = strpos($lowerPath, '/uploads/');
+            if ($uploadsPos !== false) {
+                $relative = substr($parsed['path'], $uploadsPos + strlen('/uploads/'));
+                return rtrim(UPLOAD_URL, '/') . '/' . ltrim($relative, '/');
+            }
+        }
+        return $path;
+    }
+
+    if (strpos($path, '/uploads/') === 0) {
+        return rtrim(SITE_URL, '/') . $path;
+    }
+
+    if (strpos($path, 'uploads/') === 0) {
+        return rtrim(SITE_URL, '/') . '/' . ltrim($path, '/');
+    }
+
+    return rtrim(UPLOAD_URL, '/') . '/' . ltrim($path, '/');
 }
 
 // Get current user info
