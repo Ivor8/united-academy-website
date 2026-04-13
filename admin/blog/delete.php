@@ -1,5 +1,7 @@
 <?php
-require_once '../includes/header.php';
+require_once '../includes/config.php';
+require_once '../includes/auth.php';
+require_once '../includes/functions.php';
 
 if (!hasPermission('delete_blog')) {
     header('Location: index.php');
@@ -37,6 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])) {
         $error = 'Failed to delete blog post. Please try again.';
     }
 }
+
+require_once '../includes/header.php';
 ?>
 
 <div class="form-container">
