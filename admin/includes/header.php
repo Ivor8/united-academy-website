@@ -88,6 +88,40 @@ $userRole = getUserRole();
                 </div>
                 <?php endif; ?>
                 
+                <?php if (hasPermission('view_online_courses')): ?>
+                <div class="nav-group">
+                    <div class="nav-group-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Online Courses</span>
+                        <i class="fas fa-chevron-down group-toggle"></i>
+                    </div>
+                    <div class="nav-group-items">
+                        <a href="<?php echo ADMIN_URL; ?>online-courses/index.php" class="nav-subitem <?php echo strpos($currentPage, 'online-courses') !== false ? 'active' : ''; ?>">
+                            <i class="fas fa-list"></i>
+                            <span>All Courses</span>
+                        </a>
+                        <?php if (hasPermission('create_online_courses')): ?>
+                        <a href="<?php echo ADMIN_URL; ?>online-courses/create.php" class="nav-subitem">
+                            <i class="fas fa-plus"></i>
+                            <span>Add New Course</span>
+                        </a>
+                        <?php endif; ?>
+                        <?php if (hasPermission('view_course_applications')): ?>
+                        <a href="<?php echo ADMIN_URL; ?>online-courses/applications.php" class="nav-subitem">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Applications</span>
+                        </a>
+                        <?php endif; ?>
+                        <?php if (hasPermission('view_course_enrollments')): ?>
+                        <a href="<?php echo ADMIN_URL; ?>online-courses/enrollments.php" class="nav-subitem">
+                            <i class="fas fa-users"></i>
+                            <span>Enrollments</span>
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+                
                 <a href="<?php echo ADMIN_URL; ?>profile.php" class="nav-item <?php echo $currentPage == 'profile.php' ? 'active' : ''; ?>">
                     <i class="fas fa-user-circle"></i>
                     <span>My Profile</span>
