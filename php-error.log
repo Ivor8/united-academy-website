@@ -336,3 +336,152 @@ Array
 )
 
 --------------------------------------------------------------------------------
+[2026-05-12 19:07:24] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:07:24] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:07:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:719
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 719
+[2026-05-12 19:13:32] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:32] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:38] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:38] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:49] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:13:49] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:20:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:20:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:20:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:20:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:21:07] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:21:07] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:25:09] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:25:09] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:25:12] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:25:12] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:25:15] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:25:15] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:25:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 476
+[12-May-2026 19:25:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 496
