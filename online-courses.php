@@ -16,7 +16,7 @@ $query = "SELECT oc.*,
            (SELECT COUNT(*) FROM course_applications WHERE course_id = oc.id AND status = 'pending') as pending_applications,
            (SELECT COUNT(*) FROM course_enrollments WHERE course_id = oc.id AND status = 'active') as active_enrollments
           FROM online_courses oc 
-          WHERE oc.status = 'published'";
+          WHERE 1=1";
 
 $params = [];
 
@@ -28,6 +28,7 @@ if ($category !== 'all') {
 if ($search) {
     $query .= " AND (oc.title LIKE ? OR oc.short_description LIKE ? OR oc.long_description LIKE ?)";
     $searchPattern = "%$search%";
+    $params[] = $searchPattern;
     $params[] = $searchPattern;
     $params[] = $searchPattern;
 }
@@ -49,6 +50,7 @@ if ($category !== 'all') {
 
 if ($search) {
     $countQuery .= " AND (oc.title LIKE ? OR oc.short_description LIKE ? OR oc.long_description LIKE ?)";
+    $countParams[] = "%$search%";
     $countParams[] = "%$search%";
     $countParams[] = "%$search%";
 }
@@ -547,14 +549,14 @@ $featuredCourses = $featuredStmt->fetchAll();
         <?php if (count($featuredCourses) > 0): ?>
         <section class="section featured-section">
             <div class="container">
-                <div class="section-header fade-up">
+                <div class="section-header fade-up visible">
                     <h2>Featured Courses</h2>
                     <div class="divider"></div>
                 </div>
                 
                 <div class="featured-courses">
                     <?php foreach ($featuredCourses as $course): ?>
-                        <div class="featured-card fade-up">
+                        <div class="featured-card fade-up visible">
                             <?php if ($course['featured']): ?>
                                 <div class="featured-badge">
                                     <i class="fas fa-star"></i> Featured
@@ -562,7 +564,7 @@ $featuredCourses = $featuredStmt->fetchAll();
                             <?php endif; ?>
                             
                             <?php if ($course['cover_image']): ?>
-                                <img src="<?php echo UPLOAD_URL . $course['cover_image']; ?>" alt="<?php echo htmlspecialchars($course['title']); ?>" class="featured-image">
+                                <img src="<?php echo htmlspecialchars(getUploadUrl($course['cover_image'])); ?>" alt="<?php echo htmlspecialchars($course['title']); ?>" class="featured-image">
                             <?php else: ?>
                                 <div class="featured-image" style="display: flex; align-items: center; justify-content: center; color: #94a3b8;">
                                     <i class="fas fa-graduation-cap" style="font-size: 3rem;"></i>
@@ -606,7 +608,7 @@ $featuredCourses = $featuredStmt->fetchAll();
         <!-- ========== COURSES GRID ========== -->
         <section class="section">
             <div class="container">
-                <div class="section-header fade-up">
+                <div class="section-header fade-up visible">
                     <h2>All Courses</h2>
                     <div class="divider"></div>
                 </div>
@@ -614,7 +616,7 @@ $featuredCourses = $featuredStmt->fetchAll();
                 <div class="courses-grid">
                     <?php if (count($courses) > 0): ?>
                         <?php foreach ($courses as $course): ?>
-                            <div class="course-card fade-up">
+                            <div class="course-card fade-up visible">
                                 <?php if ($course['featured']): ?>
                                     <div class="featured-badge">
                                         <i class="fas fa-star"></i> Featured
@@ -622,7 +624,7 @@ $featuredCourses = $featuredStmt->fetchAll();
                                 <?php endif; ?>
                                 
                                 <?php if ($course['cover_image']): ?>
-                                    <img src="<?php echo UPLOAD_URL . $course['cover_image']; ?>" alt="<?php echo htmlspecialchars($course['title']); ?>" class="course-image">
+                                    <img src="<?php echo htmlspecialchars(getUploadUrl($course['cover_image'])); ?>" alt="<?php echo htmlspecialchars($course['title']); ?>" class="course-image">
                                 <?php else: ?>
                                     <div class="course-image" style="display: flex; align-items: center; justify-content: center; color: #94a3b8;">
                                         <i class="fas fa-graduation-cap" style="font-size: 3rem;"></i>
@@ -676,7 +678,7 @@ $featuredCourses = $featuredStmt->fetchAll();
 
                 <!-- ========== PAGINATION ========== -->
                 <?php if ($totalPages > 1): ?>
-                <div class="pagination-container fade-up">
+                <div class="pagination-container fade-up visible">
                     <div class="pagination">
                         <?php if ($page > 1): ?>
                             <a href="?page=<?php echo $page - 1; ?>&category=<?php echo urlencode($category); ?>&search=<?php echo urlencode($search); ?>" class="pagination-btn prev">

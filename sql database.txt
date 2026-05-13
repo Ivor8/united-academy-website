@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2026 at 05:50 PM
+-- Generation Time: May 13, 2026 at 08:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -115,7 +115,11 @@ INSERT INTO `activity_logs` (`id`, `user_id`, `action`, `table_name`, `record_id
 (7, 1, 'UPDATE', 'blog_posts', 1, NULL, NULL, NULL, NULL, '2026-04-07 17:52:14'),
 (8, 1, 'UPDATE', 'testimonials', 1, NULL, NULL, NULL, NULL, '2026-04-07 17:55:47'),
 (9, 1, 'UPDATE', 'testimonials', 1, NULL, NULL, NULL, NULL, '2026-04-07 17:55:58'),
-(10, 1, 'UPDATE', 'testimonials', 1, NULL, NULL, NULL, NULL, '2026-04-07 17:58:20');
+(10, 1, 'UPDATE', 'testimonials', 1, NULL, NULL, NULL, NULL, '2026-04-07 17:58:20'),
+(11, 1, 'UPDATE', 'online_courses', 0, NULL, '{\"course_id\":\"\",\"title\":\"test course\",\"slug\":\"test-course\",\"category\":\"professional\",\"level\":\"beginner\",\"short_description\":\"testing\",\"long_description\":\"testing lorem ipsum\",\"duration\":\"1 day\",\"price\":\"3000\",\"language\":\"english\",\"max_students\":\"5\",\"requirements\":\"notingh\",\"objectives\":\"yes\",\"curriculum\":\"yes\",\"video_intro_url\":\"http:\\/\\/localhost\\/uard\\/admin\\/online-courses\\/create.php\",\"instructor_name\":\"Mr Toko\",\"instructor_bio\":\"Pro Instructor\",\"start_date\":\"2026-05-13\",\"end_date\":\"2026-05-13\",\"meta_title\":\"test\",\"meta_description\":\"test\",\"meta_keywords\":\"test, test 1\"}', NULL, NULL, '2026-05-12 17:39:44'),
+(12, 1, 'UPDATE', 'online_courses', 0, NULL, '{\"course_id\":\"\",\"title\":\"test course\",\"slug\":\"test-course\",\"category\":\"professional\",\"level\":\"beginner\",\"short_description\":\"testing\",\"long_description\":\"testing lorem ipsum\",\"duration\":\"1 day\",\"price\":\"3000\",\"language\":\"english\",\"max_students\":\"5\",\"requirements\":\"notingh\",\"objectives\":\"yes\",\"curriculum\":\"yes\",\"video_intro_url\":\"http:\\/\\/localhost\\/uard\\/admin\\/online-courses\\/create.php\",\"instructor_name\":\"Mr Toko\",\"instructor_bio\":\"Pro Instructor\",\"start_date\":\"2026-05-13\",\"end_date\":\"2026-05-13\",\"meta_title\":\"test\",\"meta_description\":\"test\",\"meta_keywords\":\"test, test 1\"}', NULL, NULL, '2026-05-12 17:51:13'),
+(13, 1, 'UPDATE', 'online_courses', 0, NULL, '{\"course_id\":\"\",\"title\":\"adsf\",\"slug\":\"adsf\",\"category\":\"health\",\"level\":\"beginner\",\"short_description\":\"adfasd\",\"long_description\":\"adfasd\",\"duration\":\"eadf33434\",\"price\":\"3434\",\"language\":\"english\",\"max_students\":\"4\",\"requirements\":\"adf\",\"objectives\":\"adf\",\"curriculum\":\"adfsda\",\"video_intro_url\":\"http:\\/\\/localhost\\/uard\\/admin\\/online-courses\\/create.php\",\"instructor_name\":\"kjhgf\",\"instructor_bio\":\"lkjhg\",\"start_date\":\"2026-05-14\",\"end_date\":\"2026-05-13\",\"meta_title\":\"yooo\",\"meta_description\":\"ghjk\",\"meta_keywords\":\"ghjk\"}', NULL, NULL, '2026-05-12 17:56:20'),
+(14, 1, 'UPDATE', 'online_courses', 0, NULL, '{\"course_id\":\"\",\"title\":\"qerew\",\"slug\":\"qerew\",\"category\":\"health\",\"level\":\"beginner\",\"short_description\":\"qdfsd\",\"long_description\":\"adsfd\",\"duration\":\"se\",\"price\":\"44\",\"language\":\"qer\",\"max_students\":\"3\",\"requirements\":\"qewr\",\"objectives\":\"qwer\",\"curriculum\":\"qwer\",\"video_intro_url\":\"http:\\/\\/localhost\\/uard\\/admin\\/online-courses\\/create.php\",\"instructor_name\":\"qer\",\"instructor_bio\":\"qwer\",\"start_date\":\"2026-05-14\",\"end_date\":\"2026-05-14\",\"featured\":\"1\",\"meta_title\":\"adfadadf\",\"meta_description\":\"jh\",\"meta_keywords\":\"jh,kj\"}', NULL, NULL, '2026-05-13 10:13:22');
 
 -- --------------------------------------------------------
 
@@ -203,6 +207,80 @@ CREATE TABLE `council_members` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `course_applications`
+--
+
+CREATE TABLE `course_applications` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `course_id` int(10) UNSIGNED NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `gender` enum('male','female','other') DEFAULT NULL,
+  `nationality` varchar(50) DEFAULT NULL,
+  `current_education` varchar(100) DEFAULT NULL,
+  `work_experience` text DEFAULT NULL,
+  `motivation` text DEFAULT NULL,
+  `how_hear_about` varchar(50) DEFAULT NULL,
+  `preferred_schedule` varchar(50) DEFAULT NULL,
+  `has_computer` tinyint(1) DEFAULT NULL,
+  `needs_financial_aid` tinyint(1) DEFAULT NULL,
+  `additional_info` text DEFAULT NULL,
+  `status` enum('pending','reviewed','accepted','rejected','enrolled') DEFAULT 'pending',
+  `admin_notes` text DEFAULT NULL,
+  `submitted_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `reviewed_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_enrollments`
+--
+
+CREATE TABLE `course_enrollments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `course_id` int(10) UNSIGNED NOT NULL,
+  `student_name` varchar(100) NOT NULL,
+  `student_email` varchar(100) NOT NULL,
+  `student_phone` varchar(20) DEFAULT NULL,
+  `enrollment_date` date NOT NULL,
+  `status` enum('active','completed','dropped','suspended') DEFAULT 'active',
+  `completion_percentage` decimal(5,2) DEFAULT 0.00,
+  `certificate_issued` tinyint(1) DEFAULT 0,
+  `certificate_url` varchar(500) DEFAULT NULL,
+  `notes` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_modules`
+--
+
+CREATE TABLE `course_modules` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `course_id` int(10) UNSIGNED NOT NULL,
+  `module_title` varchar(255) NOT NULL,
+  `module_description` longtext DEFAULT NULL,
+  `module_order` int(11) DEFAULT 0,
+  `duration_hours` decimal(5,2) DEFAULT NULL,
+  `video_url` varchar(500) DEFAULT NULL,
+  `reading_materials` longtext DEFAULT NULL,
+  `assignments` longtext DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login_history`
 --
 
@@ -228,7 +306,8 @@ INSERT INTO `login_history` (`id`, `user_id`, `ip_address`, `user_agent`, `login
 (7, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-07 12:57:00'),
 (8, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-07 13:09:55'),
 (9, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-07 18:28:21'),
-(10, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:13:18');
+(10, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:13:18'),
+(11, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-05-12 17:34:48');
 
 -- --------------------------------------------------------
 
@@ -246,6 +325,47 @@ CREATE TABLE `media_library` (
   `alt_text` varchar(255) DEFAULT NULL,
   `uploaded_by` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `online_courses`
+--
+
+CREATE TABLE `online_courses` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` longtext DEFAULT NULL,
+  `cover_image` varchar(500) DEFAULT NULL,
+  `category` enum('health','it','business','languages','professional') NOT NULL DEFAULT 'health',
+  `level` enum('beginner','intermediate','advanced') DEFAULT 'beginner',
+  `duration` varchar(50) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT 0.00,
+  `currency` varchar(3) DEFAULT 'XAF',
+  `language` varchar(50) DEFAULT NULL,
+  `requirements` longtext DEFAULT NULL,
+  `objectives` longtext DEFAULT NULL,
+  `curriculum` longtext DEFAULT NULL,
+  `instructor_name` varchar(100) DEFAULT NULL,
+  `instructor_bio` text DEFAULT NULL,
+  `instructor_image` varchar(500) DEFAULT NULL,
+  `video_intro_url` varchar(500) DEFAULT NULL,
+  `status` enum('draft','published','archived') DEFAULT 'draft',
+  `featured` tinyint(1) DEFAULT 0,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `max_students` int(10) UNSIGNED DEFAULT NULL,
+  `current_enrollments` int(10) UNSIGNED DEFAULT 0,
+  `order_position` int(11) DEFAULT 0,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text DEFAULT NULL,
+  `meta_keywords` varchar(500) DEFAULT NULL,
+  `created_by` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -322,7 +442,16 @@ INSERT INTO `permissions` (`id`, `permission_name`, `permission_slug`, `module`,
 (20, 'Edit About', 'edit_about', 'about', 'Can edit about page content', '2026-03-28 17:34:45'),
 (21, 'Edit Council', 'edit_council', 'about', 'Can edit council section', '2026-03-28 17:34:45'),
 (22, 'Upload Media', 'upload_media', 'media', 'Can upload media files', '2026-03-28 17:34:45'),
-(23, 'Delete Media', 'delete_media', 'media', 'Can delete media files', '2026-03-28 17:34:45');
+(23, 'Delete Media', 'delete_media', 'media', 'Can delete media files', '2026-03-28 17:34:45'),
+(24, 'View Online Courses', 'view_online_courses', 'online_courses', 'Can view online courses list', '2026-05-12 16:00:00'),
+(25, 'Create Online Courses', 'create_online_courses', 'online_courses', 'Can create new online courses', '2026-05-12 16:00:00'),
+(26, 'Edit Online Courses', 'edit_online_courses', 'online_courses', 'Can edit online courses', '2026-05-12 16:00:00'),
+(27, 'Delete Online Courses', 'delete_online_courses', 'online_courses', 'Can delete online courses', '2026-05-12 16:00:00'),
+(28, 'Publish Online Courses', 'publish_online_courses', 'online_courses', 'Can publish/unpublish online courses', '2026-05-12 16:00:00'),
+(29, 'View Course Applications', 'view_course_applications', 'online_courses', 'Can view course applications', '2026-05-12 16:00:00'),
+(30, 'Manage Course Applications', 'manage_course_applications', 'online_courses', 'Can approve/reject course applications', '2026-05-12 16:00:00'),
+(31, 'View Course Enrollments', 'view_course_enrollments', 'online_courses', 'Can view course enrollments', '2026-05-12 16:00:00'),
+(32, 'Manage Course Enrollments', 'manage_course_enrollments', 'online_courses', 'Can manage student enrollments', '2026-05-12 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -575,7 +704,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password_hash`, `first_name`, `last_name`, `phone`, `profile_image`, `role_id`, `is_active`, `last_login`, `email_verified_at`, `remember_token`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'superadmin', 'admin@unitedacademy-uard.cm', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Super', 'Admin', NULL, NULL, 1, 1, '2026-04-11 13:13:18', NULL, NULL, NULL, '2026-03-28 17:34:45', '2026-04-11 12:13:18');
+(1, 'superadmin', 'admin@unitedacademy-uard.cm', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Super', 'Admin', NULL, NULL, 1, 1, '2026-05-12 17:34:48', NULL, NULL, NULL, '2026-03-28 17:34:45', '2026-05-12 16:34:48');
 
 --
 -- Triggers `users`
@@ -587,6 +716,37 @@ CREATE TRIGGER `trg_log_user_creation` AFTER INSERT ON `users` FOR EACH ROW BEGI
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_active_online_courses`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_active_online_courses` (
+`id` int(10) unsigned
+,`title` varchar(255)
+,`slug` varchar(255)
+,`short_description` text
+,`cover_image` varchar(500)
+,`category` enum('health','it','business','languages','professional')
+,`level` enum('beginner','intermediate','advanced')
+,`duration` varchar(50)
+,`price` decimal(10,2)
+,`currency` varchar(3)
+,`language` varchar(50)
+,`start_date` date
+,`end_date` date
+,`max_students` int(10) unsigned
+,`current_enrollments` int(10) unsigned
+,`status` enum('draft','published','archived')
+,`featured` tinyint(1)
+,`order_position` int(11)
+,`created_at` timestamp
+,`updated_at` timestamp
+,`pending_applications` bigint(21)
+,`active_enrollments` bigint(21)
+);
 
 -- --------------------------------------------------------
 
@@ -639,6 +799,28 @@ CREATE TABLE `vw_approved_testimonials` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `vw_course_applications`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_course_applications` (
+`id` int(10) unsigned
+,`course_id` int(10) unsigned
+,`first_name` varchar(100)
+,`last_name` varchar(100)
+,`email` varchar(100)
+,`phone` varchar(20)
+,`status` enum('pending','reviewed','accepted','rejected','enrolled')
+,`submitted_at` timestamp
+,`reviewed_at` datetime
+,`course_title` varchar(255)
+,`course_category` enum('health','it','business','languages','professional')
+,`course_level` enum('beginner','intermediate','advanced')
+,`course_start_date` date
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `vw_published_blog_posts`
 -- (See below for the actual view)
 --
@@ -665,6 +847,15 @@ CREATE TABLE `vw_published_blog_posts` (
 -- --------------------------------------------------------
 
 --
+-- Structure for view `vw_active_online_courses`
+--
+DROP TABLE IF EXISTS `vw_active_online_courses`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_active_online_courses`  AS SELECT `oc`.`id` AS `id`, `oc`.`title` AS `title`, `oc`.`slug` AS `slug`, `oc`.`short_description` AS `short_description`, `oc`.`cover_image` AS `cover_image`, `oc`.`category` AS `category`, `oc`.`level` AS `level`, `oc`.`duration` AS `duration`, `oc`.`price` AS `price`, `oc`.`currency` AS `currency`, `oc`.`language` AS `language`, `oc`.`start_date` AS `start_date`, `oc`.`end_date` AS `end_date`, `oc`.`max_students` AS `max_students`, `oc`.`current_enrollments` AS `current_enrollments`, `oc`.`status` AS `status`, `oc`.`featured` AS `featured`, `oc`.`order_position` AS `order_position`, `oc`.`created_at` AS `created_at`, `oc`.`updated_at` AS `updated_at`, (select count(0) from `course_applications` where `course_applications`.`course_id` = `oc`.`id` and `course_applications`.`status` = 'pending') AS `pending_applications`, (select count(0) from `course_enrollments` where `course_enrollments`.`course_id` = `oc`.`id` and `course_enrollments`.`status` = 'active') AS `active_enrollments` FROM `online_courses` AS `oc` WHERE `oc`.`status` = 'published' ORDER BY `oc`.`order_position` ASC, `oc`.`created_at` DESC ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `vw_active_programs`
 --
 DROP TABLE IF EXISTS `vw_active_programs`;
@@ -679,6 +870,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `vw_approved_testimonials`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_approved_testimonials`  AS SELECT `t`.`id` AS `id`, `t`.`student_name` AS `student_name`, `t`.`student_program` AS `student_program`, `t`.`student_avatar` AS `student_avatar`, `t`.`testimonial_text` AS `testimonial_text`, `t`.`media_type` AS `media_type`, `t`.`media_url` AS `media_url`, `t`.`video_poster` AS `video_poster`, `t`.`rating` AS `rating`, `t`.`featured` AS `featured`, `t`.`graduation_year` AS `graduation_year`, `t`.`current_position` AS `current_position`, `t`.`company_name` AS `company_name`, `t`.`created_at` AS `created_at` FROM `testimonials` AS `t` WHERE `t`.`status` = 'approved' ORDER BY `t`.`featured` DESC, `t`.`created_at` DESC ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_course_applications`
+--
+DROP TABLE IF EXISTS `vw_course_applications`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_course_applications`  AS SELECT `ca`.`id` AS `id`, `ca`.`course_id` AS `course_id`, `ca`.`first_name` AS `first_name`, `ca`.`last_name` AS `last_name`, `ca`.`email` AS `email`, `ca`.`phone` AS `phone`, `ca`.`status` AS `status`, `ca`.`submitted_at` AS `submitted_at`, `ca`.`reviewed_at` AS `reviewed_at`, `oc`.`title` AS `course_title`, `oc`.`category` AS `course_category`, `oc`.`level` AS `course_level`, `oc`.`start_date` AS `course_start_date` FROM (`course_applications` `ca` left join `online_courses` `oc` on(`ca`.`course_id` = `oc`.`id`)) ORDER BY `ca`.`submitted_at` DESC ;
 
 -- --------------------------------------------------------
 
@@ -744,6 +944,35 @@ ALTER TABLE `council_members`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `course_applications`
+--
+ALTER TABLE `course_applications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_course_id` (`course_id`),
+  ADD KEY `idx_email` (`email`),
+  ADD KEY `idx_status` (`status`),
+  ADD KEY `idx_submitted_at` (`submitted_at`);
+
+--
+-- Indexes for table `course_enrollments`
+--
+ALTER TABLE `course_enrollments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_course_id` (`course_id`),
+  ADD KEY `idx_student_email` (`student_email`),
+  ADD KEY `idx_status` (`status`),
+  ADD KEY `idx_enrollment_date` (`enrollment_date`);
+
+--
+-- Indexes for table `course_modules`
+--
+ALTER TABLE `course_modules`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_course_id` (`course_id`),
+  ADD KEY `idx_module_order` (`module_order`),
+  ADD KEY `idx_is_active` (`is_active`);
+
+--
 -- Indexes for table `login_history`
 --
 ALTER TABLE `login_history`
@@ -756,6 +985,18 @@ ALTER TABLE `login_history`
 ALTER TABLE `media_library`
   ADD PRIMARY KEY (`id`),
   ADD KEY `uploaded_by` (`uploaded_by`);
+
+--
+-- Indexes for table `online_courses`
+--
+ALTER TABLE `online_courses`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `slug` (`slug`),
+  ADD KEY `idx_category` (`category`),
+  ADD KEY `idx_status` (`status`),
+  ADD KEY `idx_featured` (`featured`),
+  ADD KEY `idx_created_by` (`created_by`),
+  ADD KEY `idx_order_position` (`order_position`);
 
 --
 -- Indexes for table `partners`
@@ -893,7 +1134,7 @@ ALTER TABLE `academic_years`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `blog_posts`
@@ -917,7 +1158,7 @@ ALTER TABLE `council_members`
 -- AUTO_INCREMENT for table `login_history`
 --
 ALTER TABLE `login_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `media_library`
@@ -941,7 +1182,7 @@ ALTER TABLE `password_reset_tokens`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `programs`

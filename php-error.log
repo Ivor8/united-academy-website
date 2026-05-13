@@ -485,3 +485,2593 @@ Array
 --------------------------------------------------------------------------------
 [12-May-2026 19:25:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 476
 [12-May-2026 19:25:15 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 496
+[2026-05-12 19:32:48] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:32:48] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:37:27] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:37:27] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:37:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function createSlug() in C:\xampp\htdocs\uard\admin\online-courses\create.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 17
+[2026-05-12 19:39:44] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:39:44 Europe/Berlin] PHP Warning:  Undefined array key "currency" in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 24
+[2026-05-12 19:39:44] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => images.jfif
+            [error] => 0
+            [size] => 18093
+            [tmp_name] => C:\xampp\tmp\phpFCB5.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Type directory does not exist, attempting to create
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Type directory created successfully
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] File info
+Array
+(
+    [original_name] => images.jfif
+    [extension] => jfif
+    [new_name] => 1778607584_6a0365e01f16f.jfif
+    [size_bytes] => 18093
+    [size_mb] => 0.02
+    [tmp_name] => C:\xampp\tmp\phpFCB5.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778607584_6a0365e01f16f.jfif
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] File type 'jfif' not allowed. Allowed: jpg, jpeg, png, gif, webp, mp4, mov, avi, webm, pdf
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => 11_2-removebg-preview (1).png
+            [error] => 0
+            [size] => 497875
+            [tmp_name] => C:\xampp\tmp\phpFCC5.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Type directory does not exist, attempting to create
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] Type directory created successfully
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] File info
+Array
+(
+    [original_name] => 11_2-removebg-preview (1).png
+    [extension] => png
+    [new_name] => 1778607584_6a0365e020912.png
+    [size_bytes] => 497875
+    [size_mb] => 0.47
+    [tmp_name] => C:\xampp\tmp\phpFCC5.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778607584_6a0365e020912.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778607584_6a0365e020912.png
+    [url] => http://localhost/uard/uploads/instructors/1778607584_6a0365e020912.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:39:44] File verification passed
+Array
+(
+    [size] => 497875
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:39:44 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\uard\admin\includes\header.php:104) in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 121
+[2026-05-12 19:50:05] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:50:05] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:50:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function createSlug() in C:\xampp\htdocs\uard\admin\online-courses\create.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 17
+[2026-05-12 19:50:09] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:50:09] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[12-May-2026 19:50:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function createSlug() in C:\xampp\htdocs\uard\admin\online-courses\create.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\admin\online-courses\create.php on line 17
+[2026-05-12 19:51:13] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => images.jfif
+            [error] => 0
+            [size] => 18093
+            [tmp_name] => C:\xampp\tmp\php8005.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] File info
+Array
+(
+    [original_name] => images.jfif
+    [extension] => jfif
+    [new_name] => 1778608273_6a03689119d50.jfif
+    [size_bytes] => 18093
+    [size_mb] => 0.02
+    [tmp_name] => C:\xampp\tmp\php8005.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778608273_6a03689119d50.jfif
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] File type 'jfif' not allowed. Allowed: jpg, jpeg, png, gif, webp, mp4, mov, avi, webm, pdf
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => 11_2-removebg-preview (1).png
+            [error] => 0
+            [size] => 497875
+            [tmp_name] => C:\xampp\tmp\php8016.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] File info
+Array
+(
+    [original_name] => 11_2-removebg-preview (1).png
+    [extension] => png
+    [new_name] => 1778608273_6a0368911aa67.png
+    [size_bytes] => 497875
+    [size_mb] => 0.47
+    [tmp_name] => C:\xampp\tmp\php8016.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778608273_6a0368911aa67.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778608273_6a0368911aa67.png
+    [url] => http://localhost/uard/uploads/instructors/1778608273_6a0368911aa67.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] File verification passed
+Array
+(
+    [size] => 497875
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:13] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:18] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:18] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:54] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:51:54] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => WhatsApp Image 2025-11-25 at 12.37.02.jpeg
+            [error] => 0
+            [size] => 63867
+            [tmp_name] => C:\xampp\tmp\php322D.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] File info
+Array
+(
+    [original_name] => WhatsApp Image 2025-11-25 at 12.37.02.jpeg
+    [extension] => jpeg
+    [new_name] => 1778608580_6a0369c4d6a6c.jpeg
+    [size_bytes] => 63867
+    [size_mb] => 0.06
+    [tmp_name] => C:\xampp\tmp\php322D.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778608580_6a0369c4d6a6c.jpeg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778608580_6a0369c4d6a6c.jpeg
+    [url] => http://localhost/uard/uploads/courses/1778608580_6a0369c4d6a6c.jpeg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] File verification passed
+Array
+(
+    [size] => 63867
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => WhatsApp Image 2025-11-25 at 12.37.02.jpeg
+            [error] => 0
+            [size] => 63867
+            [tmp_name] => C:\xampp\tmp\php323E.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] File info
+Array
+(
+    [original_name] => WhatsApp Image 2025-11-25 at 12.37.02.jpeg
+    [extension] => jpeg
+    [new_name] => 1778608580_6a0369c4d897b.jpeg
+    [size_bytes] => 63867
+    [size_mb] => 0.06
+    [tmp_name] => C:\xampp\tmp\php323E.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778608580_6a0369c4d897b.jpeg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778608580_6a0369c4d897b.jpeg
+    [url] => http://localhost/uard/uploads/instructors/1778608580_6a0369c4d897b.jpeg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] File verification passed
+Array
+(
+    [size] => 63867
+)
+
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-12 19:56:20] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:11:42] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:11:42] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:11:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:11:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:11:58] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:11:58] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 12:13:22 Europe/Berlin] === COURSE FORM SUBMISSION DEBUG ===
+[13-May-2026 12:13:22 Europe/Berlin] POST data: Array
+(
+    [course_id] => 
+    [title] => qerew
+    [slug] => qerew
+    [category] => health
+    [level] => beginner
+    [short_description] => qdfsd
+    [long_description] => adsfd
+    [duration] => se
+    [price] => 44
+    [language] => qer
+    [max_students] => 3
+    [requirements] => qewr
+    [objectives] => qwer
+    [curriculum] => qwer
+    [video_intro_url] => http://localhost/uard/admin/online-courses/create.php
+    [instructor_name] => qer
+    [instructor_bio] => qwer
+    [start_date] => 2026-05-14
+    [end_date] => 2026-05-14
+    [featured] => 1
+    [meta_title] => adfadadf
+    [meta_description] => jh
+    [meta_keywords] => jh,kj
+)
+
+[13-May-2026 12:13:22 Europe/Berlin] FILES data: Array
+(
+    [cover_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpB108.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+    [instructor_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpB118.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+)
+
+[13-May-2026 12:13:22 Europe/Berlin] Processed data - Title: qerew, Category: health
+[2026-05-13 12:13:22] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\phpB108.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778667202_6a044ec289df7.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\phpB108.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778667202_6a044ec289df7.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778667202_6a044ec289df7.png
+    [url] => http://localhost/uard/uploads/courses/1778667202_6a044ec289df7.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\phpB118.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778667202_6a044ec28f1af.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\phpB118.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778667202_6a044ec28f1af.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778667202_6a044ec28f1af.png
+    [url] => http://localhost/uard/uploads/instructors/1778667202_6a044ec28f1af.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 12:13:22 Europe/Berlin] About to execute database query with params: Array
+(
+    [0] => qerew
+    [1] => qerew
+    [2] => qdfsd
+    [3] => adsfd
+    [4] => http://localhost/uard/uploads/courses/1778667202_6a044ec289df7.png
+    [5] => health
+    [6] => beginner
+    [7] => se
+    [8] => 44
+    [9] => XAF
+    [10] => qer
+    [11] => qewr
+    [12] => qwer
+    [13] => qwer
+    [14] => qer
+    [15] => qwer
+    [16] => http://localhost/uard/uploads/instructors/1778667202_6a044ec28f1af.png
+    [17] => http://localhost/uard/admin/online-courses/create.php
+    [18] => 2026-05-14
+    [19] => 2026-05-14
+    [20] => 3
+    [21] => adfadadf
+    [22] => jh
+    [23] => jh,kj
+    [24] => 1
+    [25] => 0
+)
+
+[13-May-2026 12:13:22 Europe/Berlin] Course saved successfully! ID: 0
+[2026-05-13 12:13:22] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 12:13:22] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:46:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:46:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:46:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:46:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:47:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:47:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 20:48:31 Europe/Berlin] === COURSE FORM SUBMISSION DEBUG ===
+[13-May-2026 20:48:31 Europe/Berlin] POST data: Array
+(
+    [course_id] => 
+    [title] => zxcvbn
+    [slug] => zxcvbn
+    [category] => it
+    [level] => intermediate
+    [short_description] => vh
+    [long_description] => vb
+    [duration] => 6
+    [price] => 67888
+    [language] => hjk
+    [max_students] => 6
+    [requirements] => ghj
+    [objectives] => gh
+    [curriculum] => gh
+    [video_intro_url] => http://localhost/uard/admin/online-courses/create.php
+    [instructor_name] => kjhgf
+    [instructor_bio] => bn
+    [start_date] => 2026-05-15
+    [end_date] => 2026-05-21
+    [featured] => 1
+    [meta_title] => bn
+    [meta_description] => nm
+    [meta_keywords] => bn
+)
+
+[13-May-2026 20:48:31 Europe/Berlin] FILES data: Array
+(
+    [cover_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php548F.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+    [instructor_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php5490.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+)
+
+[13-May-2026 20:48:31 Europe/Berlin] Processed data - Title: zxcvbn, Category: it
+[2026-05-13 20:48:31] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\php548F.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778698111_6a04c77fd21ae.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\php548F.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778698111_6a04c77fd21ae.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778698111_6a04c77fd21ae.png
+    [url] => http://localhost/uard/uploads/courses/1778698111_6a04c77fd21ae.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\php5490.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778698111_6a04c77fd7cf7.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\php5490.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778698111_6a04c77fd7cf7.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778698111_6a04c77fd7cf7.png
+    [url] => http://localhost/uard/uploads/instructors/1778698111_6a04c77fd7cf7.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 20:48:31 Europe/Berlin] About to execute database query with params: Array
+(
+    [0] => zxcvbn
+    [1] => zxcvbn
+    [2] => vh
+    [3] => vb
+    [4] => http://localhost/uard/uploads/courses/1778698111_6a04c77fd21ae.png
+    [5] => it
+    [6] => intermediate
+    [7] => 6
+    [8] => 67888
+    [9] => XAF
+    [10] => hjk
+    [11] => ghj
+    [12] => gh
+    [13] => gh
+    [14] => kjhgf
+    [15] => bn
+    [16] => http://localhost/uard/uploads/instructors/1778698111_6a04c77fd7cf7.png
+    [17] => http://localhost/uard/admin/online-courses/create.php
+    [18] => 2026-05-15
+    [19] => 2026-05-21
+    [20] => 6
+    [21] => bn
+    [22] => nm
+    [23] => bn
+    [24] => 1
+    [25] => 0
+)
+
+[13-May-2026 20:48:31 Europe/Berlin] Course saved successfully! ID: 0
+[2026-05-13 20:48:31] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:31] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 20:48:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:10:15] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:10:15] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:10:17] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:10:17] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:10:20] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:10:20] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:11:38 Europe/Berlin] === COURSE FORM SUBMISSION DEBUG ===
+[13-May-2026 21:11:38 Europe/Berlin] POST data: Array
+(
+    [course_id] => 
+    [title] => lkmasdf
+    [slug] => lkmasdf
+    [category] => it
+    [level] => beginner
+    [short_description] => asdf
+    [long_description] => adf
+    [duration] => adf
+    [price] => 332.95
+    [language] => adf
+    [max_students] => 3
+    [requirements] => adf
+    [objectives] => adfadf
+    [curriculum] => adsf
+    [video_intro_url] => http://localhost/uard/admin/online-courses/create.php
+    [instructor_name] => kj
+    [instructor_bio] => .jb
+    [start_date] => 2026-05-13
+    [end_date] => 2026-05-21
+    [meta_title] => kj
+    [meta_description] => kj
+    [meta_keywords] => kjn
+)
+
+[13-May-2026 21:11:38 Europe/Berlin] FILES data: Array
+(
+    [cover_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php7DFC.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+    [instructor_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php7E1D.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+)
+
+[13-May-2026 21:11:38 Europe/Berlin] Processed data - Title: lkmasdf, Category: it
+[2026-05-13 21:11:38] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\php7DFC.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778699498_6a04cceab45af.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\php7DFC.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778699498_6a04cceab45af.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778699498_6a04cceab45af.png
+    [url] => http://localhost/uard/uploads/courses/1778699498_6a04cceab45af.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\php7E1D.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778699498_6a04cceab9125.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\php7E1D.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778699498_6a04cceab9125.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778699498_6a04cceab9125.png
+    [url] => http://localhost/uard/uploads/instructors/1778699498_6a04cceab9125.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:11:38 Europe/Berlin] About to execute database query with params: Array
+(
+    [0] => lkmasdf
+    [1] => lkmasdf
+    [2] => asdf
+    [3] => adf
+    [4] => http://localhost/uard/uploads/courses/1778699498_6a04cceab45af.png
+    [5] => it
+    [6] => beginner
+    [7] => adf
+    [8] => 332.95
+    [9] => XAF
+    [10] => adf
+    [11] => adf
+    [12] => adfadf
+    [13] => adsf
+    [14] => kj
+    [15] => .jb
+    [16] => http://localhost/uard/uploads/instructors/1778699498_6a04cceab9125.png
+    [17] => http://localhost/uard/admin/online-courses/create.php
+    [18] => 2026-05-13
+    [19] => 2026-05-21
+    [20] => 3
+    [21] => kj
+    [22] => kj
+    [23] => kjn
+    [24] => 0
+    [25] => 0
+)
+
+[13-May-2026 21:11:38 Europe/Berlin] Course updated successfully! ID: 0
+[2026-05-13 21:11:38] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:11:38] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:18] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:18] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:29] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:29] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:34] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:12:34] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:13:46 Europe/Berlin] === COURSE FORM SUBMISSION DEBUG ===
+[13-May-2026 21:13:46 Europe/Berlin] POST data: Array
+(
+    [course_id] => 
+    [title] => ZXc
+    [slug] => zxc
+    [category] => languages
+    [level] => beginner
+    [short_description] => ;oiuygfd
+    [long_description] => vc
+    [duration] => kjhb
+    [price] => 77.97
+    [language] => lkjh
+    [max_students] => 876
+    [requirements] => jhg
+    [objectives] => kjh
+    [curriculum] => kjh
+    [video_intro_url] => http://localhost/uard/admin/online-courses/create.php
+    [instructor_name] => kjhg
+    [instructor_bio] => jhbgv
+    [start_date] => 2026-05-13
+    [end_date] => 2026-05-14
+    [meta_title] => dzf
+    [meta_description] => adf
+    [meta_keywords] => asdf
+)
+
+[13-May-2026 21:13:46 Europe/Berlin] FILES data: Array
+(
+    [cover_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php70B6.tmp
+            [error] => 0
+            [size] => 846359
+        )
+
+    [instructor_image] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (2).png
+            [full_path] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (2).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\php70D7.tmp
+            [error] => 0
+            [size] => 275691
+        )
+
+)
+
+[13-May-2026 21:13:46 Europe/Berlin] Processed data - Title: ZXc, Category: languages
+[2026-05-13 21:13:46] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+            [error] => 0
+            [size] => 846359
+            [tmp_name] => C:\xampp\tmp\php70B6.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (1).png
+    [extension] => png
+    [new_name] => 1778699626_6a04cd6a60c4e.png
+    [size_bytes] => 846359
+    [size_mb] => 0.81
+    [tmp_name] => C:\xampp\tmp\php70B6.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778699626_6a04cd6a60c4e.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778699626_6a04cd6a60c4e.png
+    [url] => http://localhost/uard/uploads/courses/1778699626_6a04cd6a60c4e.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] File verification passed
+Array
+(
+    [size] => 846359
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (2).png
+            [error] => 0
+            [size] => 275691
+            [tmp_name] => C:\xampp\tmp\php70D7.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] File info
+Array
+(
+    [original_name] => ChatGPT Image Apr 28, 2026, 03_23_08 PM (2).png
+    [extension] => png
+    [new_name] => 1778699626_6a04cd6a6398c.png
+    [size_bytes] => 275691
+    [size_mb] => 0.26
+    [tmp_name] => C:\xampp\tmp\php70D7.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778699626_6a04cd6a6398c.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778699626_6a04cd6a6398c.png
+    [url] => http://localhost/uard/uploads/instructors/1778699626_6a04cd6a6398c.png
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] File verification passed
+Array
+(
+    [size] => 275691
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:13:46 Europe/Berlin] About to execute database query with params: Array
+(
+    [0] => ZXc
+    [1] => zxc
+    [2] => ;oiuygfd
+    [3] => vc
+    [4] => http://localhost/uard/uploads/courses/1778699626_6a04cd6a60c4e.png
+    [5] => languages
+    [6] => beginner
+    [7] => kjhb
+    [8] => 77.97
+    [9] => XAF
+    [10] => lkjh
+    [11] => jhg
+    [12] => kjh
+    [13] => kjh
+    [14] => kjhg
+    [15] => jhbgv
+    [16] => http://localhost/uard/uploads/instructors/1778699626_6a04cd6a6398c.png
+    [17] => http://localhost/uard/admin/online-courses/create.php
+    [18] => 2026-05-13
+    [19] => 2026-05-14
+    [20] => 876
+    [21] => dzf
+    [22] => adf
+    [23] => asdf
+    [24] => 0
+    [25] => 0
+)
+
+[13-May-2026 21:13:46 Europe/Berlin] Course updated successfully! ID: 0
+[2026-05-13 21:13:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:13:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:48] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:48] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:29:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:30:11] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:30:11] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\phpD88D.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778700701_6a04d19d85692.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\phpD88D.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778700701_6a04d19d85692.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778700701_6a04d19d85692.jpg
+    [url] => http://localhost/uard/uploads/courses/1778700701_6a04d19d85692.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\phpD8AD.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778700701_6a04d19d8b957.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\phpD8AD.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778700701_6a04d19d8b957.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778700701_6a04d19d8b957.jpg
+    [url] => http://localhost/uard/uploads/instructors/1778700701_6a04d19d8b957.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:31:41] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\php7.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778700777_6a04d1e9945f1.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\php7.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778700777_6a04d1e9945f1.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778700777_6a04d1e9945f1.jpg
+    [url] => http://localhost/uard/uploads/courses/1778700777_6a04d1e9945f1.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\php18.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778700777_6a04d1e996321.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\php18.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778700777_6a04d1e996321.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778700777_6a04d1e996321.jpg
+    [url] => http://localhost/uard/uploads/instructors/1778700777_6a04d1e996321.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:32:57] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:33:50] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:33:50] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:33:51 Europe/Berlin] PHP Warning:  Undefined array key "program_name" in C:\xampp\htdocs\uard\index.php on line 246
+[2026-05-13 21:33:55] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:33:55] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:33:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:719
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 719
+[2026-05-13 21:38:34] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\php26A4.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778701114_6a04d33aab74b.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\php26A4.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778701114_6a04d33aab74b.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778701114_6a04d33aab74b.jpg
+    [url] => http://localhost/uard/uploads/courses/1778701114_6a04d33aab74b.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\php26B4.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778701114_6a04d33aad1ab.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\php26B4.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778701114_6a04d33aad1ab.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778701114_6a04d33aad1ab.jpg
+    [url] => http://localhost/uard/uploads/instructors/1778701114_6a04d33aad1ab.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:38:34] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:39:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:39:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:39:44] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:39:44] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:39:44 Europe/Berlin] PHP Warning:  Undefined array key "pending_applications" in C:\xampp\htdocs\uard\admin\online-courses\edit.php on line 494
+[2026-05-13 21:39:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:39:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:39:56 Europe/Berlin] PHP Warning:  Undefined array key "currency" in C:\xampp\htdocs\uard\admin\online-courses\edit.php on line 35
+[13-May-2026 21:39:56 Europe/Berlin] PHP Warning:  Undefined array key "pending_applications" in C:\xampp\htdocs\uard\admin\online-courses\edit.php on line 494
+[2026-05-13 21:40:04] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:40:04] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:40:04 Europe/Berlin] PHP Warning:  Undefined array key "pending_applications" in C:\xampp\htdocs\uard\admin\online-courses\edit.php on line 494
+[2026-05-13 21:40:33] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:40:33] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:40:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:40:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:43:19] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:43:19] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:43:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 21:43:21] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:43:21] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:43:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 21:43:56] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:43:56] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Upload parameters
+Array
+(
+    [type] => courses
+    [file_info] => Array
+        (
+            [name] => Mr Tendai.jpg
+            [error] => 0
+            [size] => 286877
+            [tmp_name] => C:\xampp\tmp\php5F3D.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] File info
+Array
+(
+    [original_name] => Mr Tendai.jpg
+    [extension] => jpg
+    [new_name] => 1778701522_6a04d4d26c86c.jpg
+    [size_bytes] => 286877
+    [size_mb] => 0.27
+    [tmp_name] => C:\xampp\tmp\php5F3D.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/courses/1778701522_6a04d4d26c86c.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/courses/1778701522_6a04d4d26c86c.jpg
+    [url] => http://localhost/uard/uploads/courses/1778701522_6a04d4d26c86c.jpg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] File verification passed
+Array
+(
+    [size] => 286877
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] === STARTING FILE UPLOAD ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Upload parameters
+Array
+(
+    [type] => instructors
+    [file_info] => Array
+        (
+            [name] => WhatsApp Image 2025-11-25 at 12.37.02.jpeg
+            [error] => 0
+            [size] => 63867
+            [tmp_name] => C:\xampp\tmp\php5F4D.tmp
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Checking base directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] Checking type directory
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/
+    [exists] => 1
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] File info
+Array
+(
+    [original_name] => WhatsApp Image 2025-11-25 at 12.37.02.jpeg
+    [extension] => jpeg
+    [new_name] => 1778701522_6a04d4d271342.jpeg
+    [size_bytes] => 63867
+    [size_mb] => 0.06
+    [tmp_name] => C:\xampp\tmp\php5F4D.tmp
+    [target_path] => C:\xampp\htdocs\uard/uploads/instructors/1778701522_6a04d4d271342.jpeg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] SUCCESS: File uploaded
+Array
+(
+    [path] => C:\xampp\htdocs\uard/uploads/instructors/1778701522_6a04d4d271342.jpeg
+    [url] => http://localhost/uard/uploads/instructors/1778701522_6a04d4d271342.jpeg
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:22] File verification passed
+Array
+(
+    [size] => 63867
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:29] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:45:29] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 21:50:00] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 21:50:00] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 21:50:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:04:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:04:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:04:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:04:58] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:04:58] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:04:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:05:00] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:05:00] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:05:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:05:04] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:05:04] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:05:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:09:32] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:09:32] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:09:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:09:36] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:09:36] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:09:36 Europe/Berlin] PHP Warning:  include(404.html): Failed to open stream: No such file or directory in C:\xampp\htdocs\uard\course-single.php on line 37
+[13-May-2026 22:09:36 Europe/Berlin] PHP Warning:  include(): Failed opening '404.html' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\uard\course-single.php on line 37
+[2026-05-13 22:10:42] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:10:42] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 22:10:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:10:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:10:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:10:54] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:10:54] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------

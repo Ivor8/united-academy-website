@@ -34,7 +34,12 @@ $course = $stmt->fetch();
 
 if (!$course) {
     header('HTTP/1.0 404 Not Found');
-    include '404.html';
+    $notFoundFile = __DIR__ . '/404.html';
+    if (file_exists($notFoundFile)) {
+        include $notFoundFile;
+    } else {
+        echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Course Not Found</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>body{margin:0;background:#f8fafc;color:#1e293b;font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;} .not-found-box{max-width:520px;padding:2rem 2.5rem;background:#ffffff;border-radius:24px;box-shadow:0 20px 50px rgba(15,23,42,0.12);text-align:center;} h1{font-size:2.25rem;margin-bottom:0.75rem;} p{margin:0.5rem 0 1.5rem;color:#475569;} a{display:inline-block;padding:0.85rem 1.5rem;background:#1E64C8;color:#fff;border-radius:999px;text-decoration:none;font-weight:700;transition:background 0.3s ease;} a:hover{background:#163f7a;}</style></head><body><div class="not-found-box"><h1>Course Not Found</h1><p>The course you requested does not exist or is not published.</p><a href="online-courses.php">Back to Courses</a></div></body></html>';
+    }
     exit();
 }
 
@@ -61,14 +66,14 @@ $relatedCourses = $relatedStmt->fetchAll();
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="<?php echo htmlspecialchars($course['title']); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($course['short_description']); ?>">
-    <meta property="og:image" content="<?php echo UPLOAD_URL . $course['cover_image']; ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars(getUploadUrl($course['cover_image'])); ?>">
     <meta property="og:url" content="<?php echo SITE_URL; ?>course-single.php?slug=<?php echo $course['slug']; ?>">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($course['title']); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($course['short_description']); ?>">
-    <meta name="twitter:image" content="<?php echo UPLOAD_URL . $course['cover_image']; ?>">
+    <meta name="twitter:image" content="<?php echo htmlspecialchars(getUploadUrl($course['cover_image'])); ?>">
     <link rel="canonical" href="<?php echo SITE_URL; ?>course-single.php?slug=<?php echo $course['slug']; ?>">
     
     <!-- Font Awesome 6 -->
@@ -90,7 +95,7 @@ $relatedCourses = $relatedStmt->fetchAll();
             position: relative;
             height: 400px;
             background: linear-gradient(135deg, rgba(30,100,200,0.9), rgba(46,125,50,0.9)),
-                        url('<?php echo UPLOAD_URL . $course['cover_image']; ?>');
+                        url('<?php echo htmlspecialchars(getUploadUrl($course['cover_image'])); ?>');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -446,7 +451,7 @@ $relatedCourses = $relatedStmt->fetchAll();
             <div class="container">
                 <div class="instructor-header">
                     <?php if ($course['instructor_image']): ?>
-                        <img src="<?php echo UPLOAD_URL . $course['instructor_image']; ?>" alt="<?php echo htmlspecialchars($course['instructor_name']); ?>" class="instructor-image">
+                        <img src="<?php echo htmlspecialchars(getUploadUrl($course['instructor_image'])); ?>" alt="<?php echo htmlspecialchars($course['instructor_name']); ?>" class="instructor-image">
                     <?php else: ?>
                         <div class="instructor-image" style="background: var(--gray); display: flex; align-items: center; justify-content: center; color: white;">
                             <i class="fas fa-user-tie" style="font-size: 2rem;"></i>
@@ -562,7 +567,7 @@ $relatedCourses = $relatedStmt->fetchAll();
                         <div class="related-card">
                             <a href="course-single.php?slug=<?php echo $related['slug']; ?>" style="text-decoration: none; color: inherit;">
                                 <?php if ($related['cover_image']): ?>
-                                    <img src="<?php echo UPLOAD_URL . $related['cover_image']; ?>" alt="<?php echo htmlspecialchars($related['title']); ?>" class="related-image">
+                                    <img src="<?php echo htmlspecialchars(getUploadUrl($related['cover_image'])); ?>" alt="<?php echo htmlspecialchars($related['title']); ?>" class="related-image">
                                 <?php else: ?>
                                     <div class="related-image" style="background: var(--gray); display: flex; align-items: center; justify-content: center; color: white;">
                                         <i class="fas fa-graduation-cap" style="font-size: 2rem;"></i>

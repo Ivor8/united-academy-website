@@ -1,6 +1,7 @@
 <?php
 $pageTitle = 'Create Online Course';
-require_once '../includes/header.php';
+require_once '../includes/auth.php';
+require_once '../includes/functions.php';
 
 if (!hasPermission('create_online_courses')) {
     header('Location: index.php');
@@ -11,121 +12,372 @@ $pdo = getDB();
 $error = '';
 $success = '';
 
-// Handle form submission
+// Function to create online_courses table if it doesn't exist
+function createOnlineCoursesTable($pdo) {
+    $createTableSQL = "
+        CREATE TABLE IF NOT EXISTS `online_courses` (
+          `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+          `title` varchar(255) NOT NULL,
+          `slug` varchar(255) NOT NULL,
+          `short_description` text DEFAULT NULL,
+          `long_description` longtext DEFAULT NULL,
+          `cover_image` varchar(500) DEFAULT NULL,
+          `category` enum('health','it','business','languages','professional') NOT NULL DEFAULT 'health',
+          `level` enum('beginner','intermediate','advanced') DEFAULT 'beginner',
+          `duration` varchar(50) DEFAULT NULL,
+          `price` decimal(10,2) DEFAULT 0.00,
+          `currency` varchar(3) DEFAULT 'XAF',
+          `language` varchar(50) DEFAULT NULL,
+          `requirements` longtext DEFAULT NULL,
+          `objectives` longtext DEFAULT NULL,
+          `curriculum` longtext DEFAULT NULL,
+          `instructor_name` varchar(100) DEFAULT NULL,
+          `instructor_bio` text DEFAULT NULL,
+          `instructor_image` varchar(500) DEFAULT NULL,
+          `video_intro_url` varchar(500) DEFAULT NULL,
+          `status` enum('draft','published','archived') DEFAULT 'draft',
+          `featured` tinyint(1) DEFAULT 0,
+          `start_date` date DEFAULT NULL,
+          `end_date` date DEFAULT NULL,
+          `max_students` int(10) UNSIGNED DEFAULT NULL,
+          `current_enrollments` int(10) UNSIGNED DEFAULT 0,
+          `order_position` int(11) DEFAULT 0,
+          `meta_title` varchar(255) DEFAULT NULL,
+          `meta_description` text DEFAULT NULL,
+          `meta_keywords` varchar(500) DEFAULT NULL,
+          `created_by` int(10) UNSIGNED DEFAULT NULL,
+          `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+          `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+          PRIMARY KEY (`id`),
+          UNIQUE KEY `slug` (`slug`),
+          KEY `idx_category` (`category`),
+          KEY `idx_status` (`status`),
+          KEY `idx_featured` (`featured`),
+          KEY `idx_created_by` (`created_by`),
+          KEY `idx_order_position` (`order_position`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    ";
+    $pdo->exec($createTableSQL);
+}
+
+// =========================
+// HANDLE FORM SUBMISSION
+// =========================
+
+$debugMessages = [];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = sanitize($_POST['title']);
-    $slug = createSlug($title);
-    $shortDescription = sanitize($_POST['short_description']);
-    $longDescription = sanitize($_POST['long_description']);
-    $category = sanitize($_POST['category']);
-    $level = sanitize($_POST['level']);
-    $duration = sanitize($_POST['duration']);
-    $price = floatval($_POST['price']);
-    $currency = sanitize($_POST['currency']);
-    $language = sanitize($_POST['language']);
-    $requirements = sanitize($_POST['requirements']);
-    $objectives = sanitize($_POST['objectives']);
-    $curriculum = sanitize($_POST['curriculum']);
-    $instructorName = sanitize($_POST['instructor_name']);
-    $instructorBio = sanitize($_POST['instructor_bio']);
-    $videoIntroUrl = sanitize($_POST['video_intro_url']);
-    $startDate = sanitize($_POST['start_date']);
-    $endDate = sanitize($_POST['end_date']);
-    $maxStudents = intval($_POST['max_students']);
-    $metaTitle = sanitize($_POST['meta_title']);
-    $metaDescription = sanitize($_POST['meta_description']);
-    $metaKeywords = sanitize($_POST['meta_keywords']);
-    $featured = isset($_POST['featured']) ? 1 : 0;
-    
-    // Handle cover image upload
-    $coverImage = '';
-    if (isset($_FILES['cover_image']) && $_FILES['cover_image']['error'] === UPLOAD_ERR_OK) {
-        $uploaded = uploadFile($_FILES['cover_image'], 'courses');
-        if ($uploaded) {
-            $coverImage = $uploaded;
+
+    $debugMessages[] = "Form submitted successfully.";
+    $debugMessages[] = "POST request detected.";
+
+    try {
+
+        // Create table if not exists
+        createOnlineCoursesTable($pdo);
+        $debugMessages[] = "Database table checked.";
+
+        // =========================
+        // GET FORM DATA
+        // =========================
+
+        $courseId = !empty($_POST['course_id']) ? intval($_POST['course_id']) : 0;
+
+        $title = trim($_POST['title'] ?? '');
+        $slug = createSlug($title);
+
+        $shortDescription = trim($_POST['short_description'] ?? '');
+        $longDescription = trim($_POST['long_description'] ?? '');
+
+        $category = trim($_POST['category'] ?? '');
+        $level = trim($_POST['level'] ?? 'beginner');
+
+        $duration = trim($_POST['duration'] ?? '');
+
+        $price = !empty($_POST['price']) ? floatval($_POST['price']) : 0;
+
+        $currency = trim($_POST['currency'] ?? 'XAF');
+
+        $language = trim($_POST['language'] ?? '');
+
+        $requirements = trim($_POST['requirements'] ?? '');
+        $objectives = trim($_POST['objectives'] ?? '');
+        $curriculum = trim($_POST['curriculum'] ?? '');
+
+        $instructorName = trim($_POST['instructor_name'] ?? '');
+        $instructorBio = trim($_POST['instructor_bio'] ?? '');
+
+        $videoIntroUrl = trim($_POST['video_intro_url'] ?? '');
+
+        $startDate = !empty($_POST['start_date']) ? $_POST['start_date'] : null;
+        $endDate = !empty($_POST['end_date']) ? $_POST['end_date'] : null;
+
+        $maxStudents = !empty($_POST['max_students']) ? intval($_POST['max_students']) : null;
+
+        $metaTitle = trim($_POST['meta_title'] ?? '');
+        $metaDescription = trim($_POST['meta_description'] ?? '');
+        $metaKeywords = trim($_POST['meta_keywords'] ?? '');
+
+        $featured = isset($_POST['featured']) ? 1 : 0;
+
+        $debugMessages[] = "Form fields processed.";
+
+        // =========================
+        // VALIDATION
+        // =========================
+
+        if (empty($title)) {
+            throw new Exception("Course title is required.");
         }
-    }
-    
-    // Handle instructor image upload
-    $instructorImage = '';
-    if (isset($_FILES['instructor_image']) && $_FILES['instructor_image']['error'] === UPLOAD_ERR_OK) {
-        $uploaded = uploadFile($_FILES['instructor_image'], 'instructors');
-        if ($uploaded) {
-            $instructorImage = $uploaded;
+
+        if (empty($shortDescription)) {
+            throw new Exception("Short description is required.");
         }
-    }
-    
-    // Validate required fields
-    if (empty($title) || empty($shortDescription) || empty($category)) {
-        $error = 'Title, short description, and category are required fields.';
-    } else {
-        // Check if slug already exists
-        $slugCheck = $pdo->prepare("SELECT id FROM online_courses WHERE slug = ? AND id != ?");
-        $slugCheck->execute([$slug, $_POST['course_id'] ?? 0]);
-        if ($slugCheck->fetch()) {
-            $error = 'A course with this title already exists. Please choose a different title.';
+
+        if (empty($category)) {
+            throw new Exception("Category is required.");
+        }
+
+        $debugMessages[] = "Validation passed.";
+
+        // =========================
+        // HANDLE COVER IMAGE
+        // =========================
+
+        $coverImage = '';
+
+        if (
+            isset($_FILES['cover_image']) &&
+            $_FILES['cover_image']['error'] === 0
+        ) {
+
+            $debugMessages[] = "Uploading cover image...";
+
+            $uploaded = uploadFile($_FILES['cover_image'], 'courses');
+
+            if ($uploaded) {
+                $coverImage = $uploaded;
+                $debugMessages[] = "Cover image uploaded.";
+            } else {
+                $debugMessages[] = "Cover image upload failed.";
+            }
+        }
+
+        // =========================
+        // HANDLE INSTRUCTOR IMAGE
+        // =========================
+
+        $instructorImage = '';
+
+        if (
+            isset($_FILES['instructor_image']) &&
+            $_FILES['instructor_image']['error'] === 0
+        ) {
+
+            $debugMessages[] = "Uploading instructor image...";
+
+            $uploaded = uploadFile($_FILES['instructor_image'], 'instructors');
+
+            if ($uploaded) {
+                $instructorImage = $uploaded;
+                $debugMessages[] = "Instructor image uploaded.";
+            } else {
+                $debugMessages[] = "Instructor image upload failed.";
+            }
+        }
+
+        // =========================
+        // CHECK DUPLICATE SLUG
+        // =========================
+
+        $check = $pdo->prepare("
+            SELECT id FROM online_courses
+            WHERE slug = ?
+            AND id != ?
+        ");
+
+        $check->execute([$slug, $courseId]);
+
+        if ($check->fetch()) {
+            throw new Exception("A course with this title already exists.");
+        }
+
+        $debugMessages[] = "Slug validation passed.";
+
+        // =========================
+        // UPDATE COURSE
+        // =========================
+
+        if ($courseId > 0) {
+
+            $debugMessages[] = "Updating existing course ID: " . $courseId;
+
+            $stmt = $pdo->prepare("
+                UPDATE online_courses SET
+                    title = ?,
+                    slug = ?,
+                    short_description = ?,
+                    long_description = ?,
+                    cover_image = ?,
+                    category = ?,
+                    level = ?,
+                    duration = ?,
+                    price = ?,
+                    currency = ?,
+                    language = ?,
+                    requirements = ?,
+                    objectives = ?,
+                    curriculum = ?,
+                    instructor_name = ?,
+                    instructor_bio = ?,
+                    instructor_image = ?,
+                    video_intro_url = ?,
+                    start_date = ?,
+                    end_date = ?,
+                    max_students = ?,
+                    meta_title = ?,
+                    meta_description = ?,
+                    meta_keywords = ?,
+                    featured = ?,
+                    updated_at = NOW()
+                WHERE id = ?
+            ");
+
+            $result = $stmt->execute([
+                $title,
+                $slug,
+                $shortDescription,
+                $longDescription,
+                $coverImage,
+                $category,
+                $level,
+                $duration,
+                $price,
+                $currency,
+                $language,
+                $requirements,
+                $objectives,
+                $curriculum,
+                $instructorName,
+                $instructorBio,
+                $instructorImage,
+                $videoIntroUrl,
+                $startDate,
+                $endDate,
+                $maxStudents,
+                $metaTitle,
+                $metaDescription,
+                $metaKeywords,
+                $featured,
+                $courseId
+            ]);
+
+            if (!$result) {
+                throw new Exception("Update query failed.");
+            }
+
+            $success = "Course updated successfully.";
+
+            $debugMessages[] = "UPDATE successful.";
+
         } else {
-            // Insert or update course
-            if (isset($_POST['course_id'])) {
-                $courseId = intval($_POST['course_id']);
-                $stmt = $pdo->prepare("
-                    UPDATE online_courses SET 
-                    title = ?, slug = ?, short_description = ?, long_description = ?, 
-                    cover_image = ?, category = ?, level = ?, duration = ?, price = ?, 
-                    currency = ?, language = ?, requirements = ?, objectives = ?, 
-                    curriculum = ?, instructor_name = ?, instructor_bio = ?, 
-                    instructor_image = ?, video_intro_url = ?, start_date = ?, end_date = ?, 
-                    max_students = ?, meta_title = ?, meta_description = ?, meta_keywords = ?, 
-                    featured = ?, updated_at = NOW()
-                    WHERE id = ?
-                ");
-                $params = [
-                    $title, $slug, $shortDescription, $longDescription,
-                    $coverImage, $category, $level, $duration, $price,
-                    $currency, $language, $requirements, $objectives,
-                    $curriculum, $instructorName, $instructorBio, $instructorImage,
-                    $videoIntroUrl, $startDate, $endDate, $maxStudents,
-                    $metaTitle, $metaDescription, $metaKeywords, $featured, $courseId
-                ];
-                $action = 'UPDATE';
-            } else {
-                $stmt = $pdo->prepare("
-                    INSERT INTO online_courses (
-                        title, slug, short_description, long_description, cover_image, 
-                        category, level, duration, price, currency, language, 
-                        requirements, objectives, curriculum, instructor_name, instructor_bio, 
-                        instructor_image, video_intro_url, start_date, end_date, 
-                        max_students, meta_title, meta_description, meta_keywords, 
-                        featured, created_by, created_at, updated_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
-                ");
-                $params = [
-                    $title, $slug, $shortDescription, $longDescription,
-                    $coverImage, $category, $level, $duration, $price,
-                    $currency, $language, $requirements, $objectives,
-                    $curriculum, $instructorName, $instructorBio, $instructorImage,
-                    $videoIntroUrl, $startDate, $endDate, $maxStudents,
-                    $metaTitle, $metaDescription, $metaKeywords, $featured, $_SESSION['user_id']
-                ];
-                $action = 'CREATE';
+
+            // =========================
+            // CREATE COURSE
+            // =========================
+
+            $debugMessages[] = "Creating new course.";
+
+            $stmt = $pdo->prepare("
+                INSERT INTO online_courses (
+                    title,
+                    slug,
+                    short_description,
+                    long_description,
+                    cover_image,
+                    category,
+                    level,
+                    duration,
+                    price,
+                    currency,
+                    language,
+                    requirements,
+                    objectives,
+                    curriculum,
+                    instructor_name,
+                    instructor_bio,
+                    instructor_image,
+                    video_intro_url,
+                    start_date,
+                    end_date,
+                    max_students,
+                    meta_title,
+                    meta_description,
+                    meta_keywords,
+                    featured,
+                    created_by,
+                    created_at,
+                    updated_at
+                ) VALUES (
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW()
+                )
+            ");
+
+            $result = $stmt->execute([
+                $title,
+                $slug,
+                $shortDescription,
+                $longDescription,
+                $coverImage,
+                $category,
+                $level,
+                $duration,
+                $price,
+                $currency,
+                $language,
+                $requirements,
+                $objectives,
+                $curriculum,
+                $instructorName,
+                $instructorBio,
+                $instructorImage,
+                $videoIntroUrl,
+                $startDate,
+                $endDate,
+                $maxStudents,
+                $metaTitle,
+                $metaDescription,
+                $metaKeywords,
+                $featured,
+                $_SESSION['user_id']
+            ]);
+
+            if (!$result) {
+
+                $errorInfo = $stmt->errorInfo();
+
+                throw new Exception(
+                    "Insert failed: " . $errorInfo[2]
+                );
             }
-            
-            if ($stmt->execute($params)) {
-                // Log activity
-                $logStmt = $pdo->prepare("INSERT INTO activity_logs (user_id, action, table_name, record_id, new_data) VALUES (?, ?, ?, ?, ?)");
-                $logStmt->execute([$_SESSION['user_id'], $action, 'online_courses', $pdo->lastInsertId(), json_encode($_POST)]);
-                
-                $success = 'Course has been successfully saved!';
-                
-                // Redirect to index
-                header('Location: index.php');
-                exit();
-            } else {
-                $error = 'Failed to save course. Please try again.';
-            }
+
+            $newId = $pdo->lastInsertId();
+
+            $success = "Course created successfully. ID: " . $newId;
+
+            $debugMessages[] = "INSERT successful.";
+            $debugMessages[] = "Inserted course ID: " . $newId;
         }
+
+    } catch (Exception $e) {
+
+        $error = $e->getMessage();
+
+        $debugMessages[] = "ERROR: " . $e->getMessage();
     }
 }
+// Include header after form processing
+require_once '../includes/header.php';
 
 // Get course data for editing
 $course = null;
@@ -336,6 +588,35 @@ $extraJs = '<script>
 
 <div class="form-container">
     <div class="card-header">
+        <!-- remove this after -->
+         <?php if (!empty($debugMessages)): ?>
+
+    <div style="
+        background:#0f172a;
+        color:#e2e8f0;
+        padding:15px;
+        border-radius:8px;
+        margin-bottom:20px;
+        font-family:monospace;
+        font-size:14px;
+    ">
+
+        <h3 style="margin-top:0;color:#38bdf8;">
+            Debug Console
+        </h3>
+
+        <?php foreach ($debugMessages as $msg): ?>
+
+            <div style="padding:5px 0;border-bottom:1px solid #334155;">
+                → <?php echo htmlspecialchars($msg); ?>
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+<?php endif; ?>
+         <!-- remove this after -->
         <h1><i class="fas fa-plus"></i> <?php echo $course ? 'Edit' : 'Create'; ?> Online Course</h1>
         <a href="index.php" class="view-all">Back to Courses</a>
     </div>
@@ -349,7 +630,9 @@ $extraJs = '<script>
     <?php endif; ?>
     
     <form method="POST" enctype="multipart/form-data" class="course-form animate-slide-up">
-        <input type="hidden" name="course_id" value="<?php echo $course['id'] ?? ''; ?>">
+    <?php if ($course): ?>
+        <input type="hidden" name="course_id" value="<?php echo $course['id']; ?>">
+    <?php endif; ?>
         
         <div class="form-row">
             <div class="form-group">
@@ -473,14 +756,10 @@ $extraJs = '<script>
                         <i class="fas fa-upload"></i> Choose Cover Image
                     </label>
                     <div id="coverImagePreview" class="current-image">
-                        <?php if ($course['cover_image']): ?>
-                            <img src="../<?php echo $course['cover_image']; ?>" alt="Current cover image">
-                        <?php else: ?>
-                            <div style="color: #94a3b8; padding: 2rem;">
-                                <i class="fas fa-image" style="font-size: 2rem;"></i>
-                                <p>No cover image uploaded</p>
-                            </div>
-                        <?php endif; ?>
+                        <div style="color: #94a3b8; padding: 2rem;">
+                            <i class="fas fa-image" style="font-size: 3rem; opacity: 0.3;"></i>
+                            <p>No cover image uploaded</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -493,14 +772,10 @@ $extraJs = '<script>
                         <i class="fas fa-camera"></i> Choose Instructor Photo
                     </label>
                     <div id="instructorImagePreview" class="current-image">
-                        <?php if ($course['instructor_image']): ?>
-                            <img src="../<?php echo $course['instructor_image']; ?>" alt="Current instructor photo">
-                        <?php else: ?>
-                            <div style="color: #94a3b8; padding: 2rem;">
-                                <i class="fas fa-user-tie" style="font-size: 2rem;"></i>
-                                <p>No instructor photo uploaded</p>
-                            </div>
-                        <?php endif; ?>
+                        <div style="color: #94a3b8; padding: 2rem;">
+                            <i class="fas fa-user-tie" style="font-size: 2rem;"></i>
+                            <p>No instructor photo uploaded</p>
+                        </div>
                     </div>
                 </div>
             </div>
