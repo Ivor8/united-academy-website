@@ -76,10 +76,151 @@ $totalCourses = $countStmt->fetch()['total'];
 $totalPages = ceil($totalCourses / $limit);
 
 $extraCss = '<style>
-    .courses-management {
-        padding: 1rem;
+    * {
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
+    .courses-management {
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        min-height: 100vh;
+    }
+    
+    /* Header with Stats */
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .card-header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--dark);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .card-header h1 i {
+        color: #1E64C8;
+        font-size: 2rem;
+    }
+    
+    /* Statistics Bar */
+    .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .stat-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: linear-gradient(135deg, rgba(30,100,200,0.05) 0%, rgba(30,100,200,0.02) 100%);
+        border-radius: 12px;
+        border: 1px solid rgba(30,100,200,0.1);
+        transition: var(--transition);
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(30,100,200,0.1);
+    }
+    
+    .stat-icon {
+        font-size: 1.5rem;
+        color: #1E64C8;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 12px;
+        border: 2px solid rgba(30,100,200,0.2);
+    }
+    
+    .stat-content h4 {
+        margin: 0;
+        font-size: 0.85rem;
+        color: #64748b;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .stat-content p {
+        margin: 0.5rem 0 0 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1E64C8;
+    }
+    
+    /* Filters Section */
+    .course-filters {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        position: sticky;
+        top: 1rem;
+        z-index: 10;
+    }
+    
+    .course-filters > div {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .course-filters input,
+    .course-filters select {
+        padding: 0.75rem 1rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        background: white;
+        color: #1a202c;
+        flex: 1;
+    }
+    
+    .course-filters input:focus,
+    .course-filters select:focus {
+        outline: none;
+        border-color: #1E64C8;
+        box-shadow: 0 0 0 3px rgba(30,100,200,0.1);
+    }
+    
+    .course-filters > div:last-child {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    /* Courses Grid */
     .courses-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -90,32 +231,59 @@ $extraCss = '<style>
     .course-card {
         background: white;
         border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: var(--transition);
         border: 1px solid rgba(30,100,200,0.1);
+        position: relative;
+        display: flex;
+        flex-direction: column;
     }
     
     .course-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        transform: translateY(-8px);
+        box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+        border-color: #1E64C8;
     }
     
     .course-image {
         width: 100%;
-        height: 200px;
+        height: 220px;
         object-fit: cover;
-        background: var(--light);
+        background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+        transition: var(--transition);
+    }
+    
+    .course-card:hover .course-image {
+        transform: scale(1.05);
+    }
+    
+    .featured-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     
     .course-content {
         padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
     
     .course-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
         margin-bottom: 1rem;
     }
     
@@ -123,46 +291,59 @@ $extraCss = '<style>
         font-size: 1.1rem;
         font-weight: 700;
         color: var(--dark);
-        margin: 0 0 0.5rem 0;
-        line-height: 1.3;
+        margin: 0 0 0.75rem 0;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+    
+    .course-card:hover .course-title {
+        color: #1E64C8;
     }
     
     .course-meta {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
     }
     
     .meta-badge {
-        padding: 0.3rem 0.8rem;
+        padding: 0.4rem 0.8rem;
         border-radius: 20px;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
     }
     
     .meta-badge.category {
-        background: rgba(30,100,200,0.1);
-        color: var(--blue);
+        background: linear-gradient(135deg, rgba(30,100,200,0.15) 0%, rgba(30,100,200,0.05) 100%);
+        color: #0F4C94;
     }
     
     .meta-badge.level {
-        background: rgba(46,125,50,0.1);
-        color: var(--green);
+        background: linear-gradient(135deg, rgba(46,125,50,0.15) 0%, rgba(46,125,50,0.05) 100%);
+        color: #0B5B1D;
     }
     
     .meta-badge.status {
-        background: rgba(211,47,47,0.1);
-        color: var(--red);
+        background: linear-gradient(135deg, rgba(211,47,47,0.15) 0%, rgba(211,47,47,0.05) 100%);
+        color: #7F1D1D;
     }
     
     .course-description {
         color: #64748b;
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: 0.85rem;
+        line-height: 1.5;
         margin-bottom: 1rem;
+        flex: 1;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -171,56 +352,201 @@ $extraCss = '<style>
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 1rem;
+        padding: 1rem 0;
         border-top: 1px solid #e5e7eb;
+        border-bottom: 1px solid #e5e7eb;
         font-size: 0.85rem;
         color: #64748b;
+        margin: 1rem 0;
     }
     
     .stat-item {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 0.4rem;
+        font-weight: 500;
     }
     
-    .featured-badge {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: linear-gradient(135deg, #1E64C8, #2E7D32);
-        color: white;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
+    .stat-item i {
+        color: #1E64C8;
+        font-size: 0.95rem;
     }
     
     .action-buttons {
         display: flex;
         gap: 0.5rem;
-        margin-top: 1rem;
+        flex-wrap: wrap;
     }
     
     .btn-small {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
         text-decoration: none;
         border-radius: 8px;
-        transition: all 0.3s ease;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        white-space: nowrap;
+        flex: 1;
+        min-width: fit-content;
     }
     
     .btn-small:hover {
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .btn-small:active {
+        transform: translateY(0);
+    }
+    
+    /* No Results */
+    .no-results {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #64748b;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        grid-column: 1 / -1;
+    }
+    
+    .no-results i {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.2;
+        color: #1E64C8;
+    }
+    
+    .no-results h3 {
+        font-size: 1.3rem;
+        color: #1a202c;
+        margin: 1rem 0;
+        font-weight: 600;
+    }
+    
+    .no-results p {
+        color: #64748b;
+        margin: 0.5rem 0 0 0;
+        font-size: 0.95rem;
+    }
+    
+    /* Pagination */
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+        grid-column: 1 / -1;
+    }
+    
+    .pagination {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        background: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        flex-wrap: wrap;
+    }
+    
+    .pagination-btn {
+        padding: 0.5rem 0.8rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #1E64C8;
+        cursor: pointer;
+        background: white;
+        transition: var(--transition);
+        font-size: 0.85rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    
+    .pagination-btn:hover {
+        background: #1E64C8;
+        color: white;
+        border-color: #1E64C8;
+    }
+    
+    .pagination-btn.active {
+        background: #1E64C8;
+        color: white;
+        border-color: #1E64C8;
+        font-weight: 600;
+    }
+    
+    .pagination-ellipsis {
+        color: #64748b;
+    }
+    
+    @media (max-width: 1200px) {
+        .courses-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
     }
     
     @media (max-width: 768px) {
+        .courses-management {
+            padding: 1rem;
+        }
+        
+        .card-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .card-header h1 {
+            font-size: 1.4rem;
+            width: 100%;
+        }
+        
+        .stats-bar {
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .course-filters {
+            flex-direction: column;
+            padding: 1rem;
+        }
+        
+        .course-filters > div {
+            width: 100%;
+            flex-direction: column;
+        }
+        
+        .course-filters input,
+        .course-filters select {
+            width: 100%;
+        }
+        
         .courses-grid {
             grid-template-columns: 1fr;
             gap: 1rem;
         }
         
-        .course-card {
-            border-radius: 12px;
+        .action-buttons {
+            flex-direction: column;
+        }
+        
+        .btn-small {
+            width: 100%;
+        }
+        
+        .course-image {
+            height: 180px;
         }
         
         .course-content {
@@ -264,6 +590,55 @@ $extraJs = '<script>
             <i class="fas fa-plus"></i> Create New Course
         </a>
         <?php endif; ?>
+    </div>
+    
+    <!-- Statistics Bar -->
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+            <div class="stat-content">
+                <h4>Total Courses</h4>
+                <p><?php echo $totalCourses; ?></p>
+            </div>
+        </div>
+        
+        <?php
+        $publishedStmt = $pdo->prepare("SELECT COUNT(*) as count FROM online_courses WHERE status = 'published'");
+        $publishedStmt->execute();
+        $publishedCount = $publishedStmt->fetch()['count'];
+        
+        $draftStmt = $pdo->prepare("SELECT COUNT(*) as count FROM online_courses WHERE status = 'draft'");
+        $draftStmt->execute();
+        $draftCount = $draftStmt->fetch()['count'];
+        
+        $enrollmentsStmt = $pdo->prepare("SELECT COUNT(*) as count FROM course_enrollments WHERE status = 'active'");
+        $enrollmentsStmt->execute();
+        $enrollmentsCount = $enrollmentsStmt->fetch()['count'];
+        ?>
+        
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="stat-content">
+                <h4>Published</h4>
+                <p><?php echo $publishedCount; ?></p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="stat-content">
+                <h4>Drafts</h4>
+                <p><?php echo $draftCount; ?></p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-content">
+                <h4>Active Enrollments</h4>
+                <p><?php echo $enrollmentsCount; ?></p>
+            </div>
+        </div>
     </div>
     
     <div class="course-filters" style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">

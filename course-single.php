@@ -18,13 +18,13 @@ if (!empty($slug)) {
     $query = "SELECT oc.*, u.first_name, u.last_name
               FROM online_courses oc 
               LEFT JOIN users u ON oc.created_by = u.id 
-              WHERE oc.slug = ? AND oc.status = 'published'";
+              WHERE oc.slug = ?";
     $params = [$slug];
 } else {
     $query = "SELECT oc.*, u.first_name, u.last_name
               FROM online_courses oc 
               LEFT JOIN users u ON oc.created_by = u.id 
-              WHERE oc.id = ? AND oc.status = 'published'";
+              WHERE oc.id = ?";
     $params = [$courseId];
 }
 
@@ -496,6 +496,16 @@ $relatedCourses = $relatedStmt->fetchAll();
                     <div class="form-group">
                         <label for="date_of_birth">Date of Birth</label>
                         <input type="date" id="date_of_birth" name="date_of_birth">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
                     
                     <div class="form-group">

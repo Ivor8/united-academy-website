@@ -3075,3 +3075,361 @@ Array
 )
 
 --------------------------------------------------------------------------------
+[2026-05-13 22:13:13] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:13:13] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 22:13:13] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:13:13] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 22:14:57] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:14:57] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 22:15:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:15:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[13-May-2026 22:15:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-13 22:16:09] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:16:09] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-13 22:16:09] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-13 22:16:09] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 12:09:47] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:09:47] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[14-May-2026 12:09:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-14 12:09:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:09:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 12:09:52] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:09:52] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 12:11:04] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:11:04] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[14-May-2026 12:11:04 Europe/Berlin] PHP Warning:  Undefined array key "gender" in C:\xampp\htdocs\uard\course-application.php on line 15
+[2026-05-14 12:11:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:11:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 12:11:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:11:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 12:14:21] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 12:14:21] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[14-May-2026 12:14:21 Europe/Berlin] PHP Warning:  Undefined array key "gender" in C:\xampp\htdocs\uard\course-application.php on line 15
+[2026-05-14 14:29:30] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:30] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:31] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:31] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:35] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:35] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[14-May-2026 14:29:37 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\uard\course-application.php on line 97
+[14-May-2026 14:29:39 Europe/Berlin] PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\xampp\htdocs\uard\course-application.php on line 114
+[2026-05-14 14:29:39] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:39] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[14-May-2026 14:29:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\application-success.php:223
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\application-success.php on line 223
+[2026-05-14 14:29:46] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:46] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[14-May-2026 14:29:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getSetting() in C:\xampp\htdocs\uard\online-courses.php:721
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\uard\online-courses.php on line 721
+[2026-05-14 14:29:48] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:48] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:51] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:29:51] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:30:08] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:30:08] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:30:22] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:30:22] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:34:14] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:34:14] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:34:15] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:34:15] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:41:02] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:41:02] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------
+[2026-05-14 14:41:18] === CONFIG.PHP INITIALIZED ===
+--------------------------------------------------------------------------------
+[2026-05-14 14:41:18] Server info
+Array
+(
+    [document_root] => C:/xampp/htdocs
+    [upload_path] => C:\xampp\htdocs\uard/uploads/
+    [upload_url] => http://localhost/uard/uploads/
+    [php_version] => 8.2.12
+    [session_id] => nuo5i3enp1dh8gvsh8egbu4aiu
+)
+
+--------------------------------------------------------------------------------

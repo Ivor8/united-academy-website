@@ -11,9 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = sanitize($_POST['last_name']);
     $email = sanitize($_POST['email']);
     $phone = sanitize($_POST['phone']);
-    $dateOfBirth = sanitize($_POST['date_of_birth']);
-    $gender = sanitize($_POST['gender']);
-    $nationality = sanitize($_POST['nationality']);
+    $dateOfBirth = sanitize($_POST['date_of_birth'] ?? '');
+    $gender = sanitize($_POST['gender'] ?? '');
+    $nationality = sanitize($_POST['nationality'] ?? '');
     $currentEducation = sanitize($_POST['current_education']);
     $workExperience = sanitize($_POST['work_experience']);
     $motivation = sanitize($_POST['motivation']);
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     // Check if course exists
-    $courseStmt = $pdo->prepare("SELECT title FROM online_courses WHERE id = ? AND status = 'published'");
+    $courseStmt = $pdo->prepare("SELECT title FROM online_courses WHERE id = ?");
     $courseStmt->execute([$courseId]);
     $course = $courseStmt->fetch();
     

@@ -81,10 +81,115 @@ $coursesStmt->execute();
 $courses = $coursesStmt->fetchAll();
 
 $extraCss = '<style>
-    .applications-management {
-        padding: 1rem;
+    * {
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
+    .applications-management {
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        min-height: 100vh;
+    }
+    
+    /* Statistics Bar */
+    .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .stat-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: linear-gradient(135deg, rgba(30,100,200,0.05) 0%, rgba(30,100,200,0.02) 100%);
+        border-radius: 12px;
+        border: 1px solid rgba(30,100,200,0.1);
+    }
+    
+    .stat-icon {
+        font-size: 1.5rem;
+        color: #1E64C8;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(30,100,200,0.1);
+        border-radius: 10px;
+    }
+    
+    .stat-content h4 {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #64748b;
+        font-weight: 500;
+    }
+    
+    .stat-content p {
+        margin: 0.25rem 0 0 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1E64C8;
+    }
+    
+    /* Filters Section */
+    .filters-section {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 2rem;
+        z-index: 10;
+    }
+    
+    .filters-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .filter-group label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #1E64C8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .filter-group input,
+    .filter-group select {
+        padding: 0.75rem 1rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        background: white;
+        color: #1a202c;
+    }
+    
+    .filter-group input:focus,
+    .filter-group select:focus {
+        outline: none;
+        border-color: #1E64C8;
+        box-shadow: 0 0 0 3px rgba(30,100,200,0.1);
+    }
+    
+    /* Applications Grid */
     .applications-grid {
         display: grid;
         gap: 1.5rem;
@@ -94,36 +199,49 @@ $extraCss = '<style>
     .application-card {
         background: white;
         border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         overflow: hidden;
-        transition: all 0.3s ease;
-        border-left: 4px solid #1E64C8;
+        transition: var(--transition);
+        border-left: 5px solid #1E64C8;
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        align-items: stretch;
     }
     
     .application-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
     }
     
     .application-card.status-accepted {
         border-left-color: #2E7D32;
+        background: linear-gradient(to right, rgba(46,125,50,0.02), white);
     }
     
     .application-card.status-rejected {
         border-left-color: #D32F2F;
+        background: linear-gradient(to right, rgba(211,47,47,0.02), white);
     }
     
     .application-card.status-reviewed {
         border-left-color: #F59E0B;
+        background: linear-gradient(to right, rgba(245,158,11,0.02), white);
+    }
+    
+    .application-card.status-pending {
+        border-left-color: #3B82F6;
+        background: linear-gradient(to right, rgba(59,130,246,0.02), white);
     }
     
     .application-header {
         padding: 1.5rem;
-        background: var(--light);
-        border-bottom: 1px solid #e5e7eb;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
+        grid-column: 1 / 2;
+        background: rgba(248,250,252,0.5);
+        border-right: 1px solid #e5e7eb;
+        min-width: 200px;
     }
     
     .applicant-info {
@@ -131,25 +249,35 @@ $extraCss = '<style>
     }
     
     .applicant-name {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 700;
         color: var(--dark);
         margin-bottom: 0.5rem;
+        line-height: 1.3;
     }
     
     .applicant-email {
         color: #64748b;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     
     .applicant-phone {
         color: #64748b;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
     
     .application-meta {
-        text-align: right;
+        text-align: left;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e5e7eb;
     }
     
     .course-badge {
@@ -165,39 +293,43 @@ $extraCss = '<style>
     
     .status-badge {
         display: inline-block;
-        padding: 0.4rem 0.8rem;
+        padding: 0.5rem 1rem;
         border-radius: 20px;
         font-size: 0.75rem;
-        font-weight: 600;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     .status-pending {
-        background: rgba(245,158,11,0.1);
-        color: #F59E0B;
+        background: rgba(245,158,11,0.15);
+        color: #D97706;
     }
     
     .status-reviewed {
-        background: rgba(59,130,246,0.1);
-        color: #3B82F6;
+        background: rgba(59,130,246,0.15);
+        color: #1E40AF;
     }
     
     .status-accepted {
-        background: rgba(46,125,50,0.1);
-        color: #2E7D32;
+        background: rgba(46,125,50,0.15);
+        color: #15803D;
     }
     
     .status-rejected {
-        background: rgba(211,47,47,0.1);
-        color: #D32F2F;
+        background: rgba(211,47,47,0.15);
+        color: #7F1D1D;
     }
     
     .status-enrolled {
-        background: rgba(124,58,237,0.1);
-        color: #7C3AED;
+        background: rgba(124,58,237,0.15);
+        color: #5B21B6;
     }
     
     .application-content {
         padding: 1.5rem;
+        grid-column: 2 / 3;
+        border-right: 1px solid #e5e7eb;
     }
     
     .application-details {
@@ -213,11 +345,20 @@ $extraCss = '<style>
         gap: 0.5rem;
         color: #64748b;
         font-size: 0.85rem;
+        padding: 0.5rem;
+        background: rgba(248,250,252,0.5);
+        border-radius: 8px;
+        transition: var(--transition);
+    }
+    
+    .detail-item:hover {
+        background: rgba(248,250,252,1);
     }
     
     .detail-item i {
         color: #1E64C8;
-        width: 16px;
+        width: 18px;
+        font-size: 0.95rem;
     }
     
     .motivation-text {
@@ -225,133 +366,234 @@ $extraCss = '<style>
         line-height: 1.6;
         margin-bottom: 1.5rem;
         padding: 1rem;
-        background: #f8fafc;
+        background: linear-gradient(135deg, rgba(30,100,200,0.05) 0%, rgba(30,100,200,0.02) 100%);
         border-radius: 8px;
-        border-left: 3px solid #1E64C8;
+        border-left: 4px solid #1E64C8;
+        font-size: 0.9rem;
     }
     
     .application-actions {
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
+        justify-content: flex-start;
     }
     
     .btn-small {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
         text-decoration: none;
         border-radius: 8px;
-        transition: all 0.3s ease;
+        transition: var(--transition);
         border: none;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 0.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
     }
     
     .btn-small:hover {
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .btn-small:active {
+        transform: translateY(0);
     }
     
     .btn-accept {
-        background: #2E7D32;
+        background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
         color: white;
-    }
-    
-    .btn-accept:hover {
-        background: #1B5E20;
     }
     
     .btn-reject {
-        background: #D32F2F;
+        background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
         color: white;
-    }
-    
-    .btn-reject:hover {
-        background: #B71C1C;
     }
     
     .btn-review {
-        background: #F59E0B;
+        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
         color: white;
-    }
-    
-    .btn-review:hover {
-        background: #D97706;
     }
     
     .btn-enroll {
-        background: #7C3AED;
+        background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
         color: white;
-    }
-    
-    .btn-enroll:hover {
-        background: #6D28D9;
     }
     
     .btn-view {
-        background: #1E64C8;
+        background: linear-gradient(135deg, #1E64C8 0%, #1565C0 100%);
         color: white;
     }
     
-    .btn-view:hover {
-        background: #1565C0;
-    }
-    
-    .filters-section {
-        background: white;
+    .application-meta-right {
         padding: 1.5rem;
-        border-radius: 12px;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        grid-column: 3 / 4;
+        border-right: 1px solid #e5e7eb;
+        background: rgba(248,250,252,0.5);
     }
     
-    .filters-row {
+    .application-actions-right {
+        padding: 1.5rem;
         display: flex;
-        gap: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        grid-column: 4 / 5;
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: #64748b;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .no-results i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.3;
+    }
+    
+    .no-results h3 {
+        font-size: 1.2rem;
+        color: #1a202c;
+        margin: 0.5rem 0;
+        font-weight: 600;
+    }
+    
+    .no-results p {
+        color: #64748b;
+        margin: 0;
+        font-size: 0.95rem;
+    }
+    
+    /* Pagination */
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .pagination {
+        display: flex;
+        gap: 0.5rem;
         align-items: center;
+        background: white;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         flex-wrap: wrap;
     }
     
-    .filter-group {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    .filter-group label {
-        font-weight: 600;
-        color: var(--dark);
-    }
-    
-    .filter-group select,
-    .filter-group input {
-        padding: 0.5rem;
+    .pagination-btn {
+        padding: 0.5rem 0.8rem;
         border: 1px solid #e5e7eb;
         border-radius: 8px;
+        text-decoration: none;
+        color: #1E64C8;
+        cursor: pointer;
+        background: white;
+        transition: var(--transition);
+        font-size: 0.85rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    
+    .pagination-btn:hover {
+        background: #1E64C8;
+        color: white;
+        border-color: #1E64C8;
+    }
+    
+    .pagination-btn.active {
+        background: #1E64C8;
+        color: white;
+        border-color: #1E64C8;
+        font-weight: 600;
+    }
+    
+    .pagination-ellipsis {
+        color: #64748b;
+    }
+    
+    @media (max-width: 1024px) {
+        .application-card {
+            grid-template-columns: auto 1fr auto;
+        }
+        
+        .application-actions-right {
+            display: none;
+        }
+        
+        .application-content {
+            border-right: none;
+        }
+        
+        .application-meta-right {
+            border-right: none;
+        }
     }
     
     @media (max-width: 768px) {
+        .stats-bar {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .filters-row {
+            grid-template-columns: 1fr;
+        }
+        
         .applications-grid {
             gap: 1rem;
         }
         
         .application-card {
-            border-radius: 12px;
+            grid-template-columns: 1fr;
+            border-left: 5px solid;
         }
         
         .application-header {
-            flex-direction: column;
+            grid-column: 1 / -1;
+            border-right: none;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .application-content {
+            grid-column: 1 / -1;
+            border-right: none;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem;
+        }
+        
+        .application-meta-right {
+            grid-column: 1 / -1;
+            border-right: none;
+            border-bottom: 1px solid #e5e7eb;
+            flex-direction: row;
+            padding: 1rem;
             gap: 1rem;
-            text-align: left;
         }
         
-        .application-meta {
-            text-align: left;
-        }
-        
-        .application-details {
-            grid-template-columns: 1fr;
+        .application-actions-right {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: row;
+            padding: 1rem;
             gap: 0.5rem;
         }
         
@@ -359,9 +601,17 @@ $extraCss = '<style>
             flex-direction: column;
         }
         
-        .filters-row {
-            flex-direction: column;
-            align-items: stretch;
+        .btn-small {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .applications-management {
+            padding: 1rem;
+        }
+        
+        .filters-section {
+            padding: 1rem;
         }
     }
 </style>';
@@ -412,11 +662,57 @@ $extraJs = '<script>
 <div class="applications-management">
     <div class="card-header">
         <h1><i class="fas fa-user-graduate"></i> Course Applications</h1>
-        <div style="display: flex; gap: 1rem; align-items: center;">
-            <span style="color: #64748b; font-size: 0.9rem;">
-                <?php echo $totalApplications; ?> Total Applications
-            </span>
-            <a href="index.php" class="view-all">Back to Courses</a>
+        <a href="index.php" class="view-all" style="background: var(--blue); color: white; padding: 0.75rem 1.5rem; border-radius: 40px;">
+            <i class="fas fa-arrow-left"></i> Back to Courses
+        </a>
+    </div>
+    
+    <!-- Statistics Bar -->
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-inbox"></i></div>
+            <div class="stat-content">
+                <h4>Total Applications</h4>
+                <p><?php echo $totalApplications; ?></p>
+            </div>
+        </div>
+        
+        <?php
+        $pendingStmt = $pdo->prepare("SELECT COUNT(*) as count FROM course_applications WHERE status = 'pending'");
+        $pendingStmt->execute();
+        $pendingCount = $pendingStmt->fetch()['count'];
+        
+        $acceptedStmt = $pdo->prepare("SELECT COUNT(*) as count FROM course_applications WHERE status = 'accepted'");
+        $acceptedStmt->execute();
+        $acceptedCount = $acceptedStmt->fetch()['count'];
+        
+        $rejectedStmt = $pdo->prepare("SELECT COUNT(*) as count FROM course_applications WHERE status = 'rejected'");
+        $rejectedStmt->execute();
+        $rejectedCount = $rejectedStmt->fetch()['count'];
+        ?>
+        
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+            <div class="stat-content">
+                <h4>Pending Review</h4>
+                <p><?php echo $pendingCount; ?></p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="stat-content">
+                <h4>Accepted</h4>
+                <p><?php echo $acceptedCount; ?></p>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+            <div class="stat-content">
+                <h4>Rejected</h4>
+                <p><?php echo $rejectedCount; ?></p>
+            </div>
         </div>
     </div>
     
