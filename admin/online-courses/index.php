@@ -1,6 +1,8 @@
 <?php
 $pageTitle = 'Online Courses Management';
-require_once '../includes/header.php';
+require_once '../includes/config.php';
+require_once '../includes/auth.php';
+requireLogin();
 
 if (!hasPermission('view_online_courses')) {
     header('Location: index.php');
@@ -276,11 +278,29 @@ $extraCss = '<style>
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     
+    .course-card-body,
     .course-content {
         padding: 1.5rem;
         flex: 1;
         display: flex;
         flex-direction: column;
+    }
+    
+    .course-card-image {
+        position: relative;
+    }
+    
+    .course-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 220px;
+        color: #94a3b8;
+        background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+    }
+    
+    .course-card-footer {
+        margin-top: auto;
     }
     
     .course-header {
@@ -396,6 +416,23 @@ $extraCss = '<style>
         white-space: nowrap;
         flex: 1;
         min-width: fit-content;
+        color: white;
+    }
+    
+    .btn-small.btn-edit {
+        background: linear-gradient(135deg, #1E64C8 0%, #1565C0 100%);
+    }
+    
+    .btn-small.btn-applications {
+        background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+    }
+    
+    .btn-small.btn-enrollments {
+        background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    }
+    
+    .btn-small.btn-delete {
+        background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
     }
     
     .btn-small:hover {
@@ -580,6 +617,7 @@ $extraJs = '<script>
         }
     });
 </script>';
+require_once '../includes/header.php';
 ?>
 
 <div class="courses-management">
@@ -670,22 +708,24 @@ $extraJs = '<script>
     <div class="courses-grid">
         <?php if (count($courses) > 0): ?>
             <?php foreach ($courses as $course): ?>
-                <div class="course-card" style="position: relative;">
+                <div class="course-card">
                     <?php if ($course['featured']): ?>
                         <div class="featured-badge">
                             <i class="fas fa-star"></i> Featured
                         </div>
                     <?php endif; ?>
                     
-                    <?php if ($course['cover_image']): ?>
-                        <img src="../<?php echo $course['cover_image']; ?>" alt="<?php echo htmlspecialchars($course['title']); ?>" class="course-image">
-                    <?php else: ?>
-                        <div class="course-image" style="display: flex; align-items: center; justify-content: center; color: #94a3b8;">
-                            <i class="fas fa-image" style="font-size: 2rem;"></i>
-                        </div>
-                    <?php endif; ?>
+                    <div class="course-card-image">
+                        <?php if ($course['cover_image']): ?>
+                            <img src="<?php echo htmlspecialchars(getUploadUrl($course['cover_image'])); ?>" alt="<?php echo htmlspecialchars($course['title']); ?>" class="course-image">
+                        <?php else: ?>
+                            <div class="course-image course-placeholder">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                     
-                    <div class="course-content">
+                    <div class="course-card-body">
                         <div class="course-header">
                             <h3 class="course-title"><?php echo htmlspecialchars($course['title']); ?></h3>
                             <div class="course-meta">
@@ -702,11 +742,11 @@ $extraJs = '<script>
                         <div class="course-stats">
                             <div class="stat-item">
                                 <i class="fas fa-users"></i>
-                                <span><?php echo $course['active_enrollments']; ?> Enrolled
+                                <span><?php echo $course['active_enrollments']; ?> Enrolled</span>
                             </div>
                             <div class="stat-item">
                                 <i class="fas fa-user-graduate"></i>
-                                <span><?php echo $course['pending_applications']; ?> Pending
+                                <span><?php echo $course['pending_applications']; ?> Pending</span>
                             </div>
                             <div class="stat-item">
                                 <i class="fas fa-clock"></i>
@@ -714,21 +754,23 @@ $extraJs = '<script>
                             </div>
                         </div>
                         
-                        <div class="action-buttons">
-                            <a href="edit.php?id=<?php echo $course['id']; ?>" class="btn-small" style="background: var(--blue); color: white;">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <a href="applications.php?course_id=<?php echo $course['id']; ?>" class="btn-small" style="background: var(--green); color: white;">
-                                <i class="fas fa-users"></i> Applications
-                            </a>
-                            <a href="enrollments.php?course_id=<?php echo $course['id']; ?>" class="btn-small" style="background: var(--orange); color: white;">
-                                <i class="fas fa-graduation-cap"></i> Enrollments
-                            </a>
-                            <?php if (hasPermission('delete_online_courses')): ?>
-                            <a href="delete.php?id=<?php echo $course['id']; ?>" class="btn-small" style="background: var(--red); color: white;" onclick="return confirm('Are you sure you want to delete this course?')">
-                                <i class="fas fa-trash"></i> Delete
-                            </a>
-                            <?php endif; ?>
+                        <div class="course-card-footer">
+                            <div class="action-buttons">
+                                <a href="edit.php?id=<?php echo $course['id']; ?>" class="btn-small btn-edit">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="applications.php?course_id=<?php echo $course['id']; ?>" class="btn-small btn-applications">
+                                    <i class="fas fa-users"></i> Applications
+                                </a>
+                                <a href="enrollments.php?course_id=<?php echo $course['id']; ?>" class="btn-small btn-enrollments">
+                                    <i class="fas fa-graduation-cap"></i> Enrollments
+                                </a>
+                                <?php if (hasPermission('delete_online_courses')): ?>
+                                <a href="delete.php?id=<?php echo $course['id']; ?>" class="btn-small btn-delete" onclick="return confirm('Are you sure you want to delete this course?')">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
